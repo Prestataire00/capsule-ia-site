@@ -21,6 +21,11 @@ function reveal() {
   });
 }
 
+// Le bouton flottant apparaît après un peu de défilement
+function toggleCta() {
+  document.querySelector('.cta-flottant')?.classList.toggle('is-on', window.scrollY > 520);
+}
+
 function requestReveal() {
   if (ticking) return;
   ticking = true;
@@ -30,6 +35,7 @@ function requestReveal() {
 function init() {
   root.classList.add('js');
   setScale();
+  toggleCta();
 
   const targets = [
     ...document.querySelectorAll('.stage > *:not(.deco):not(.navbar), .stage > .hl, .stage > .cur, .stage > .dot'),
@@ -52,6 +58,7 @@ function init() {
 }
 
 window.addEventListener('scroll', requestReveal, { passive: true });
+window.addEventListener('scroll', toggleCta, { passive: true });
 window.addEventListener('resize', () => {
   setScale();
   requestReveal();

@@ -1,0 +1,30 @@
+---
+// Bandeau de rappel vers le devis, placé en bas des pages modules.
+---
+
+<section class="ctab" aria-labelledby="ctab-titre">
+  <div class="ctab-in">
+    <p class="ctab-eyebrow">Votre projet</p>
+    <h2 id="ctab-titre">Parlons de <span>votre besoin.</span></h2>
+    <p class="ctab-lead">Décrivez votre projet en deux minutes : nous revenons vers vous avec une proposition adaptée à vos équipes.</p>
+    <ul class="ctab-promesses">
+      <li><strong>2 h</strong> Devis garanti sous 2 heures</li>
+      <li><strong>48 h</strong> Rappel d'un formateur sous 48 heures</li>
+    </ul>
+    <a class="ctab-btn" href="/devis/">Demander mon devis</a>
+  </div>
+</section>
+
+<style>
+  .ctab { background: #ffe897; padding: clamp(48px, 7vw, 104px) 20px; text-align: center; }
+  .ctab-in { max-width: 860px; margin: 0 auto; background: #c40d60; color: #fff; border-radius: clamp(30px, 4vw, 54px); padding: clamp(34px, 5vw, 70px) clamp(22px, 4vw, 60px); box-shadow: 0 22px 34px -16px rgba(0, 0, 0, .45); }
+  .ctab-eyebrow { margin: 0 0 16px; font: 700 clamp(11px, 1.2vw, 16px)/1 'Poppins', sans-serif; letter-spacing: .6em; text-transform: uppercase; }
+  h2 { margin: 0; font: 700 clamp(38px, 6vw, 82px)/.95 'Inter Variable', Inter, sans-serif; letter-spacing: -.049em; text-wrap: balance; }
+  h2 span { background: rgba(255, 254, 137, .45); padding: 0 .12em; white-space: nowrap; }
+  .ctab-lead { margin: 22px auto 0; max-width: 52ch; font: 400 clamp(15px, 1.4vw, 18px)/1.55 'Poppins', sans-serif; }
+  .ctab-promesses { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px; font: 700 14px/1.2 'Poppins', sans-serif; }
+  .ctab-promesses li { display: flex; align-items: center; gap: 10px; }
+  .ctab-promesses strong { font: 800 26px/1 'Inter Variable', Inter, sans-serif; color: #ffe897; white-space: nowrap; }
+  .ctab-btn { display: inline-block; margin-top: 32px; background: #ffe897; color: #1c1712; padding: 18px 40px; border-radius: 999px; font: italic 700 clamp(17px, 1.8vw, 22px)/1 'Poppins', sans-serif; letter-spacing: -.05em; box-shadow: 0 12px 18px -8px rgba(0, 0, 0, .45); transition: transform .25s cubic-bezier(.3, 1.4, .5, 1), filter .2s; }
+  .ctab-btn:hover { transform: translateY(-3px) scale(1.04); filter: brightness(1.05); }
+</style>

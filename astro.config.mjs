@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 // Adresse définitive du site : à ajuster si le domaine est différent.
 export default defineConfig({
-  site: 'https://www.capsule-ia.fr',
+  site: 'https://www.capsuleia.fr',
   integrations: [sitemap()],
   build: { inlineStylesheets: 'auto' },
 });

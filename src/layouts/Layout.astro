@@ -16,6 +16,7 @@ interface Props {
 const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const image = new URL('/partage.jpg', Astro.site);
+const surDevis = Astro.url.pathname.startsWith('/devis');
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -25,7 +26,7 @@ const jsonLd = {
   logo: new URL('/favicon.png', Astro.site),
   description:
     "Organisme de formation à l'intelligence artificielle certifié Qualiopi : acculturation IA, IA & métiers, RGPD & réglementation, vibe coding.",
-  email: 'contact@capsule-ia.fr',
+  email: 'contact@capsuleia.fr',
   areaServed: 'FR',
 };
 ---
@@ -62,6 +63,17 @@ const jsonLd = {
   </head>
   <body>
     <slot />
+    {
+      !surDevis && (
+        <a class="cta-flottant" href="/devis/" aria-label="Parlons de votre besoin : devis garanti sous 2 heures">
+          <span class="cta-flottant-pastille">2 h</span>
+          <span class="cta-flottant-texte">
+            <b>Parlons de votre besoin</b>
+            <small>Devis garanti sous 2 h</small>
+          </span>
+        </a>
+      )
+    }
     <script>
       import '../scripts/main.js';
     </script>
