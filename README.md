@@ -7,4 +7,5 @@ Site vitrine de l'organisme de formation Capsule IA, construit avec [Astro](http
 - `npm run build` : générer le site dans `dist/`
 - `node optimise-images.mjs` : régénérer les images optimisées après ajout dans `assets/`
 
+- `sh publier-netlify.sh` : publier le site sur Netlify (https://capsuleia.netlify.app)
 - `sh publier.sh` : publier le site en ligne (GitHub Pages, branche `gh-pages`)
