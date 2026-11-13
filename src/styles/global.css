@@ -250,3 +250,13 @@ a.t[href]:hover { letter-spacing: .06em !important; }
 /* Les éléments purement décoratifs ne doivent jamais intercepter les clics */
 .stage > .deco, .m-hide, .wm, .hl, .cur, .dot { pointer-events: none; }
 .navbar { z-index: 20; }
+
+/* Dégradé de transition : le bas de chaque section fond vers la couleur de la suivante */
+.sec[style*="--next"]::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; z-index: 4;
+  height: calc(150px * var(--k)); min-height: 60px; pointer-events: none;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--next) 55%, transparent) 55%, var(--next));
+}
+@media (max-width: 760px) {
+  .sec[style*="--next"]::after { height: 40px; min-height: 0; }
+}

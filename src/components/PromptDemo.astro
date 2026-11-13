@@ -1,0 +1,217 @@
+---
+// Démonstration « consigne vague / consigne précise » dans les deux téléphones
+// de la page Acculturation. Elle démarre au clic sur le bouton central.
+const ecrans = [
+  { id: 'vague', titre: 'Consigne vague', x: 270 },
+  { id: 'precis', titre: 'Consigne précise', x: 720 },
+];
+---
+
+<div class="a bx pd" id="pd" style="--x:0;--y:1362;--w:1366;--h:675;">
+  {ecrans.map((e) => (
+    <div class="a bx clip pd-phone" style={`--x:${e.x};--y:0;--w:334;--h:675;`}>
+      <div class="pd-screen" data-pd={e.id} aria-hidden="true">
+        <p class={`pd-titre pd-titre--${e.id}`}>{e.titre}</p>
+        <div class="pd-msgs" data-pd-msgs></div>
+        <p class="pd-verdict" data-pd-verdict></p>
+      </div>
+      <img src="/img/phone.webp" alt="" loading="lazy" decoding="async" width="334" height="675" style="left:0px;top:0px;width:334px;height:675px" />
+    </div>
+  ))}
+
+  <button class="pd-play" id="pd-play" type="button" aria-describedby="pd-desc">
+    <span class="pd-play-icone" aria-hidden="true">▶</span>
+    <span class="pd-play-texte">Lancer la démo</span>
+  </button>
+  <p class="pd-desc" id="pd-desc">
+    Démonstration : la même demande de compte rendu, d'abord formulée vaguement puis avec le contexte, les informations
+    et le format attendu. La réponse de l'IA passe d'une question en retour à un compte rendu structuré.
+  </p>
+</div>
+
+<script>
+  let run = 0;
+
+  function initPromptDemo() {
+    const root = document.getElementById('pd');
+    if (!root || root.dataset.ready) return;
+    root.dataset.ready = '1';
+    const btn = document.getElementById('pd-play');
+    const label = btn.querySelector('.pd-play-texte');
+    const icone = btn.querySelector('.pd-play-icone');
+    const screen = (id) => {
+      const el = root.querySelector(`[data-pd="${id}"]`);
+      return { el, msgs: el.querySelector('[data-pd-msgs]'), verdict: el.querySelector('[data-pd-verdict]') };
+    };
+    const vague = screen('vague'), precis = screen('precis');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const sequence = async () => {
+      const id = ++run;
+      const wait = async (ms) => {
+        await new Promise((r) => setTimeout(r, reduce ? 0 : ms));
+        if (id !== run) throw new Error('lecture-annulee');
+      };
+      const bubble = (s, who, html = '') => {
+        const p = document.createElement('div');
+        p.className = 'pd-msg pd-msg--' + who;
+        p.innerHTML = html;
+        s.msgs.append(p);
+        return p;
+      };
+      const type = async (target, text, speed = 22) => {
+        for (let i = 1; i <= text.length; i++) {
+          target.textContent = text.slice(0, i);
+          await wait(speed);
+        }
+      };
+      const thinking = async (s, ms) => {
+        const d = bubble(s, 'ia', '<i></i><i></i><i></i>');
+        d.classList.add('pd-dots');
+        await wait(ms);
+        d.remove();
+      };
+      const verdict = (s, text, ok) => {
+        s.verdict.textContent = text;
+        s.verdict.className = 'pd-verdict is-on ' + (ok ? 'is-ok' : 'is-ko');
+      };
+
+      [vague, precis].forEach((s) => {
+        s.msgs.textContent = '';
+        s.verdict.className = 'pd-verdict';
+        s.el.classList.remove('is-dim', 'is-focus');
+      });
+      root.classList.add('is-playing');
+      label.textContent = 'Rejouer';
+      icone.textContent = '↻';
+
+      // 1. Consigne vague
+      vague.el.classList.add('is-focus');
+      precis.el.classList.add('is-dim');
+      await wait(500);
+      await type(bubble(vague, 'me'), 'Fais-moi un compte rendu.', 45);
+      await wait(400);
+      await thinking(vague, 1100);
+      await type(bubble(vague, 'ia'), "Bien sûr ! De quelle réunion s'agit-il ? Quels points voulez-vous voir figurer, et sous quelle forme ?", 18);
+      await wait(500);
+      verdict(vague, 'L’IA doit deviner : un aller-retour de plus.', false);
+      await wait(1300);
+
+      // 2. Consigne précise
+      vague.el.classList.replace('is-focus', 'is-dim');
+      precis.el.classList.replace('is-dim', 'is-focus');
+      await wait(400);
+      const m = bubble(precis, 'me');
+      const parts = [
+        ['Contexte', 'réunion d’équipe du lundi, 6 participants.'],
+        ['Informations', 'mes notes ci-dessous.'],
+        ['Format', '3 décisions, puis les actions avec responsable et échéance.'],
+      ];
+      for (const [k, v] of parts) {
+        const line = document.createElement('p');
+        const b = document.createElement('b');
+        b.textContent = k + ' : ';
+        const span = document.createElement('span');
+        line.append(b, span);
+        m.append(line);
+        await type(span, v, 16);
+        await wait(250);
+      }
+      await wait(300);
+      await thinking(precis, 1300);
+      const r = bubble(precis, 'ia');
+      r.classList.add('pd-cr');
+      const rows = [
+        ['h', 'Compte rendu — réunion du lundi'],
+        ['t', 'Décisions'],
+        ['l', 'Lancement du pilote en mars'],
+        ['l', 'Budget formation validé'],
+        ['l', 'Point d’étape toutes les 2 semaines'],
+        ['t', 'Actions'],
+        ['l', 'Julie — planning, vendredi'],
+        ['l', 'Karim — devis, mercredi'],
+      ];
+      for (const [k, text] of rows) {
+        const p = document.createElement('p');
+        p.className = 'pd-cr-' + k;
+        p.textContent = text;
+        r.append(p);
+        precis.msgs.scrollTop = precis.msgs.scrollHeight;
+        await wait(240);
+      }
+      await wait(400);
+      verdict(precis, 'Une réponse utilisable du premier coup.', true);
+      await wait(600);
+      vague.el.classList.remove('is-dim');
+      precis.el.classList.remove('is-focus');
+      root.classList.remove('is-playing');
+    };
+
+    btn.addEventListener('click', () => {
+      sequence().catch((e) => {
+        if (e.message !== 'lecture-annulee') throw e;
+      });
+    });
+  }
+
+  document.addEventListener('astro:before-swap', () => { run++; });
+  document.addEventListener('astro:page-load', initPromptDemo);
+</script>
+
+<style is:global>
+  .pd-screen {
+    position: absolute; left: 17px; top: 14px; width: 300px; height: 647px; border-radius: 46px; overflow: hidden;
+    background: #fbf8f1; color: #1c1712; font-family: 'Poppins', system-ui, sans-serif;
+    padding: 62px 16px 20px; display: flex; flex-direction: column; gap: 10px;
+    transition: opacity .45s, filter .45s;
+  }
+  .pd-screen.is-dim { opacity: .45; filter: saturate(.5); }
+  .pd-titre { margin: 0; align-self: center; padding: 6px 16px; border-radius: 99px; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; }
+  .pd-titre--vague { background: #efe9dd; color: #5a544d; }
+  .pd-titre--precis { background: #c40d60; color: #fff; }
+  .pd-msgs { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 9px; padding-top: 6px; }
+  .pd-msg { max-width: 94%; padding: 10px 13px; border-radius: 17px; font-size: 13.5px; line-height: 1.38; animation: pd-pop .35s cubic-bezier(.3, 1.4, .5, 1); }
+  .pd-msg:empty { display: none; }
+  .pd-msg p { margin: 0 0 4px; }
+  .pd-msg p:last-child { margin: 0; }
+  .pd-msg--me { align-self: flex-end; background: #ffe897; border-bottom-right-radius: 5px; }
+  .pd-msg--ia { align-self: flex-start; background: #fff; border-bottom-left-radius: 5px; box-shadow: 0 6px 12px -8px rgba(0, 0, 0, .3); }
+  @keyframes pd-pop { from { opacity: 0; translate: 0 10px; scale: .96; } }
+  .pd-dots { display: flex; gap: 5px; padding: 13px 15px; }
+  .pd-dots i { width: 7px; height: 7px; border-radius: 50%; background: #b9b2a7; animation: pd-dot 1s ease-in-out infinite; }
+  .pd-dots i:nth-child(2) { animation-delay: .15s; }
+  .pd-dots i:nth-child(3) { animation-delay: .3s; }
+  @keyframes pd-dot { 50% { translate: 0 -5px; background: #c40d60; } }
+  .pd-cr p { animation: pd-pop .3s ease both; }
+  .pd-cr-h { font: 700 14px/1.2 'Inter Variable', Inter, sans-serif; letter-spacing: -.02em; margin-bottom: 7px !important; }
+  .pd-cr-t { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #c40d60; margin-top: 6px !important; }
+  .pd-cr-l { padding-left: 14px; position: relative; font-size: 12.5px; }
+  .pd-cr-l::before { content: ''; position: absolute; left: 2px; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: #66d1da; }
+  .pd-verdict { margin: 0; padding: 9px 12px; border-radius: 14px; font-size: 12px; font-weight: 700; line-height: 1.3; text-align: center; opacity: 0; translate: 0 10px; transition: opacity .4s, translate .4s cubic-bezier(.3, 1.4, .5, 1); }
+  .pd-verdict.is-on { opacity: 1; translate: 0 0; }
+  .pd-verdict.is-ko { background: #1c1712; color: #ffb9a6; }
+  .pd-verdict.is-ok { background: #66d1da; color: #1c1712; }
+
+  .pd-play {
+    position: absolute; left: 662px; top: 300px; translate: -50% 0; z-index: 3; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 10px; border: 0; background: none; padding: 0;
+    font-family: 'Poppins', sans-serif; color: #fff;
+  }
+  .pd-play-icone { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; background: #ffe897; color: #1c1712; font-size: 30px; padding-left: 5px; box-shadow: 0 12px 20px -8px rgba(0, 0, 0, .5); transition: scale .25s cubic-bezier(.3, 1.5, .5, 1), background .2s; animation: pd-pulse 2.2s ease-in-out infinite; }
+  .pd-play:hover .pd-play-icone { scale: 1.1; }
+  .pd-play:focus-visible .pd-play-icone { outline: 3px solid #66d1da; outline-offset: 4px; }
+  @keyframes pd-pulse { 50% { box-shadow: 0 12px 20px -8px rgba(0, 0, 0, .5), 0 0 0 12px rgba(255, 232, 151, .25); } }
+  .pd-play-texte { font-size: 14px; font-weight: 700; font-style: italic; letter-spacing: -.03em; white-space: nowrap; }
+  .pd.is-playing .pd-play-icone { animation: none; scale: .8; opacity: .85; padding-left: 0; }
+  .pd.is-playing .pd-play-texte { opacity: .8; }
+  .pd-desc { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); margin: 0; }
+
+  @media (max-width: 760px) {
+    .pd { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .pd .pd-phone { position: relative; width: min(300px, 82vw) !important; aspect-ratio: 334 / 675; container-type: inline-size; overflow: visible !important; border-radius: 0 !important; }
+    .pd .pd-phone > img { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; }
+    .pd-screen { left: 5.1%; top: 2.1%; transform-origin: 0 0; transform: scale(tan(atan2(100cqw, 334px))); }
+    .pd-play { position: static; translate: none; order: -1; flex-direction: row; }
+    .pd-play-icone { width: 56px; height: 56px; font-size: 20px; }
+  }
+</style>

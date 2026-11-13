@@ -1,0 +1,219 @@
+---
+// Démonstration « avant de transmettre un document à une IA », affichée dans l'écran
+// de l'ordinateur de la page RGPD (696 × 433 px dans la maquette). Démarre au clic.
+const etapes = ['Repérer', 'Protéger', 'Vérifier', 'Transmettre'];
+const controles = ['Outil validé par l’entreprise', 'Données personnelles retirées', 'Seules les informations utiles'];
+---
+
+<div class="rd" id="rd">
+  <div class="rd-in" aria-hidden="true">
+    <ol class="rd-steps">
+      {etapes.map((e, i) => (
+        <li data-rd-step={i}><b>{i + 1}</b>{e}</li>
+      ))}
+    </ol>
+
+    <div class="rd-body">
+      <div class="rd-doc">
+        <p class="rd-doc-titre">Contrat_client.pdf</p>
+        <p>Entre la société et <mark data-rd-t="[CLIENT]" data-rd-l="Nom">Mme Claire Martin</mark>,</p>
+        <p>domiciliée <mark data-rd-t="[ADRESSE]" data-rd-l="Adresse">12 rue des Lilas, Lyon</mark>,</p>
+        <p>joignable au <mark data-rd-t="[TÉLÉPHONE]" data-rd-l="Téléphone">06 12 34 56 78</mark>.</p>
+        <p>Règlement par prélèvement sur le compte <mark data-rd-t="[IBAN]" data-rd-l="IBAN">FR76 3000 4000 0312</mark>.</p>
+        <p>Prestation : formation de 2 jours, 8 participants, livrable sous 30 jours.</p>
+        <i class="rd-scan"></i>
+      </div>
+
+      <div class="rd-side">
+        <p class="rd-compteur" data-rd="compteur"><b>0</b> donnée sensible repérée</p>
+        <ul class="rd-checks">
+          {controles.map((c) => (
+            <li><i>✓</i>{c}</li>
+          ))}
+        </ul>
+        <div class="rd-chat" data-rd="chat"></div>
+      </div>
+    </div>
+    <p class="rd-fin" data-rd="fin">Document transmis sans donnée personnelle ✓</p>
+  </div>
+
+  <button class="rd-play" id="rd-play" type="button" aria-describedby="rd-desc">
+    <span class="rd-play-icone" aria-hidden="true">▶</span>
+    <span class="rd-play-texte">Lancer la démo</span>
+  </button>
+  <p class="rd-desc" id="rd-desc">
+    Démonstration : avant de faire résumer un contrat par une IA, on repère les données personnelles, on les remplace
+    par des mentions neutres, on vérifie l'outil, puis on transmet le document.
+  </p>
+</div>
+
+<script>
+  let run = 0;
+
+  function initRgpdDemo() {
+    const root = document.getElementById('rd');
+    if (!root || root.dataset.ready) return;
+    root.dataset.ready = '1';
+    const btn = document.getElementById('rd-play');
+    const label = btn.querySelector('.rd-play-texte');
+    const icone = btn.querySelector('.rd-play-icone');
+    const steps = [...root.querySelectorAll('[data-rd-step]')];
+    const marks = [...root.querySelectorAll('mark')];
+    const checks = [...root.querySelectorAll('.rd-checks li')];
+    const q = (n) => root.querySelector(`[data-rd="${n}"]`);
+    const compteur = q('compteur'), chat = q('chat'), fin = q('fin');
+    marks.forEach((m) => (m.dataset.rdOrig = m.textContent));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const sequence = async () => {
+      const id = ++run;
+      const wait = async (ms) => {
+        await new Promise((r) => setTimeout(r, reduce ? 0 : ms));
+        if (id !== run) throw new Error('lecture-annulee');
+      };
+      const step = (n) => steps.forEach((s, i) => { s.classList.toggle('is-on', i === n); s.classList.toggle('is-done', i < n); });
+      const type = async (target, text, speed = 24) => {
+        for (let i = 1; i <= text.length; i++) {
+          target.textContent = text.slice(0, i);
+          await wait(speed);
+        }
+      };
+      const say = (who) => {
+        const p = document.createElement('p');
+        p.className = 'rd-msg rd-msg--' + who;
+        chat.append(p);
+        return p;
+      };
+
+      // remise à zéro
+      marks.forEach((m) => { m.textContent = m.dataset.rdOrig; m.className = ''; });
+      checks.forEach((c) => c.classList.remove('is-on'));
+      chat.textContent = '';
+      compteur.innerHTML = '<b>0</b> donnée sensible repérée';
+      compteur.className = 'rd-compteur';
+      fin.classList.remove('is-on');
+      root.classList.remove('is-scan');
+      root.classList.add('is-started');
+      label.textContent = 'Rejouer';
+      icone.textContent = '↻';
+
+      // 1. Repérer
+      step(0);
+      await wait(500);
+      root.classList.add('is-scan');
+      for (let i = 0; i < marks.length; i++) {
+        await wait(650);
+        marks[i].classList.add('is-found');
+        compteur.innerHTML = `<b>${i + 1}</b> donnée${i ? 's' : ''} sensible${i ? 's' : ''} repérée${i ? 's' : ''}`;
+        compteur.classList.add('is-alerte');
+      }
+      await wait(700);
+      root.classList.remove('is-scan');
+
+      // 2. Protéger
+      step(1);
+      for (const m of marks) {
+        await wait(450);
+        m.classList.replace('is-found', 'is-safe');
+        m.textContent = m.dataset.rdT;
+      }
+      compteur.innerHTML = '<b>0</b> donnée personnelle dans le document';
+      compteur.classList.replace('is-alerte', 'is-ok');
+      await wait(800);
+
+      // 3. Vérifier
+      step(2);
+      for (const c of checks) {
+        await wait(520);
+        c.classList.add('is-on');
+      }
+      await wait(800);
+
+      // 4. Transmettre
+      step(3);
+      await type(say('me'), 'Résume ce contrat en 3 points.');
+      await wait(700);
+      const r = say('ia');
+      for (const line of ['Formation de 2 jours', '8 participants', 'Livrable sous 30 jours']) {
+        const li = document.createElement('span');
+        li.textContent = '• ' + line;
+        r.append(li);
+        await wait(380);
+      }
+      await wait(500);
+      steps.forEach((s) => { s.classList.remove('is-on'); s.classList.add('is-done'); });
+      fin.classList.add('is-on');
+    };
+
+    btn.addEventListener('click', () => {
+      sequence().catch((e) => {
+        if (e.message !== 'lecture-annulee') throw e;
+      });
+    });
+  }
+
+  document.addEventListener('astro:before-swap', () => { run++; });
+  document.addEventListener('astro:page-load', initRgpdDemo);
+</script>
+
+<style is:global>
+  .rd { position: absolute; left: 82.6px; top: 22.7px; width: 696px; height: 433px; overflow: hidden; background: #fbf8f1; color: #1c1712; font-family: 'Poppins', system-ui, sans-serif; }
+  .rd-in { position: absolute; inset: 0; padding: 14px 18px; display: flex; flex-direction: column; gap: 10px; transition: opacity .4s, filter .4s; }
+  .rd:not(.is-started) .rd-in { opacity: .35; filter: blur(2px); }
+  .rd-steps { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; }
+  .rd-steps li { display: flex; align-items: center; gap: 7px; padding: 5px 14px 5px 5px; border-radius: 99px; background: #efe9dd; color: #6b655e; font-size: 12.5px; font-weight: 700; transition: background .35s, color .35s, scale .35s; }
+  .rd-steps b { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #fff; font-size: 11.5px; }
+  .rd-steps .is-on { background: #c40d60; color: #fff; scale: 1.06; }
+  .rd-steps .is-on b { color: #c40d60; }
+  .rd-steps .is-done { background: #66d1da; color: #1c1712; }
+
+  .rd-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; }
+  .rd-doc { position: relative; overflow: hidden; background: #fff; border-radius: 16px; padding: 14px 16px; box-shadow: 0 10px 18px -12px rgba(0, 0, 0, .3); font-size: 12.5px; line-height: 1.5; }
+  .rd-doc p { margin: 0 0 7px; }
+  .rd-doc-titre { font: 700 13.5px/1.2 'Inter Variable', Inter, sans-serif; letter-spacing: -.02em; padding-bottom: 8px; margin-bottom: 10px !important; border-bottom: 2px solid #efe9dd; }
+  .rd-doc mark { background: transparent; color: inherit; border-radius: 6px; padding: 1px 4px; margin: 0 -4px; position: relative; transition: background .35s, color .35s; }
+  .rd-doc mark.is-found { background: #ff8565; color: #fff; animation: rd-hit .45s cubic-bezier(.3, 1.6, .5, 1); }
+  .rd-doc mark.is-found::after { content: attr(data-rd-l); position: absolute; left: 0; top: -15px; font-size: 8.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #c40d60; white-space: nowrap; }
+  .rd-doc mark.is-safe { background: #66d1da; color: #1c1712; font-weight: 700; animation: rd-hit .45s cubic-bezier(.3, 1.6, .5, 1); }
+  @keyframes rd-hit { from { scale: 1.25; } }
+  .rd-scan { position: absolute; left: 0; right: 0; top: 0; height: 46px; background: linear-gradient(180deg, transparent, rgba(196, 13, 96, .16)); border-bottom: 2px solid #c40d60; opacity: 0; pointer-events: none; }
+  .rd.is-scan .rd-scan { opacity: 1; animation: rd-scan 2.9s linear infinite; }
+  @keyframes rd-scan { from { translate: 0 -46px; } to { translate: 0 300px; } }
+
+  .rd-side { display: flex; flex-direction: column; gap: 9px; min-height: 0; }
+  .rd-compteur { margin: 0; padding: 9px 12px; border-radius: 12px; background: #efe9dd; font-size: 12px; font-weight: 700; transition: background .35s, color .35s; }
+  .rd-compteur b { font: 800 17px/1 'Inter Variable', Inter, sans-serif; margin-right: 4px; }
+  .rd-compteur.is-alerte { background: #ff8565; color: #fff; }
+  .rd-compteur.is-ok { background: #66d1da; color: #1c1712; }
+  .rd-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 12px; }
+  .rd-checks li { display: flex; align-items: center; gap: 8px; opacity: .4; transition: opacity .35s; }
+  .rd-checks i { flex: none; width: 19px; height: 19px; border-radius: 50%; display: grid; place-items: center; background: #e4e0d8; color: transparent; font-style: normal; font-size: 12px; font-weight: 700; transition: background .3s, color .3s, scale .3s cubic-bezier(.3, 1.6, .5, 1); }
+  .rd-checks .is-on { opacity: 1; font-weight: 700; }
+  .rd-checks .is-on i { background: #c40d60; color: #fff; scale: 1.15; }
+  .rd-chat { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; }
+  .rd-msg { margin: 0; padding: 8px 11px; border-radius: 13px; font-size: 12px; line-height: 1.35; max-width: 94%; animation: rd-pop .35s cubic-bezier(.3, 1.4, .5, 1); }
+  .rd-msg:empty { display: none; }
+  .rd-msg span { display: block; animation: rd-pop .3s ease both; }
+  .rd-msg--me { align-self: flex-end; background: #ffe897; border-bottom-right-radius: 4px; }
+  .rd-msg--ia { align-self: flex-start; background: #fff; border-bottom-left-radius: 4px; box-shadow: 0 6px 12px -8px rgba(0, 0, 0, .3); }
+  @keyframes rd-pop { from { opacity: 0; translate: 0 8px; } }
+  .rd-fin { position: absolute; left: 32px; bottom: 28px; margin: 0; background: #1c1712; color: #ffe897; font-size: 11.5px; font-weight: 700; padding: 7px 13px; border-radius: 99px; opacity: 0; scale: .8; transition: opacity .4s, scale .4s cubic-bezier(.3, 1.5, .5, 1); }
+  .rd-fin.is-on { opacity: 1; scale: 1; }
+
+  .rd-play { position: absolute; left: 50%; top: 50%; translate: -50% -50%; z-index: 3; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; border: 0; background: none; padding: 0; font-family: 'Poppins', sans-serif; color: #1c1712; transition: left .5s cubic-bezier(.2, .7, .2, 1), top .5s cubic-bezier(.2, .7, .2, 1), translate .5s; }
+  .rd-play-icone { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; background: #c40d60; color: #fff; font-size: 30px; padding-left: 5px; box-shadow: 0 12px 20px -8px rgba(0, 0, 0, .5); transition: scale .25s cubic-bezier(.3, 1.5, .5, 1), width .4s, height .4s, font-size .4s; animation: rd-pulse 2.2s ease-in-out infinite; }
+  .rd-play:hover .rd-play-icone { scale: 1.1; }
+  .rd-play:focus-visible .rd-play-icone { outline: 3px solid #66d1da; outline-offset: 4px; }
+  @keyframes rd-pulse { 50% { box-shadow: 0 12px 20px -8px rgba(0, 0, 0, .5), 0 0 0 12px rgba(196, 13, 96, .2); } }
+  .rd-play-texte { font-size: 15px; font-weight: 700; font-style: italic; letter-spacing: -.03em; white-space: nowrap; }
+  .rd.is-started .rd-play { left: calc(100% - 14px); top: calc(100% - 12px); translate: -100% -100%; flex-direction: row; gap: 6px; }
+  .rd.is-started .rd-play-icone { width: 30px; height: 30px; font-size: 15px; padding-left: 0; animation: none; }
+  .rd.is-started .rd-play-texte { font-size: 11.5px; }
+  .rd-desc { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); margin: 0; }
+
+  @media (max-width: 760px) {
+    .rd-laptop { position: relative; aspect-ratio: 864 / 523; container-type: inline-size; overflow: visible !important; border-radius: 0 !important; }
+    .rd-laptop > img { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; }
+    .rd { left: 9.56%; top: 4.34%; transform-origin: 0 0; transform: scale(tan(atan2(100cqw, 864px))); }
+  }
+</style>
