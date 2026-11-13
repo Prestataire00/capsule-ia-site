@@ -1,0 +1,434 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Les demandes sont envoyées au formulaire Formspree « Devis Capsule IA ».
+// Pour utiliser un autre service, définir PUBLIC_FORM_ENDPOINT (voir .env.example).
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.io/f/xwlovqob';
+const email = 'contact@capsule-ia.fr';
+
+const formations = [
+  { v: 'Acculturation IA', d: "Découvrir les fondamentaux et les bons réflexes" },
+  { v: 'IA & Métiers', d: 'Des usages adaptés à chaque métier' },
+  { v: 'RGPD & réglementation', d: 'Utiliser l’IA de manière responsable' },
+  { v: 'Vibe coding', d: 'Créer ses premiers prototypes avec l’IA' },
+  { v: 'Je ne sais pas encore', d: 'On en parle ensemble' },
+];
+const tailles = ['1 à 5', '6 à 12', '13 à 30', 'Plus de 30'];
+const niveaux = ['Débutant', 'Intermédiaire', 'Avancé', 'Niveaux mixtes'];
+const metiers = ['Marketing & communication', 'Commercial', 'Administration & gestion', 'Management', 'RH', 'Autre'];
+const formats = ['Présentiel', 'Distanciel', 'E-learning', 'À définir ensemble'];
+const echeances = ['Dès que possible', 'Sous 1 mois', 'Sous 3 mois', 'Pas de date précise'];
+const opco = ['Oui', 'Non', 'Je ne sais pas'];
+const creneaux = ['Le matin', "L'après-midi", 'Peu importe'];
+const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonnées'];
+---
+
+<Layout
+  title="Devis interactif — Capsule IA"
+  description="Décrivez votre besoin de formation à l'IA en 4 étapes : devis garanti sous 2 h et rappel sous 48 h."
+>
+  <div class="devis">
+    <header class="dv-nav">
+      <a class="dv-logo" href="/" aria-label="Capsule IA — accueil">
+        <img src="/img/logo.webp" alt="Capsule IA — retour à l'accueil" width="96" height="96" />
+      </a>
+      <nav aria-label="Navigation principale">
+        <a href="/#formations">Nos formations</a>
+        <a href="/#approche">Notre approche</a>
+        <a href="/#a-propos">À propos</a>
+      </nav>
+      <a class="dv-pill" href="/#modules">Découvrir nos modules</a>
+    </header>
+
+    <main class="dv-main">
+      <section class="dv-intro">
+        <p class="dv-eyebrow">Devis interactif</p>
+        <h1>Parlons de<br /><span>vos besoins.</span></h1>
+        <p class="dv-lead">
+          Quatre étapes, deux minutes. Vous décrivez votre projet, nous construisons une proposition adaptée à vos
+          équipes.
+        </p>
+        <ul class="dv-promesses">
+          <li>
+            <strong>2 h</strong>
+            <span>Devis garanti<br />sous 2 heures</span>
+          </li>
+          <li>
+            <strong>48 h</strong>
+            <span>Rappel d'un formateur<br />sous 48 heures</span>
+          </li>
+        </ul>
+
+        <aside class="dv-recap" aria-live="polite">
+          <h2>Votre demande</h2>
+          <dl id="dv-recap-list">
+            <dt>Aucune sélection</dt>
+            <dd>Vos choix apparaîtront ici.</dd>
+          </dl>
+        </aside>
+      </section>
+
+      <form
+        class="dv-form"
+        id="dv-form"
+        action={`mailto:${email}`}
+        method="post"
+        enctype="text/plain"
+        data-endpoint={endpoint}
+        data-email={email}
+        novalidate
+      >
+        <ol class="dv-steps" aria-label="Étapes du devis">
+          {etapes.map((e, i) => (
+            <li data-step-dot={i}>
+              <b>{i + 1}</b>
+              <span>{e}</span>
+            </li>
+          ))}
+        </ol>
+        <div class="dv-bar"><i id="dv-progress"></i></div>
+
+        <fieldset class="dv-step" data-step="0">
+          <legend>Quelles formations vous intéressent ?</legend>
+          <p class="dv-hint">Plusieurs choix possibles.</p>
+          <div class="dv-cards">
+            {formations.map((f) => (
+              <label class="dv-opt dv-opt--card">
+                <input type="checkbox" name="Formations" value={f.v} />
+                <b>{f.v}</b>
+                <small>{f.d}</small>
+              </label>
+            ))}
+          </div>
+          <p class="dv-error" hidden>Sélectionnez au moins une formation.</p>
+        </fieldset>
+
+        <fieldset class="dv-step" data-step="1">
+          <legend>Parlez-nous de votre équipe</legend>
+          <p class="dv-label">Nombre de participants</p>
+          <div class="dv-chips">
+            {tailles.map((t) => (
+              <label class="dv-opt"><input type="radio" name="Participants" value={t} required />{t}</label>
+            ))}
+          </div>
+          <p class="dv-label">Niveau actuel en IA</p>
+          <div class="dv-chips">
+            {niveaux.map((t) => (
+              <label class="dv-opt"><input type="radio" name="Niveau" value={t} required />{t}</label>
+            ))}
+          </div>
+          <p class="dv-label">Métiers concernés <em>(facultatif)</em></p>
+          <div class="dv-chips">
+            {metiers.map((t) => (
+              <label class="dv-opt"><input type="checkbox" name="Métiers" value={t} />{t}</label>
+            ))}
+          </div>
+          <p class="dv-error" hidden>Indiquez le nombre de participants et le niveau.</p>
+        </fieldset>
+
+        <fieldset class="dv-step" data-step="2">
+          <legend>Comment souhaitez-vous vous former ?</legend>
+          <p class="dv-label">Format</p>
+          <div class="dv-chips">
+            {formats.map((t) => (
+              <label class="dv-opt"><input type="radio" name="Format" value={t} required />{t}</label>
+            ))}
+          </div>
+          <p class="dv-label">Échéance souhaitée</p>
+          <div class="dv-chips">
+            {echeances.map((t) => (
+              <label class="dv-opt"><input type="radio" name="Échéance" value={t} required />{t}</label>
+            ))}
+          </div>
+          <p class="dv-label">Financement par votre OPCO envisagé ?</p>
+          <div class="dv-chips">
+            {opco.map((t) => (
+              <label class="dv-opt"><input type="radio" name="OPCO" value={t} />{t}</label>
+            ))}
+          </div>
+          <p class="dv-error" hidden>Indiquez le format et l'échéance.</p>
+        </fieldset>
+
+        <fieldset class="dv-step" data-step="3">
+          <legend>Où vous envoyer le devis ?</legend>
+          <div class="dv-grid">
+            <label class="dv-field">
+              <span>Prénom et nom</span>
+              <input type="text" name="Nom" autocomplete="name" required />
+            </label>
+            <label class="dv-field">
+              <span>Entreprise</span>
+              <input type="text" name="Entreprise" autocomplete="organization" required />
+            </label>
+            <label class="dv-field">
+              <span>E-mail professionnel</span>
+              <input type="email" name="E-mail" autocomplete="email" required />
+            </label>
+            <label class="dv-field">
+              <span>Téléphone</span>
+              <input type="tel" name="Téléphone" autocomplete="tel" required pattern="[0-9+ .\(\)\-]{8,}" />
+            </label>
+          </div>
+          <p class="dv-label">Quand préférez-vous être rappelé ?</p>
+          <div class="dv-chips">
+            {creneaux.map((t, i) => (
+              <label class="dv-opt"><input type="radio" name="Rappel" value={t} checked={i === 2} />{t}</label>
+            ))}
+          </div>
+          <label class="dv-field">
+            <span>Précisions <em>(facultatif)</em></span>
+            <textarea name="Message" rows="4" placeholder="Contexte, outils déjà utilisés, objectifs…"></textarea>
+          </label>
+          <label class="dv-consent">
+            <input type="checkbox" name="Consentement" value="Oui" required />
+            <span>J'accepte que Capsule IA utilise ces informations pour établir mon devis et me recontacter.</span>
+          </label>
+          <p class="dv-error" hidden>Complétez vos coordonnées et cochez la case d'accord.</p>
+        </fieldset>
+
+        <div class="dv-actions">
+          <button type="button" class="dv-btn dv-btn--ghost" id="dv-prev">← Retour</button>
+          <button type="button" class="dv-btn" id="dv-next">Continuer →</button>
+          <button type="submit" class="dv-btn dv-btn--send" id="dv-send">Recevoir mon devis sous 2 h</button>
+        </div>
+        <p class="dv-status" id="dv-status" role="status"></p>
+      </form>
+
+      <section class="dv-merci" id="dv-merci" hidden tabindex="-1">
+        <div class="dv-check" aria-hidden="true">✓</div>
+        <h2 id="dv-merci-titre">Merci, votre demande est bien partie.</h2>
+        <p id="dv-merci-texte">
+          Vous recevrez votre devis par e-mail sous 2 heures, et un formateur vous rappellera sous 48 heures.
+        </p>
+        <a class="dv-btn" href="/">Retour à l'accueil</a>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function initDevis() {
+      const form = document.getElementById('dv-form');
+      if (!form || form.dataset.ready) return;
+      form.dataset.ready = '1';
+      form.classList.add('is-js');
+
+      const steps = [...form.querySelectorAll('.dv-step')];
+      const dots = [...form.querySelectorAll('[data-step-dot]')];
+      const prev = document.getElementById('dv-prev');
+      const next = document.getElementById('dv-next');
+      const send = document.getElementById('dv-send');
+      const bar = document.getElementById('dv-progress');
+      const status = document.getElementById('dv-status');
+      const recap = document.getElementById('dv-recap-list');
+      const merci = document.getElementById('dv-merci');
+      let current = 0;
+
+      const values = () => {
+        const out = {};
+        for (const [k, v] of new FormData(form)) {
+          if (!String(v).trim()) continue;
+          out[k] = out[k] ? out[k] + ', ' + v : String(v);
+        }
+        return out;
+      };
+
+      const renderRecap = () => {
+        const v = values();
+        delete v.Consentement;
+        const keys = Object.keys(v);
+        recap.textContent = '';
+        if (!keys.length) {
+          const dt = document.createElement('dt');
+          dt.textContent = 'Aucune sélection';
+          const dd = document.createElement('dd');
+          dd.textContent = 'Vos choix apparaîtront ici.';
+          recap.append(dt, dd);
+          return;
+        }
+        keys.forEach((k) => {
+          const dt = document.createElement('dt');
+          dt.textContent = k;
+          const dd = document.createElement('dd');
+          dd.textContent = v[k];
+          recap.append(dt, dd);
+        });
+      };
+
+      const valid = (i) => {
+        const step = steps[i];
+        let ok = [...step.querySelectorAll('input, textarea')].every((el) => el.checkValidity());
+        if (i === 0) ok = step.querySelectorAll('input:checked').length > 0;
+        step.querySelector('.dv-error').hidden = ok;
+        return ok;
+      };
+
+      const show = (i, focus = true) => {
+        current = i;
+        steps.forEach((s, n) => s.classList.toggle('is-active', n === i));
+        dots.forEach((d, n) => {
+          d.classList.toggle('is-active', n === i);
+          d.classList.toggle('is-done', n < i);
+        });
+        bar.style.width = ((i + 1) / steps.length) * 100 + '%';
+        prev.hidden = i === 0;
+        next.hidden = i === steps.length - 1;
+        send.hidden = i !== steps.length - 1;
+        if (focus) steps[i].querySelector('legend').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+
+      next.addEventListener('click', () => valid(current) && show(current + 1));
+      prev.addEventListener('click', () => show(current - 1));
+      form.addEventListener('input', () => {
+        renderRecap();
+        const err = steps[current].querySelector('.dv-error');
+        if (!err.hidden) valid(current);
+      });
+
+      const done = (viaMail) => {
+        form.hidden = true;
+        merci.hidden = false;
+        if (viaMail) {
+          document.getElementById('dv-merci-titre').textContent = 'Dernière étape : envoyez l’e-mail.';
+          document.getElementById('dv-merci-texte').textContent =
+            'Votre messagerie vient de s’ouvrir avec votre demande déjà rédigée. Envoyez l’e-mail pour la valider : devis sous 2 heures, rappel sous 48 heures.';
+        }
+        merci.focus();
+        merci.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        for (let i = 0; i < steps.length; i++) {
+          if (!valid(i)) return show(i);
+        }
+        const v = values();
+        const { endpoint, email } = form.dataset;
+        if (!endpoint) {
+          const body = Object.entries(v)
+            .map(([k, val]) => `${k} : ${val}`)
+            .join('\n');
+          const subject = `Demande de devis — ${v.Entreprise || ''}`;
+          window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          return done(true);
+        }
+        send.disabled = true;
+        status.textContent = 'Envoi en cours…';
+        try {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ ...v, _subject: `Demande de devis — ${v.Entreprise || ''}` }),
+          });
+          if (!res.ok) throw new Error(String(res.status));
+          done(false);
+        } catch {
+          send.disabled = false;
+          status.textContent = `L'envoi a échoué. Réessayez, ou écrivez-nous à ${email}.`;
+        }
+      });
+
+      renderRecap();
+      show(0, false);
+    }
+    document.addEventListener('astro:page-load', initDevis);
+  </script>
+
+  <style is:global>
+    .devis {
+      --yellow: #ffe897; --magenta: #c40d60; --salmon: #ff8565; --teal: #66d1da;
+      --cream: #f6f8ef; --ink: #1c1712;
+      min-height: 100vh; background: var(--cream); color: var(--ink);
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    .dv-nav { display: flex; align-items: center; gap: 24px; padding: 10px clamp(16px, 4vw, 56px); background: #fff; box-shadow: 0 8px 18px -14px rgba(0, 0, 0, .35); }
+    .dv-logo img { width: 84px; height: 84px; transition: rotate .5s cubic-bezier(.3, 1.5, .5, 1); }
+    .dv-logo:hover img { rotate: -8deg; }
+    .dv-nav nav { display: flex; gap: clamp(16px, 4vw, 64px); margin-inline: auto; font-size: 15px; color: #353535; }
+    .dv-nav nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+    .dv-pill { background: var(--yellow); padding: 10px 22px; border-radius: 999px; font-weight: 700; font-style: italic; letter-spacing: -.05em; white-space: nowrap; box-shadow: 0 9px 14px -6px rgba(0, 0, 0, .3); }
+
+    .dv-main { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); max-width: 1240px; margin: 0 auto; padding: clamp(32px, 6vw, 80px) clamp(16px, 4vw, 40px) 96px; align-items: start; }
+    .dv-intro { position: sticky; top: 28px; }
+    .dv-eyebrow { margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: .45em; text-transform: uppercase; color: #353535; }
+    .dv-intro h1 { margin: 0; font: 700 clamp(44px, 5.4vw, 78px)/.95 'Inter Variable', Inter, sans-serif; letter-spacing: -.05em; text-wrap: balance; }
+    .dv-intro h1 span { background: linear-gradient(rgba(102, 209, 218, .5), rgba(102, 209, 218, .5)) left / 100% 100% no-repeat; padding: 0 .12em; margin-left: -.12em; white-space: nowrap; display: inline-block; }
+    .dv-lead { margin: 22px 0 0; font-size: 16px; line-height: 1.6; max-width: 42ch; }
+    .dv-promesses { list-style: none; margin: 28px 0 0; padding: 0; display: flex; gap: 14px; flex-wrap: wrap; }
+    .dv-promesses li { display: flex; align-items: center; gap: 12px; background: var(--magenta); color: #fff; border-radius: 19px; padding: 12px 18px; box-shadow: 0 12px 20px -10px rgba(0, 0, 0, .4); }
+    .dv-promesses strong { font: 800 30px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -.04em; color: var(--yellow); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .dv-promesses span { font-size: 12.5px; line-height: 1.25; font-weight: 700; }
+    .dv-recap { margin-top: 28px; background: #f5f5f5; border-radius: 28px; padding: 22px 26px; box-shadow: 16px 20px 28px -10px rgba(0, 0, 0, .22); }
+    .dv-recap h2 { margin: 0 0 10px; font: 700 13px/1 'Poppins', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: var(--magenta); }
+    .dv-recap dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 14px; }
+    .dv-recap dt { font-weight: 700; }
+    .dv-recap dd { margin: 0; overflow-wrap: anywhere; }
+
+    .dv-form, .dv-merci { background: #fff; border-radius: 34px; padding: clamp(22px, 3.5vw, 44px); box-shadow: 0 24px 40px -20px rgba(0, 0, 0, .3); }
+    .dv-steps { list-style: none; display: flex; justify-content: space-between; gap: 8px; white-space: nowrap; margin: 0 0 14px; padding: 0; font-size: 12.5px; color: #77716a; }
+    .dv-steps li { display: flex; align-items: center; gap: 8px; transition: color .3s; }
+    .dv-steps b { flex: none; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: #ece9e2; color: #5a544d; font-size: 13px; transition: background .3s, color .3s, scale .3s; }
+    .dv-steps .is-active { color: var(--ink); font-weight: 700; }
+    .dv-steps .is-active b { background: var(--magenta); color: #fff; scale: 1.12; }
+    .dv-steps .is-done b { background: var(--teal); color: var(--ink); }
+    .dv-bar { height: 6px; border-radius: 6px; background: #ece9e2; overflow: hidden; margin-bottom: 30px; }
+    .dv-bar i { display: block; height: 100%; width: 25%; background: linear-gradient(90deg, var(--salmon), var(--magenta)); border-radius: 6px; transition: width .5s cubic-bezier(.2, .7, .2, 1); }
+
+    .dv-step { border: 0; margin: 0 0 34px; padding: 0; min-width: 0; }
+    .is-js .dv-step { display: none; margin-bottom: 0; }
+    .is-js .dv-step.is-active { display: block; animation: dv-in .45s cubic-bezier(.2, .7, .2, 1); }
+    @keyframes dv-in { from { opacity: 0; translate: 26px 0; } }
+    .dv-step legend { padding: 0; font: 700 clamp(24px, 2.6vw, 34px)/1.1 'Inter Variable', Inter, sans-serif; letter-spacing: -.04em; margin-bottom: 8px; text-wrap: balance; }
+    .dv-hint { margin: 0 0 18px; color: #6b655e; font-size: 14px; }
+    .dv-label { margin: 24px 0 10px; font-weight: 700; font-size: 15px; }
+    .dv-label em, .dv-field em { font-weight: 400; font-style: normal; color: #77716a; }
+    .dv-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+    .dv-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .dv-opt { position: relative; display: inline-flex; align-items: center; padding: 11px 18px; border-radius: 999px; border: 2px solid #e4e0d8; background: #fff; font-size: 14.5px; cursor: pointer; user-select: none; transition: background .2s, border-color .2s, translate .2s, box-shadow .2s; }
+    .dv-opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .dv-opt:hover { border-color: var(--salmon); translate: 0 -2px; }
+    .dv-opt:has(input:checked) { background: var(--yellow); border-color: var(--ink); font-weight: 700; box-shadow: 0 8px 14px -8px rgba(0, 0, 0, .35); }
+    .dv-opt:has(input:focus-visible), .dv-btn:focus-visible, .dv-field input:focus-visible, .dv-field textarea:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+    .dv-opt--card { flex-direction: column; align-items: flex-start; gap: 6px; border-radius: 22px; padding: 18px 20px; }
+    .dv-opt--card b { font: 700 17px/1.2 'Inter Variable', Inter, sans-serif; letter-spacing: -.02em; }
+    .dv-opt--card small { font-size: 13px; line-height: 1.35; color: #5a544d; font-weight: 400; }
+    .dv-opt--card:has(input:checked) { background: var(--magenta); border-color: var(--magenta); color: #fff; }
+    .dv-opt--card:has(input:checked) small { color: #ffe1ee; }
+
+    .dv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 18px; }
+    .dv-field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700; margin-top: 4px; }
+    .dv-field input, .dv-field textarea { font: 400 16px/1.4 'Poppins', sans-serif; padding: 12px 14px; border-radius: 14px; border: 2px solid #e4e0d8; background: #fbfaf7; color: var(--ink); width: 100%; transition: border-color .2s, background .2s; }
+    .dv-field input:focus, .dv-field textarea:focus { border-color: var(--magenta); background: #fff; }
+    .dv-field textarea { resize: vertical; }
+    .dv-step > .dv-field { margin-top: 22px; }
+    .dv-consent { display: flex; gap: 12px; align-items: flex-start; margin-top: 20px; font-size: 13.5px; line-height: 1.45; cursor: pointer; }
+    .dv-consent input { flex: none; width: 20px; height: 20px; margin-top: 1px; accent-color: var(--magenta); }
+    .dv-error { margin: 16px 0 0; color: #b0123f; font-weight: 700; font-size: 14px; }
+
+    .dv-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; margin-top: 34px; }
+    .dv-btn { display: inline-flex; align-items: center; justify-content: center; border: 0; cursor: pointer; background: var(--magenta); color: #fff; font: italic 700 17px/1 'Poppins', sans-serif; letter-spacing: -.04em; padding: 16px 28px; border-radius: 999px; box-shadow: 0 10px 16px -8px rgba(0, 0, 0, .4); transition: transform .25s cubic-bezier(.3, 1.4, .5, 1), filter .2s; }
+    .dv-btn:hover { transform: translateY(-3px) scale(1.03); filter: brightness(1.06); }
+    .dv-btn:disabled { opacity: .6; cursor: progress; transform: none; }
+    .dv-btn--ghost { background: transparent; color: var(--ink); box-shadow: none; margin-right: auto; }
+    .dv-btn--send { background: var(--yellow); color: var(--ink); }
+    .dv-btn[hidden] { display: none; }
+    .dv-form:not(.is-js) #dv-prev, .dv-form:not(.is-js) #dv-next, .dv-form:not(.is-js) .dv-steps, .dv-form:not(.is-js) .dv-bar { display: none; }
+    .dv-status { margin: 14px 0 0; text-align: right; font-size: 14px; font-weight: 700; color: #b0123f; min-height: 1em; }
+
+    .dv-merci { text-align: center; padding-block: clamp(40px, 7vw, 84px); animation: dv-in .5s cubic-bezier(.2, .7, .2, 1); outline: none; }
+    .dv-merci[hidden], .dv-form[hidden] { display: none; }
+    .dv-check { width: 84px; height: 84px; margin: 0 auto 22px; border-radius: 50%; background: var(--teal); display: grid; place-items: center; font-size: 42px; font-weight: 700; animation: dv-pop .6s cubic-bezier(.3, 1.6, .5, 1); }
+    @keyframes dv-pop { from { scale: 0; } }
+    .dv-merci h2 { margin: 0 0 12px; font: 700 clamp(26px, 3vw, 40px)/1.1 'Inter Variable', Inter, sans-serif; letter-spacing: -.04em; text-wrap: balance; }
+    .dv-merci p { margin: 0 auto 28px; max-width: 46ch; line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .dv-main { grid-template-columns: 1fr; }
+      .dv-intro { position: static; }
+      .dv-nav nav { display: none; }
+      .dv-pill { margin-left: auto; font-size: 14px; }
+      .dv-steps span { display: none; }
+      .dv-recap { display: none; }
+      .dv-actions .dv-btn { flex: 1 1 auto; }
+    }
+  </style>
+</Layout>

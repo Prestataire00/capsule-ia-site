@@ -1,0 +1,63 @@
+---
+// Bandeau défilant « Ils nous ont fait confiance ».
+// Pour ajouter un client : déposer son logo dans assets/clients, lancer
+// `node optimise-images.mjs`, puis ajouter une ligne ci-dessous.
+const clients = [
+  { nom: 'Activ Métiers', logo: 'activ-metiers', w: 210, h: 200 },
+  { nom: 'ANT Congrès', logo: 'ant-congres', w: 242, h: 200 },
+  { nom: 'Fondation Franco-Britannique de Sillery', logo: 'fondation-franco-britannique', w: 260, h: 200 },
+  { nom: 'Sandaya', logo: 'sandaya', w: 200, h: 200 },
+  { nom: 'NJM Conseil', logo: 'njm-conseil', w: 168, h: 90 },
+  { nom: 'The Artist Academy', logo: 'the-artist-academy', w: 194, h: 58 },
+  { nom: 'IA Infinity', logo: 'ia-infinity', w: 273, h: 200 },
+  { nom: 'Serra Paysage', logo: 'serra-paysage', w: 200, h: 200 },
+];
+---
+
+<section class="clients" aria-labelledby="clients-titre">
+  <p class="clients-eyebrow">Références</p>
+  <h2 id="clients-titre">Ils nous ont <span>fait confiance</span></h2>
+  <p class="clients-lead">Des équipes de tous secteurs formées à l'IA par Capsule IA.</p>
+
+  <div class="clients-marquee">
+    <ul class="clients-track">
+      {clients.map((c) => (
+        <li>
+          <span class="clients-logo"><img src={`/img/clients/${c.logo}.webp`} alt={c.nom} width={c.w} height={c.h} loading="eager" decoding="async" /></span>
+          <span class="clients-nom">{c.nom}</span>
+        </li>
+      ))}
+      {clients.map((c) => (
+        <li aria-hidden="true">
+          <span class="clients-logo"><img src={`/img/clients/${c.logo}.webp`} alt="" width={c.w} height={c.h} loading="eager" decoding="async" /></span>
+          <span class="clients-nom">{c.nom}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .clients { background: #fff; padding: clamp(48px, 6vw, 96px) 0 clamp(52px, 6.5vw, 104px); text-align: center; overflow: hidden; }
+  .clients-eyebrow { margin: 0 0 clamp(10px, 1.4vw, 20px); font: 700 clamp(11px, 1.29vw, 17.6px)/1 'Poppins', sans-serif; letter-spacing: .732em; text-transform: uppercase; color: #353535; }
+  h2 { margin: 0; font: 700 clamp(34px, 6.2vw, 84px)/.92 'Inter Variable', Inter, sans-serif; letter-spacing: -.049em; text-wrap: balance; padding-inline: 16px; }
+  h2 span { background: rgba(255, 232, 151, .75); padding: 0 .12em; white-space: nowrap; }
+  .clients-lead { margin: clamp(14px, 1.8vw, 26px) 16px 0; font: italic 400 clamp(14px, 1.6vw, 22px)/1.3 'Poppins', sans-serif; text-transform: uppercase; color: #353535; }
+
+  .clients-marquee { margin-top: clamp(30px, 4.4vw, 64px); -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); }
+  .clients-track { list-style: none; margin: 0; padding: 12px 0 26px; display: flex; width: max-content; animation: clients-defile 38s linear infinite; }
+  .clients-marquee:hover .clients-track, .clients-marquee:focus-within .clients-track { animation-play-state: paused; }
+  @keyframes clients-defile { to { transform: translateX(-50%); } }
+  li { flex: none; width: clamp(150px, 17vw, 232px); margin-right: clamp(18px, 2.4vw, 34px); display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .clients-logo { width: 100%; height: clamp(96px, 10.6vw, 146px); display: flex; align-items: center; justify-content: center; padding: clamp(14px, 1.6vw, 22px) clamp(20px, 2.4vw, 34px); background: #f6f8ef; border-radius: 26px; box-shadow: 0 14px 22px -14px rgba(0, 0, 0, .35); transition: translate .35s cubic-bezier(.2, .7, .2, 1), background .3s, box-shadow .35s; }
+  .clients-logo img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); opacity: .78; transition: filter .35s, opacity .35s, scale .35s; }
+  li:hover .clients-logo { translate: 0 -8px; background: #ffe897; box-shadow: 0 22px 30px -16px rgba(0, 0, 0, .4); }
+  li:hover .clients-logo img { filter: none; opacity: 1; scale: 1.06; }
+  .clients-nom { font: 700 clamp(11px, 1vw, 13.5px)/1.25 'Poppins', sans-serif; color: #353535; max-width: 100%; text-wrap: balance; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .clients-marquee { -webkit-mask-image: none; mask-image: none; }
+    .clients-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; row-gap: 22px; padding-inline: 16px; }
+    li[aria-hidden='true'] { display: none; }
+  }
+</style>

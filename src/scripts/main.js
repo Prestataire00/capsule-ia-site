@@ -1,0 +1,63 @@
+// Capsule IA — mise à l'échelle des scènes, animations d'apparition, FAQ
+const root = document.documentElement;
+let pending = [];
+let ticking = false;
+
+function setScale() {
+  root.style.setProperty('--k', (root.clientWidth / 1366).toFixed(5));
+}
+
+// Révèle tout élément arrivé dans (ou au-dessus de) la fenêtre
+function reveal() {
+  ticking = false;
+  if (!pending.length) return;
+  const limit = window.innerHeight * 0.92;
+  let i = 0;
+  pending = pending.filter((el) => {
+    if (el.getBoundingClientRect().top > limit) return true;
+    el.style.setProperty('--d', Math.min(i++ * 60, 420) + 'ms');
+    el.classList.add('in');
+    return false;
+  });
+}
+
+function requestReveal() {
+  if (ticking) return;
+  ticking = true;
+  setTimeout(reveal, 60);
+}
+
+function init() {
+  root.classList.add('js');
+  setScale();
+
+  const targets = [
+    ...document.querySelectorAll('.stage > *:not(.deco):not(.navbar), .stage > .hl, .stage > .cur, .stage > .dot'),
+  ];
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    pending = [];
+  } else {
+    targets.forEach((el) => el.classList.add('rv'));
+    pending = targets;
+    requestReveal();
+  }
+
+  // FAQ : une seule réponse ouverte
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach((item) =>
+    item.addEventListener('toggle', () => {
+      if (item.open) items.forEach((o) => o !== item && (o.open = false));
+    })
+  );
+}
+
+window.addEventListener('scroll', requestReveal, { passive: true });
+window.addEventListener('resize', () => {
+  setScale();
+  requestReveal();
+});
+document.addEventListener('astro:after-swap', () => {
+  root.classList.add('js');
+  setScale();
+});
+document.addEventListener('astro:page-load', init);

@@ -1,0 +1,276 @@
+---
+// Démonstration animée « de l'idée au prototype », affichée dans l'écran du téléphone.
+// Conçue sur une base de 1049 × 497 px (l'écran du téléphone dans la maquette).
+const etapes = ['Décrire', 'Générer', 'Tester', 'Améliorer'];
+---
+
+<div class="vd" id="vd" role="img" aria-label="Démonstration : une demande décrite en français devient un prototype d'application, testé puis amélioré avec l'IA.">
+  <ol class="vd-steps" aria-hidden="true">
+    {etapes.map((e, i) => (
+      <li data-vd-step={i}><b>{i + 1}</b>{e}</li>
+    ))}
+  </ol>
+
+  <div class="vd-body" aria-hidden="true">
+    <div class="vd-chat">
+      <p class="vd-label">Votre échange avec l'IA</p>
+      <div class="vd-msgs" data-vd="msgs"></div>
+      <div class="vd-input"><span data-vd="typed"></span><i class="vd-caret"></i><em data-vd="send">↑</em></div>
+    </div>
+
+    <div class="vd-app">
+      <div class="vd-chrome"><i></i><i></i><i></i><span>prototype — aperçu</span></div>
+      <div class="vd-canvas">
+        <p class="vd-empty" data-vd="empty">Votre prototype apparaîtra ici.</p>
+        <div class="vd-proto" data-vd="proto">
+          <h3 class="vd-el">Demandes de matériel</h3>
+          <div class="vd-form">
+            <label class="vd-el"><span>Nom</span><u data-vd="f-nom"></u></label>
+            <label class="vd-el"><span>Matériel</span><u data-vd="f-mat"></u></label>
+            <button class="vd-el" type="button" tabindex="-1" data-vd="btn">Envoyer</button>
+          </div>
+          <div class="vd-filters" data-vd="filters">
+            <span class="is-on">Toutes</span><span>En attente</span><span>Validées</span>
+          </div>
+          <table class="vd-el">
+            <thead><tr><th>Demandeur</th><th>Matériel</th><th>Statut</th></tr></thead>
+            <tbody data-vd="rows">
+              <tr><td>Léa M.</td><td>Casque audio</td><td><mark class="ok">Validée</mark></td></tr>
+              <tr><td>Karim B.</td><td>Clavier</td><td><mark>En attente</mark></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="vd-toast" data-vd="toast">✓ Demande enregistrée</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vd-cursor" data-vd="cursor" aria-hidden="true"></div>
+  <div class="vd-end" data-vd="end" aria-hidden="true">Prototype prêt à tester ✓</div>
+</div>
+
+<script>
+  let run = 0;
+
+  function initVibeDemo() {
+    const root = document.getElementById('vd');
+    if (!root || root.dataset.ready) return;
+    root.dataset.ready = '1';
+    const q = (n) => root.querySelector(`[data-vd="${n}"]`);
+    const msgs = q('msgs'), typed = q('typed'), proto = q('proto'), empty = q('empty');
+    const cursor = q('cursor'), toast = q('toast'), filters = q('filters'), rows = q('rows'), end = q('end');
+    const steps = [...root.querySelectorAll('[data-vd-step]')];
+    const els = [...root.querySelectorAll('.vd-el')];
+    const baseRows = rows.innerHTML;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const play = async () => {
+      const id = ++run;
+      const alive = () => id === run;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const step = (n) => steps.forEach((s, i) => { s.classList.toggle('is-on', i === n); s.classList.toggle('is-done', i < n); });
+      const say = (text, who) => {
+        const p = document.createElement('p');
+        p.className = 'vd-msg vd-msg--' + who;
+        p.textContent = text;
+        msgs.append(p);
+        msgs.scrollTop = msgs.scrollHeight;
+        return p;
+      };
+      const type = async (target, text, speed = 26) => {
+        for (let i = 1; i <= text.length; i++) {
+          if (!alive()) return;
+          target.textContent = text.slice(0, i);
+          await wait(speed);
+        }
+      };
+      const moveTo = async (el) => {
+        const k = root.getBoundingClientRect().width / 1049 || 1;
+        const a = root.getBoundingClientRect(), b = el.getBoundingClientRect();
+        cursor.style.left = (b.left - a.left + b.width * 0.5) / k + 'px';
+        cursor.style.top = (b.top - a.top + b.height * 0.55) / k + 'px';
+        await wait(650);
+      };
+      const click = async (el) => {
+        await moveTo(el);
+        cursor.classList.add('is-click');
+        await wait(220);
+        cursor.classList.remove('is-click');
+      };
+
+      // remise à zéro
+      msgs.textContent = ''; typed.textContent = ''; rows.innerHTML = baseRows;
+      q('f-nom').textContent = ''; q('f-mat').textContent = '';
+      [proto, toast, filters, end, cursor].forEach((e) => e.classList.remove('is-on'));
+      els.forEach((e) => e.classList.remove('is-on'));
+      filters.querySelectorAll('span').forEach((s, i) => s.classList.toggle('is-on', i === 0));
+      empty.classList.remove('is-off');
+      root.classList.remove('is-loading');
+      cursor.style.left = '560px'; cursor.style.top = '420px';
+
+      // 1. Décrire
+      step(0);
+      await wait(600);
+      await type(typed, "Je veux un formulaire pour les demandes de matériel de l'équipe, avec un suivi des statuts.");
+      if (!alive()) return;
+      await wait(450);
+      say(typed.textContent, 'me'); typed.textContent = '';
+
+      // 2. Générer
+      step(1);
+      await wait(500);
+      const gen = say('Je génère une première version…', 'ia');
+      empty.classList.add('is-off'); proto.classList.add('is-on'); root.classList.add('is-loading');
+      await wait(900);
+      for (const e of els) {
+        if (!alive()) return;
+        e.classList.add('is-on');
+        await wait(330);
+      }
+      root.classList.remove('is-loading');
+      gen.textContent = 'Voici votre prototype : un formulaire et un tableau de suivi.';
+      await wait(1200);
+
+      // 3. Tester
+      if (!alive()) return;
+      step(2);
+      cursor.classList.add('is-on');
+      await click(q('f-nom')); await type(q('f-nom'), 'Julie R.', 55);
+      await click(q('f-mat')); await type(q('f-mat'), 'Écran 27 pouces', 45);
+      await click(q('btn'));
+      if (!alive()) return;
+      const tr = document.createElement('tr');
+      tr.className = 'vd-new';
+      tr.innerHTML = '<td>Julie R.</td><td>Écran 27 pouces</td><td><mark>En attente</mark></td>';
+      rows.prepend(tr);
+      q('f-nom').textContent = ''; q('f-mat').textContent = '';
+      toast.classList.add('is-on');
+      await wait(1700);
+      toast.classList.remove('is-on');
+
+      // 4. Améliorer
+      if (!alive()) return;
+      step(3);
+      cursor.classList.remove('is-on');
+      await type(typed, 'Ajoute un filtre par statut.');
+      await wait(400);
+      say(typed.textContent, 'me'); typed.textContent = '';
+      await wait(700);
+      if (!alive()) return;
+      filters.classList.add('is-on');
+      say('C’est ajouté. Vous pouvez filtrer les demandes.', 'ia');
+      await wait(900);
+      cursor.classList.add('is-on');
+      await click(filters.children[1]);
+      filters.querySelectorAll('span').forEach((s, i) => s.classList.toggle('is-on', i === 1));
+      rows.querySelectorAll('tr').forEach((r) => r.classList.toggle('is-out', !!r.querySelector('mark.ok')));
+      await wait(1300);
+      if (!alive()) return;
+      cursor.classList.remove('is-on');
+      steps.forEach((s) => { s.classList.remove('is-on'); s.classList.add('is-done'); });
+      end.classList.add('is-on');
+    };
+
+    const showFinal = () => {
+      steps.forEach((s) => s.classList.add('is-done'));
+      empty.classList.add('is-off'); proto.classList.add('is-on'); filters.classList.add('is-on'); end.classList.add('is-on');
+      els.forEach((e) => e.classList.add('is-on'));
+    };
+
+    const start = () => (reduce ? showFinal() : play());
+
+    const btn = document.getElementById('vd-play');
+    btn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      root.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      start();
+    });
+
+    // Lecture automatique à la première apparition
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { io.disconnect(); start(); }
+      }, { threshold: 0.5 });
+      io.observe(root);
+    } else start();
+  }
+
+  document.addEventListener('astro:before-swap', () => { run++; });
+  document.addEventListener('astro:page-load', initVibeDemo);
+</script>
+
+<style is:global>
+  .vd {
+    position: absolute; left: 22px; top: 22px; width: 1049px; height: 497px;
+    border-radius: 62px; overflow: hidden; background: #fbf8f1; color: #1c1712;
+    font-family: 'Poppins', system-ui, sans-serif; padding: 20px 34px 22px 92px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .vd-steps { list-style: none; margin: 0; padding: 0; display: flex; gap: 10px; }
+  .vd-steps li { display: flex; align-items: center; gap: 8px; padding: 6px 16px 6px 6px; border-radius: 99px; background: #efe9dd; color: #6b655e; font-size: 14px; font-weight: 700; transition: background .35s, color .35s, scale .35s; }
+  .vd-steps b { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #fff; font-size: 13px; }
+  .vd-steps .is-on { background: #c40d60; color: #fff; scale: 1.06; }
+  .vd-steps .is-on b { color: #c40d60; }
+  .vd-steps .is-done { background: #66d1da; color: #1c1712; }
+
+  .vd-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 372px 1fr; gap: 18px; }
+  .vd-chat { display: flex; flex-direction: column; min-height: 0; background: #fff; border-radius: 22px; padding: 14px; box-shadow: 0 10px 18px -12px rgba(0, 0, 0, .3); }
+  .vd-label { margin: 0 0 8px; font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: #c40d60; }
+  .vd-msgs { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; }
+  .vd-msg { margin: 0; padding: 9px 13px; border-radius: 16px; font-size: 13.5px; line-height: 1.35; max-width: 92%; animation: vd-pop .35s cubic-bezier(.3, 1.4, .5, 1); }
+  .vd-msg--me { align-self: flex-end; background: #ffe897; border-bottom-right-radius: 4px; }
+  .vd-msg--ia { align-self: flex-start; background: #f1eee7; border-bottom-left-radius: 4px; }
+  @keyframes vd-pop { from { opacity: 0; translate: 0 10px; scale: .96; } }
+  .vd-input { margin-top: 10px; min-height: 44px; display: flex; align-items: center; gap: 2px; padding: 8px 44px 8px 14px; border: 2px solid #e4e0d8; border-radius: 16px; font-size: 13.5px; line-height: 1.3; position: relative; }
+  .vd-caret { width: 2px; height: 17px; background: #c40d60; animation: vd-blink 1s steps(2) infinite; flex: none; }
+  @keyframes vd-blink { 50% { opacity: 0; } }
+  .vd-input em { position: absolute; right: 8px; top: 50%; translate: 0 -50%; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #c40d60; color: #fff; font-style: normal; font-weight: 700; font-size: 15px; }
+
+  .vd-app { display: flex; flex-direction: column; min-height: 0; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 10px 18px -12px rgba(0, 0, 0, .3); }
+  .vd-chrome { display: flex; align-items: center; gap: 6px; padding: 9px 14px; background: #1c1712; color: #cfc8bc; font-size: 11px; letter-spacing: .08em; }
+  .vd-chrome i { width: 9px; height: 9px; border-radius: 50%; background: #ff8565; }
+  .vd-chrome i:nth-child(2) { background: #ffe897; }
+  .vd-chrome i:nth-child(3) { background: #66d1da; }
+  .vd-chrome span { margin-left: 8px; }
+  .vd-canvas { position: relative; flex: 1; min-height: 0; padding: 14px 18px; }
+  .vd-empty { position: absolute; inset: 0; margin: 0; display: grid; place-items: center; color: #9a948b; font-size: 14px; transition: opacity .3s; }
+  .vd-empty.is-off { opacity: 0; }
+  .vd-proto { opacity: 0; transition: opacity .4s; }
+  .vd-proto.is-on { opacity: 1; }
+  .vd-el { opacity: 0; translate: 0 12px; transition: opacity .45s, translate .45s cubic-bezier(.2, .7, .2, 1); }
+  .vd-el.is-on { opacity: 1; translate: 0 0; }
+  .vd.is-loading .vd-canvas::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(102, 209, 218, .28) 50%, transparent 70%); background-size: 220% 100%; animation: vd-shimmer 1.1s linear infinite; pointer-events: none; }
+  @keyframes vd-shimmer { from { background-position: 120% 0; } to { background-position: -120% 0; } }
+  .vd-proto h3 { margin: 0 0 10px; font: 700 19px/1.1 'Inter Variable', Inter, sans-serif; letter-spacing: -.03em; }
+  .vd-form { display: grid; grid-template-columns: 1fr 1.3fr auto; gap: 10px; align-items: end; }
+  .vd-form label { display: flex; flex-direction: column; gap: 3px; font-size: 10.5px; font-weight: 700; color: #6b655e; }
+  .vd-form u { display: block; height: 32px; padding: 0 10px; border: 2px solid #e4e0d8; border-radius: 10px; text-decoration: none; font: 400 13px/28px 'Poppins', sans-serif; color: #1c1712; white-space: nowrap; overflow: hidden; }
+  .vd-form button { height: 32px; padding: 0 16px; border: 0; border-radius: 99px; background: #c40d60; color: #fff; font: 700 12.5px/1 'Poppins', sans-serif; }
+  .vd-filters { display: flex; gap: 6px; height: 0; opacity: 0; overflow: hidden; transition: height .4s, opacity .4s, margin .4s; }
+  .vd-filters.is-on { height: 26px; opacity: 1; margin-top: 10px; }
+  .vd-filters span { padding: 0 12px; border-radius: 99px; background: #efe9dd; font-size: 11.5px; font-weight: 700; line-height: 26px; transition: background .25s, color .25s; }
+  .vd-filters span.is-on { background: #1c1712; color: #fff; }
+  .vd-proto table { width: 100%; margin-top: 10px; border-collapse: collapse; font-size: 12.5px; }
+  .vd-proto th { text-align: left; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: #6b655e; padding: 4px 6px; border-bottom: 2px solid #efe9dd; }
+  .vd-proto td { padding: 6px; border-bottom: 1px solid #f1eee7; }
+  .vd-proto mark { background: #ffe897; padding: 2px 9px; border-radius: 99px; font-size: 11px; font-weight: 700; color: #1c1712; }
+  .vd-proto mark.ok { background: #66d1da; }
+  .vd-proto tr.vd-new { animation: vd-row .7s cubic-bezier(.2, .7, .2, 1); }
+  @keyframes vd-row { from { opacity: 0; translate: -14px 0; background: #ffe897; } }
+  .vd-proto tr.is-out { display: none; }
+  .vd-toast { position: absolute; right: 14px; bottom: 12px; background: #1c1712; color: #fff; font-size: 12.5px; font-weight: 700; padding: 9px 15px; border-radius: 12px; opacity: 0; translate: 0 14px; transition: opacity .3s, translate .3s; }
+  .vd-toast.is-on { opacity: 1; translate: 0 0; }
+
+  .vd-cursor { position: absolute; left: 560px; top: 420px; width: 20px; height: 20px; margin: -4px 0 0 -4px; border-radius: 50%; background: rgba(196, 13, 96, .9); border: 3px solid #fff; box-shadow: 0 3px 8px rgba(0, 0, 0, .35); opacity: 0; pointer-events: none; transition: left .6s cubic-bezier(.5, 0, .2, 1), top .6s cubic-bezier(.5, 0, .2, 1), opacity .3s, scale .15s; }
+  .vd-cursor.is-on { opacity: 1; }
+  .vd-cursor.is-click { scale: .65; }
+  .vd-end { position: absolute; right: 34px; top: 20px; background: #1c1712; color: #ffe897; font-size: 13.5px; font-weight: 700; padding: 9px 16px; border-radius: 99px; opacity: 0; scale: .8; transition: opacity .4s, scale .4s cubic-bezier(.3, 1.5, .5, 1); }
+  .vd-end.is-on { opacity: 1; scale: 1; }
+
+  /* Sur téléphone : l'écran de démo est mis à l'échelle de la largeur disponible */
+  @media (max-width: 760px) {
+    .vd-phone { position: relative; aspect-ratio: 1093 / 541; container-type: inline-size; border-radius: 0 !important; overflow: visible !important; }
+    .vd-phone > img { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; }
+    .vd { left: 2.01%; top: 4.07%; transform-origin: 0 0; transform: scale(tan(atan2(100cqw, 1093px))); }
+  }
+</style>
