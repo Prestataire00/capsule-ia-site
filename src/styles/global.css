@@ -246,3 +246,7 @@ a.t[href]:hover { letter-spacing: .06em !important; }
   .cta-flottant-pastille { width: 38px; height: 38px; font-size: 13px; }
   .cta-flottant-texte b { font-size: 13.5px; }
 }
+
+/* Les éléments purement décoratifs ne doivent jamais intercepter les clics */
+.stage > .deco, .m-hide, .wm, .hl, .cur, .dot { pointer-events: none; }
+.navbar { z-index: 20; }
