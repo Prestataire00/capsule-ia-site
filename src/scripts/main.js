@@ -24,7 +24,9 @@ function reveal() {
 
 // Le bouton flottant apparaît après un peu de défilement
 function toggleCta() {
-  document.querySelector('.cta-flottant')?.classList.toggle('is-on', window.scrollY > 520);
+  // masqué tout en bas de page pour ne pas recouvrir le pied de page
+  const bas = window.innerHeight + window.scrollY > document.documentElement.scrollHeight - 320;
+  document.querySelector('.cta-flottant')?.classList.toggle('is-on', window.scrollY > 520 && !bas);
 }
 
 function requestReveal() {
