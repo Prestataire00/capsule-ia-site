@@ -1,0 +1,43 @@
+---
+// Renvoi vers IA Infinity pour ce qui dépasse la formation :
+// production d'agents, automatisations, solutions métier sur mesure.
+const url = 'https://www.i-a-infinity.com/';
+const offres = [
+  { t: 'Agents IA', d: 'Des assistants qui traitent vos demandes, vos e-mails ou vos dossiers à votre place.' },
+  { t: 'Automatisations', d: 'Vos tâches répétitives enchaînées automatiquement entre vos outils.' },
+  { t: 'Solutions métier', d: 'Une application conçue pour votre activité, quand aucun outil du marché ne convient.' },
+];
+---
+
+<section class="iai" id="ia-infinity" aria-labelledby="iai-titre">
+  <div class="iai-in">
+    <p class="iai-eyebrow">Aller plus loin</p>
+    <h2 id="iai-titre">Besoin qu'on <span>le construise</span> pour vous ?</h2>
+    <p class="iai-lead">
+      Capsule IA forme vos équipes. Pour la production d'agents IA, d'automatisations ou la création d'une solution
+      métier sur mesure, nous vous orientons vers notre partenaire <strong>IA Infinity</strong>.
+    </p>
+    <ul class="iai-offres">
+      {offres.map((o) => <li><h3>{o.t}</h3><p>{o.d}</p></li>)}
+    </ul>
+    <a class="iai-btn" href={url} target="_blank" rel="noopener">Découvrir IA Infinity <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<style>
+  .iai { background: #1c1712; color: #fff; padding: clamp(56px, 8vw, 110px) 20px; text-align: center; font-family: 'Poppins', sans-serif; }
+  .iai-in { max-width: 1040px; margin: 0 auto; }
+  .iai-eyebrow { margin: 0 0 16px; font-weight: 700; font-size: clamp(11px, 1.2vw, 15px); letter-spacing: .6em; text-transform: uppercase; color: #ffe897; }
+  h2 { margin: 0; font: 700 clamp(36px, 5.6vw, 76px)/.98 'Inter Variable', Inter, sans-serif; letter-spacing: -.049em; text-wrap: balance; }
+  h2 span { background: rgba(196, 13, 96, .75); padding: 0 .12em; }
+  .iai-lead { margin: 24px auto 0; max-width: 62ch; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.6; color: #efe9dd; }
+  .iai-lead strong { color: #ffe897; }
+  .iai-offres { list-style: none; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 18px; text-align: left; }
+  .iai-offres li { background: #2a231c; border-radius: 26px; padding: 26px 24px; border-top: 5px solid #66d1da; }
+  .iai-offres li:nth-child(2) { border-top-color: #ff8565; }
+  .iai-offres li:nth-child(3) { border-top-color: #ffe897; }
+  h3 { margin: 0 0 8px; font: 700 22px/1.15 'Inter Variable', Inter, sans-serif; letter-spacing: -.03em; }
+  .iai-offres p { margin: 0; font-size: 15px; line-height: 1.55; color: #d8d1c4; }
+  .iai-btn { display: inline-block; margin-top: clamp(28px, 4vw, 44px); background: #ffe897; color: #1c1712; padding: 17px 36px; border-radius: 999px; font: italic 700 clamp(16px, 1.7vw, 21px)/1 'Poppins', sans-serif; letter-spacing: -.04em; box-shadow: 0 12px 18px -8px rgba(0, 0, 0, .6); transition: transform .25s cubic-bezier(.3, 1.4, .5, 1); }
+  .iai-btn:hover { transform: translateY(-3px) scale(1.04); }
+</style>
