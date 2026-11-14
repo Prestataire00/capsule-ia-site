@@ -33,11 +33,12 @@ a { color: inherit; text-decoration: none; }
 .heavy { font-family: "Poppins", system-ui, sans-serif; font-weight: 900; }
 
 /* ---------- Scènes ---------- */
-.sec { position: relative; overflow: hidden; height: calc(var(--H) * var(--k) * 1px); background: var(--bg, #fff); }
+/* --z : zoom propre à une rubrique (≤ 1) pour harmoniser les blocs trop grands */
+.sec { --ke: calc(var(--k) * var(--z, 1)); position: relative; overflow: hidden; height: calc(var(--H) * var(--ke) * 1px); background: var(--bg, #fff); }
 .stage {
   position: absolute; top: 0; left: 50%;
   width: 1366px; height: calc(var(--H) * 1px);
-  transform: translateX(-50%) scale(var(--k));
+  transform: translateX(-50%) scale(var(--ke));
   transform-origin: top center;
 }
 .a { position: absolute; left: calc(var(--x) * 1px); top: calc(var(--y) * 1px); width: calc(var(--w) * 1px); }
@@ -266,12 +267,12 @@ a.t[href]:hover { letter-spacing: .06em !important; }
 /* =========================================================
    Grand écran : l'échelle est plafonnée (--kmax), la scène reste
    centrée et les fonds pleine largeur débordent jusqu'aux bords.
-   1025 px = 1366 × --kmax : à garder synchronisé.
+   Vaut aussi dès qu'une rubrique a son propre zoom (--z).
    ========================================================= */
-@media (min-width: 1025px) {
+@media (min-width: 761px) {
   .deco[style*="--x:0;--y"][style*="--w:1366;"] {
-    left: calc(683px - 50vw / var(--k));
-    width: calc(100vw / var(--k));
+    left: calc(683px - 50vw / var(--ke));
+    width: calc(100vw / var(--ke));
   }
   .clip.deco[style*="--x:0;--y"][style*="--w:1366;"] > img {
     left: 0 !important; top: 0 !important;
