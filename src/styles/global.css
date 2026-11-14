@@ -18,7 +18,7 @@
   --lemon: #fffe89;
   /* largeur écran / 1366, calculée en CSS pur (affinée ensuite par le script) */
   /* plafonnée par --kmax pour ne pas grossir sans fin sur grand écran */
-  --kmax: .9;
+  --kmax: .75;
   --k: min(var(--kmax), tan(atan2(100vw, 1366px)));
 }
 
@@ -266,9 +266,9 @@ a.t[href]:hover { letter-spacing: .06em !important; }
 /* =========================================================
    Grand écran : l'échelle est plafonnée (--kmax), la scène reste
    centrée et les fonds pleine largeur débordent jusqu'aux bords.
-   1230 px = 1366 × --kmax : à garder synchronisé.
+   1025 px = 1366 × --kmax : à garder synchronisé.
    ========================================================= */
-@media (min-width: 1230px) {
+@media (min-width: 1025px) {
   .deco[style*="--x:0;--y"][style*="--w:1366;"] {
     left: calc(683px - 50vw / var(--k));
     width: calc(100vw / var(--k));
