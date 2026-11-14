@@ -359,3 +359,18 @@ a.t[href]:hover { letter-spacing: .06em !important; }
   .navbar > p.t { order: 4; flex: 0 0 auto; }
 }
 @media (max-width: 400px) { .navbar { gap: 10px 14px !important; } }
+@media (max-width: 760px) {
+  /* Accueil : le visuel du haut de page (photos) est conservé, réduit à la largeur de l'écran */
+  .m-hide.collage {
+    --s: tan(atan2(min(100vw, 600px) - 40px, 710px));
+    display: block !important; position: relative; flex: none; align-self: flex-start;
+    width: 1366px !important; max-width: none; height: 956px !important;
+    transform-origin: 0 0; transform: scale(var(--s)) translate(-616px, -180px);
+    margin: 6px 0 calc(760px * var(--s) - 956px);
+  }
+  .collage .a { position: absolute; left: calc(var(--x) * 1px) !important; top: calc(var(--y) * 1px) !important; width: calc(var(--w) * 1px) !important; max-width: none; }
+  .collage .bx { height: calc(var(--h) * 1px) !important; padding: 0 !important; display: block !important; }
+  .collage .clip > img { position: absolute; left: 0; top: 0; width: 100% !important; height: 100% !important; object-fit: cover; object-position: top; }
+  .collage .t { font-size: calc(var(--fs) * 1px); line-height: calc(var(--lh) * 1px); }
+  .collage .t br { display: inline !important; }
+}
