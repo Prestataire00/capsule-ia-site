@@ -1,0 +1,24 @@
+---
+// En-tête des pages éditoriales (Ressources).
+---
+<header class="et">
+  <a class="et-logo" href="/" aria-label="Capsule IA — accueil">
+    <img src="/img/logo.webp" alt="Capsule IA — retour à l'accueil" width="84" height="84" />
+  </a>
+  <nav aria-label="Navigation principale">
+    <a href="/#formations">Nos formations</a>
+    <a href="/#approche">Notre approche</a>
+    <a href="/ressources/">Ressources</a>
+  </nav>
+  <a class="et-pill" href="/#modules">Découvrir nos modules</a>
+</header>
+
+<style>
+  .et { display: flex; align-items: center; gap: 24px; padding: 10px clamp(16px, 4vw, 56px); background: #fff; box-shadow: 0 8px 18px -14px rgba(0, 0, 0, .35); font-family: 'Poppins', sans-serif; position: relative; z-index: 2; }
+  .et-logo img { width: 84px; height: 84px; display: block; transition: rotate .5s cubic-bezier(.3, 1.5, .5, 1); }
+  .et-logo:hover img { rotate: -8deg; }
+  nav { display: flex; gap: clamp(16px, 4vw, 64px); margin-inline: auto; font-size: 15px; color: #353535; }
+  nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+  .et-pill { background: #ffe897; color: #1c1712; padding: 10px 22px; border-radius: 999px; font-weight: 700; font-style: italic; letter-spacing: -.05em; white-space: nowrap; box-shadow: 0 9px 14px -6px rgba(0, 0, 0, .3); }
+  @media (max-width: 760px) { nav { display: none; } .et-pill { margin-left: auto; font-size: 14px; } .et-logo img { width: 64px; height: 64px; } }
+</style>
