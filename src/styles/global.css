@@ -375,3 +375,14 @@ a.t[href]:hover { letter-spacing: .06em !important; }
   .collage .t { font-size: calc(var(--fs) * 1px); line-height: calc(var(--lh) * 1px); }
   .collage .t br { display: inline !important; }
 }
+
+/* Barre de menu : entrée en cascade au chargement */
+@media (prefers-reduced-motion: no-preference) {
+  .navbar > * { animation: nav-entree .6s cubic-bezier(.2, .8, .2, 1) both; }
+  .navbar > *:nth-child(1) { animation-delay: .05s; }
+  .navbar > *:nth-child(2) { animation-delay: .15s; }
+  .navbar > *:nth-child(3) { animation-delay: .22s; }
+  .navbar > *:nth-child(4) { animation-delay: .29s; }
+  .navbar > *:nth-child(5) { animation-delay: .38s; }
+  @keyframes nav-entree { from { opacity: 0; translate: 0 -18px; } }
+}
