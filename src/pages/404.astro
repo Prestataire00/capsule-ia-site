@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+const liens = [
+  ['/', "Retour à l'accueil"],
+  ['/acculturation/', 'Acculturation IA'],
+  ['/metiers/', 'IA & Métiers'],
+  ['/rgpd-reglementation/', 'RGPD & réglementation'],
+  ['/vibe-coding/', 'Vibe coding'],
+  ['/devis/', 'Demander un devis'],
+];
+---
+
+<Layout title="Page introuvable | Capsule IA" description="Cette page n'existe pas ou a été déplacée." noindex>
+  <main class="nf">
+    <a class="nf-logo" href="/"><img src="/img/logo.webp" alt="Capsule IA — retour à l'accueil" width="110" height="110" /></a>
+    <p class="nf-code">404</p>
+    <h1>Cette page <span>n'existe pas.</span></h1>
+    <p class="nf-lead">Le lien est peut-être ancien ou mal saisi. Voici où aller ensuite :</p>
+    <ul>
+      {liens.map(([href, nom], i) => <li><a class={i === 0 ? 'is-main' : ''} href={href}>{nom}</a></li>)}
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  .nf { min-height: 100vh; background: #ffe897; color: #1c1712; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; font-family: 'Poppins', sans-serif; }
+  .nf-code { margin: 10px 0 0; font: 700 14px/1 'Poppins', sans-serif; letter-spacing: .6em; color: #c40d60; }
+  h1 { margin: 14px 0 0; font: 700 clamp(40px, 7vw, 84px)/.95 'Inter Variable', Inter, sans-serif; letter-spacing: -.049em; text-wrap: balance; }
+  h1 span { background: rgba(255, 133, 101, .45); padding: 0 .1em; }
+  .nf-lead { margin: 22px 0 0; font-size: 17px; }
+  ul { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 720px; }
+  li a { display: block; padding: 12px 22px; border-radius: 999px; background: #fff; font-weight: 700; font-size: 15px; transition: transform .2s; }
+  li a.is-main { background: #c40d60; color: #fff; }
+  li a:hover { transform: translateY(-2px); }
+</style>

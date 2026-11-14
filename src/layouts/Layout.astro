@@ -12,15 +12,20 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  /** Données structurées propres à la page (schema.org). */
+  schema?: Record<string, unknown>[];
+  /** Nom court de la page pour le fil d'Ariane. */
+  fil?: string;
+  noindex?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, schema = [], fil, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const image = new URL('/partage.jpg', Astro.site);
 const surDevis = Astro.url.pathname.startsWith('/devis');
 
-const jsonLd = {
-  '@context': 'https://schema.org',
+const organisme = {
   '@type': 'EducationalOrganization',
+  '@id': new URL('/#organisme', Astro.site),
   name: 'Capsule IA',
   url: Astro.site,
   logo: new URL('/favicon.png', Astro.site),
@@ -29,7 +34,35 @@ const jsonLd = {
   email: 'contact@capsuleia.fr',
   telephone: '+33621005894',
   sameAs: ['https://www.instagram.com/capsuleai.fr/', 'https://www.linkedin.com/company/108125643/'],
-  areaServed: 'FR',
+  areaServed: { '@type': 'Country', name: 'France' },
+  knowsAbout: ['Intelligence artificielle', 'IA générative', 'Rédaction de prompts', 'RGPD', 'AI Act', 'Vibe coding'],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'Demande de devis',
+    telephone: '+33621005894',
+    email: 'contact@capsuleia.fr',
+    availableLanguage: 'French',
+    url: new URL('/devis/', Astro.site),
+  },
+};
+const siteWeb = {
+  '@type': 'WebSite',
+  '@id': new URL('/#site', Astro.site),
+  name: 'Capsule IA',
+  url: Astro.site,
+  inLanguage: 'fr-FR',
+  publisher: { '@id': organisme['@id'] },
+};
+const filAriane = fil && {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: Astro.site },
+    { '@type': 'ListItem', position: 2, name: fil, item: canonical },
+  ],
+};
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [organisme, siteWeb, ...(filAriane ? [filAriane] : []), ...schema],
 };
 ---
 
@@ -41,6 +74,7 @@ const jsonLd = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#c40d60" />
@@ -52,6 +86,7 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content="Capsule IA, formations à l'intelligence artificielle" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
