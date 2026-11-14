@@ -17,7 +17,9 @@
   --card: #f5f5f5;
   --lemon: #fffe89;
   /* largeur écran / 1366, calculée en CSS pur (affinée ensuite par le script) */
-  --k: tan(atan2(100vw, 1366px));
+  /* plafonnée par --kmax pour ne pas grossir sans fin sur grand écran */
+  --kmax: .9;
+  --k: min(var(--kmax), tan(atan2(100vw, 1366px)));
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -259,4 +261,90 @@ a.t[href]:hover { letter-spacing: .06em !important; }
 }
 @media (max-width: 760px) {
   .sec[style*="--next"]::after { height: 40px; min-height: 0; }
+}
+
+/* =========================================================
+   Grand écran : l'échelle est plafonnée (--kmax), la scène reste
+   centrée et les fonds pleine largeur débordent jusqu'aux bords.
+   1230 px = 1366 × --kmax : à garder synchronisé.
+   ========================================================= */
+@media (min-width: 1230px) {
+  .deco[style*="--x:0;--y"][style*="--w:1366;"] {
+    left: calc(683px - 50vw / var(--k));
+    width: calc(100vw / var(--k));
+  }
+  .clip.deco[style*="--x:0;--y"][style*="--w:1366;"] > img {
+    left: 0 !important; top: 0 !important;
+    width: 100% !important; height: 100% !important; object-fit: cover;
+  }
+}
+
+/* =========================================================
+   Téléphone : finitions de la mise en page empilée
+   ========================================================= */
+@media (max-width: 760px) {
+  .stage { padding: 40px 20px 48px; gap: 18px; }
+  .j { text-align: left; }
+  .t:not(.big) br { display: none; }
+  .t { line-height: 1.45; }
+  .t.up { line-height: 1.25; }
+
+  /* Menu : logo et bouton sur une ligne, liens dessous */
+  .navbar { gap: 8px 6px !important; padding-bottom: 6px; }
+  .navbar .logo-m { order: 1; flex: 0 0 56px; width: 56px !important; }
+  .navbar .btn { order: 2; margin-left: auto; padding: 10px 18px; }
+  .navbar .btn span { font-size: 15px !important; }
+  .navbar > p.t { order: 3; flex: 1 1 0; text-align: center; white-space: nowrap; }
+  .navbar .nav-link { font-size: 13.5px !important; }
+
+  /* Un seul logo Qualiopi */
+  .row-m:has(img[src*="qualiopi"]) > * { flex: 0 0 200px; }
+  .row-m:has(img[src*="qualiopi"]) > :nth-child(n + 2) { display: none; }
+
+  /* Encadrés colorés : marge intérieure */
+  .bx[style*="background:var(--magenta)"]:not(.deco):not(.btn):not(.dot):not(.cur) {
+    padding: 18px 20px; border-radius: 22px !important; display: flex; flex-direction: column; gap: 8px;
+  }
+  #contact > .stage > a.bx.shadow { padding: 44px 22px 48px; border-radius: 30px !important; gap: 16px; }
+  #contact > .stage > a.bx.shadow .t.big { font-size: 34px; line-height: 1.05; }
+  #contact > .stage > a.bx.shadow .t.big br { display: none; }
+
+  /* Cartes modules : lien « Découvrir » en bouton */
+  #modules a.t.up { align-self: flex-start; background: var(--yellow); padding: 10px 20px; border-radius: 99px; font-size: 14px; margin: -6px 0 28px; box-shadow: 0 8px 14px -8px rgba(0, 0, 0, .5); }
+
+  /* Équipe */
+  .nametag { display: none !important; }
+  .avatar { width: 140px !important; height: 140px !important; aspect-ratio: 1; margin-top: 14px; }
+  .avatar > img { width: 100% !important; height: 100% !important; object-fit: cover; object-position: top; }
+  .avatar ~ p.t { text-align: center; }
+  .avatar ~ .bx[style*="background:var(--magenta)"] { align-self: center; padding: 10px 22px !important; text-align: center; gap: 4px; }
+
+  /* Pied de page : deux colonnes */
+  #contact > .stage { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  #contact > .stage > * { flex: 1 1 100%; }
+  #contact > .stage > .fcol { flex: 1 1 40%; margin-top: 10px; }
+  #contact > .stage > .fcol:last-child { flex-basis: 100%; }
+  #contact .fcol > svg { display: none; }
+  #contact .m-logo { flex: 0 0 96px; width: 96px !important; margin-top: 12px; }
+  #contact .foot { font-size: 15px; }
+}
+@media (max-width: 760px) {
+  /* « Les modalités » : chaque étiquette suivie de son texte */
+  .row-m:has(> .bx[style*="--pink"]) { flex-direction: column; flex-wrap: nowrap; gap: 10px; }
+  .row-m:has(> .bx[style*="--pink"]) > * { flex: 0 0 auto; }
+  .row-m:has(> .bx[style*="--pink"]) > .bx { padding: 12px 16px; margin-top: 12px; }
+  .row-m:has(> .bx[style*="--pink"]) > :nth-child(1) { order: 1; }
+  .row-m:has(> .bx[style*="--pink"]) > :nth-child(4) { order: 2; }
+  .row-m:has(> .bx[style*="--pink"]) > :nth-child(2) { order: 3; }
+  .row-m:has(> .bx[style*="--pink"]) > :nth-child(6) { order: 4; }
+  .row-m:has(> .bx[style*="--pink"]) > :nth-child(3) { order: 5; }
+  .row-m:has(> .bx[style*="--pink"]) > :nth-child(8) { order: 6; }
+}
+@media (max-width: 760px) {
+  /* Page Métiers : les trois formateurs côte à côte, nom sous chaque photo */
+  .team-m { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 8px; align-items: start; }
+  .team-m > .clip { aspect-ratio: 3 / 4; border-radius: 16px; }
+  .team-m > .clip > img { height: 100% !important; object-fit: cover; object-position: top; }
+  .team-m > .bx[style*="background:var(--magenta)"] { padding: 8px 6px !important; border-radius: 12px !important; text-align: center; }
+  .team-m > .bx[style*="background:var(--magenta)"] .t { font-size: 11.5px; letter-spacing: 0 !important; }
 }

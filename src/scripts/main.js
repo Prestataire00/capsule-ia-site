@@ -4,7 +4,8 @@ let pending = [];
 let ticking = false;
 
 function setScale() {
-  root.style.setProperty('--k', (root.clientWidth / 1366).toFixed(5));
+  const kmax = parseFloat(getComputedStyle(root).getPropertyValue('--kmax')) || 1;
+  root.style.setProperty('--k', Math.min(root.clientWidth / 1366, kmax).toFixed(5));
 }
 
 // Révèle tout élément arrivé dans (ou au-dessus de) la fenêtre
