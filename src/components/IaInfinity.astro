@@ -25,7 +25,10 @@ const offres = [
 </section>
 
 <style>
-  .iai { background: #1c1712; color: #fff; padding: clamp(56px, 8vw, 110px) 20px; text-align: center; font-family: 'Poppins', sans-serif; }
+  .iai { position: relative; background: #1c1712; color: #fff; padding: clamp(56px, 8vw, 110px) 20px clamp(120px, 14vw, 220px); text-align: center; font-family: 'Poppins', sans-serif; }
+  /* Dégradé vers la couleur de la section suivante (FAQ) */
+  .iai::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: clamp(70px, 11vw, 150px); pointer-events: none; background: linear-gradient(180deg, transparent, color-mix(in srgb, #c40d60 55%, transparent) 55%, #c40d60); }
+  .iai-in { position: relative; z-index: 1; }
   .iai-in { max-width: 1040px; margin: 0 auto; }
   .iai-eyebrow { margin: 0 0 16px; font-weight: 700; font-size: clamp(11px, 1.2vw, 15px); letter-spacing: .6em; text-transform: uppercase; color: #ffe897; }
   h2 { margin: 0; font: 700 clamp(36px, 5.6vw, 76px)/.98 'Inter Variable', Inter, sans-serif; letter-spacing: -.049em; text-wrap: balance; }
