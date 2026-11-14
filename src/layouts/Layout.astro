@@ -100,6 +100,25 @@ const jsonLd = {
     <ClientRouter />
   </head>
   <body>
+    {
+      !surDevis && (
+        <header class="barre" inert>
+          <div class="barre-in">
+            <a class="barre-logo" href="/" aria-label="Capsule IA — accueil">
+              <img src="/img/logo.webp" alt="" width="44" height="44" />
+              <span>Capsule IA</span>
+            </a>
+            <nav aria-label="Navigation rapide">
+              <a href="/#formations">Nos formations</a>
+              <a href="/#approche">Notre approche</a>
+              <a href="/#a-propos">À propos</a>
+              <a href="/ressources/">Ressources</a>
+            </nav>
+            <a class="barre-btn" href="/devis/">Demander un devis</a>
+          </div>
+        </header>
+      )
+    }
     <slot />
     {
       !surDevis && (
