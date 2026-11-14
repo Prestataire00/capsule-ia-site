@@ -348,3 +348,14 @@ a.t[href]:hover { letter-spacing: .06em !important; }
   .team-m > .bx[style*="background:var(--magenta)"] { padding: 8px 6px !important; border-radius: 12px !important; text-align: center; }
   .team-m > .bx[style*="background:var(--magenta)"] .t { font-size: 11.5px; letter-spacing: 0 !important; }
 }
+@media (max-width: 760px) {
+  /* Fenêtre étroite ou tablette : le contenu reste une colonne centrée */
+  .stage { max-width: 600px; margin-inline: auto; }
+  /* Menu toujours sur deux lignes : logo et bouton, puis les trois liens centrés */
+  .navbar { flex-wrap: wrap !important; justify-content: center; gap: 10px 26px !important; }
+  .navbar .logo-m { order: 1; margin-right: auto; }
+  .navbar .btn { order: 2; margin-left: auto; }
+  .navbar::after { content: ""; order: 3; flex: 0 0 100%; height: 0; }
+  .navbar > p.t { order: 4; flex: 0 0 auto; }
+}
+@media (max-width: 400px) { .navbar { gap: 10px 14px !important; } }
