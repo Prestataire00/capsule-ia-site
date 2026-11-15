@@ -93,6 +93,8 @@ function interactions() {
       const x = (e.clientX - r.left) / r.width - 0.5;
       const y = (e.clientY - r.top) / r.height - 0.5;
       c.style.transform = `perspective(900px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 8).toFixed(2)}deg)`;
+      c.style.setProperty('--mx', ((x + 0.5) * 100).toFixed(1) + '%');
+      c.style.setProperty('--my', ((y + 0.5) * 100).toFixed(1) + '%');
     });
     c.addEventListener('mouseleave', () => (c.style.transform = ''));
   });
