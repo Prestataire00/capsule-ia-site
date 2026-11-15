@@ -1,0 +1,1560 @@
+[
+ {
+  "slug": "bootcamp-claude",
+  "titre": "Bootcamp Claude : mode agentique, Claude Code et agents IA | Capsule IA",
+  "description": "Formation Claude de 16 heures : mode agentique, Claude Code, création d'agents IA et montage vidéo automatisé, avec Wissam Bouakline.",
+  "nom": "Bootcamp Claude de A à Z",
+  "teaches": [
+   "Claude",
+   "Claude Code",
+   "Mode agentique",
+   "Agents IA",
+   "Sous-agents et skills",
+   "Serveurs MCP",
+   "Montage vidéo automatisé avec FFmpeg"
+  ],
+  "niveau": "Débutant à intermédiaire",
+  "instructeur": {
+   "@type": "Person",
+   "name": "Wissam Bouakline",
+   "jobTitle": "Formatrice experte Claude",
+   "worksFor": {
+    "@id": "https://www.capsuleia.fr/#organisme"
+   }
+  },
+  "audience": "Professionnels, indépendants et équipes en entreprise",
+  "eyebrow": "Bootcamp · 16 heures",
+  "kw": "Formation Claude",
+  "accroche": "Claude de A à Z.",
+  "sousTitre": "Mode agentique, Claude Code, création d'agents et montage vidéo automatisé : tout l'univers de Claude en 16 heures de pratique.",
+  "puces": [
+   [
+    "16 h",
+    "de pratique"
+   ],
+   [
+    "3",
+    "blocs, un livrable par séance"
+   ],
+   [
+    "Qualiopi",
+    "organisme certifié"
+   ]
+  ],
+  "actions": [
+   [
+    "Demander un devis",
+    "/devis/"
+   ],
+   [
+    "Voir le programme ↓",
+    "#programme"
+   ]
+  ],
+  "demo": {
+   "couleur": "#d97757",
+   "titre": "claude code — agent",
+   "logo": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"#d97757\" role=\"img\" aria-label=\"Claude\"><path d=\"m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z\"/></svg>",
+   "lignes": [
+    [
+     "p",
+     "$ claude \"prépare le rapport client de vendredi\""
+    ],
+    [
+     "o",
+     "● Analyse du dossier · 14 fichiers lus"
+    ],
+    [
+     "s",
+     "▸ Plan d’action : 4 étapes"
+    ],
+    [
+     "s",
+     "▸ Rédaction du rapport… ok"
+    ],
+    [
+     "s",
+     "▸ Vérification des chiffres CRM… ok"
+    ],
+    [
+     "ok",
+     "✓ Rapport prêt dans vos fichiers · 42 s"
+    ]
+   ]
+  },
+  "bref": "Le Bootcamp Claude de Capsule IA est une formation pratique de 16 heures, qui couvre tout l'univers de Claude : formuler des demandes efficaces, déléguer des tâches longues en mode agentique, développer avec Claude Code, construire ses propres agents (sous-agents, skills, serveurs MCP, hooks) et monter une vidéo par scripts. Elle est animée par Wissam Bouakline et s'adresse aux débutants comme aux profils intermédiaires.",
+  "objectifGlobal": "Rendre l'apprenant autonome pour déléguer des tâches à Claude, développer avec Claude Code, construire ses propres agents et produire une vidéo montée de bout en bout.",
+  "fiche": [
+   [
+    "Durée",
+    "16 heures"
+   ],
+   [
+    "Format",
+    "Individuel, en visioconférence ou en présentiel, 100 % pratique"
+   ],
+   [
+    "Niveau",
+    "Débutant à intermédiaire"
+   ],
+   [
+    "Intervenante",
+    "Wissam Bouakline, formatrice experte Claude"
+   ],
+   [
+    "Livrables",
+    "Un agent opérationnel, une vidéo montée et un plan d'action à 30 jours"
+   ]
+  ],
+  "objTitre": "À l'issue des 16 heures, <span>vous savez</span>",
+  "objectifs": [
+   "Structurer une demande efficace, choisir le bon modèle, maîtriser coûts et limites, organiser son travail (projets, mémoire, connecteurs).",
+   "Confier des tâches longues à Claude : documents Word, Excel et présentations, navigation web, tâches programmées.",
+   "Installer et configurer Claude Code, puis créer, tester et mettre en ligne un projet réel.",
+   "Concevoir un agent avec Claude Code : sous-agents, skills, serveurs MCP, hooks et exécution automatisée.",
+   "Piloter un montage vidéo par scripts : découpe, sous-titres, assemblage, export.",
+   "Évaluer la fiabilité d'un résultat, sécuriser ses accès et décider quand déléguer ou non."
+  ],
+  "progTitre": "8 séances, <span>3 blocs</span>",
+  "progLead": "Chaque séance s'appuie sur la précédente et se termine par un livrable concret.",
+  "blocs": [
+   {
+    "nom": "Bloc 1 · Prise en main",
+    "duree": "4 heures",
+    "seances": [
+     {
+      "num": "01",
+      "titre": "Découvrir Claude et préparer son poste",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Formuler des demandes efficaces, choisir le bon modèle, maîtriser les coûts et les limites d'usage, organiser son travail dans un projet Claude."
+       ],
+       [
+        "Notions clés.",
+        "Contexte, rôle, format de sortie, itération, projets, mémoire, quotas, choix du modèle, confidentialité des données."
+       ],
+       [
+        "Livrable.",
+        "Un projet Claude configuré et une fiche personnelle « coûts et limites »."
+       ]
+      ]
+     },
+     {
+      "num": "02",
+      "titre": "Déléguer en mode agentique",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Confier à Claude une tâche longue de bout en bout, produire des documents professionnels, le faire agir dans le navigateur et contrôler le résultat."
+       ],
+       [
+        "Notions clés.",
+        "Brief de tâche, critères de réussite, documents Word, Excel et présentations, connecteurs, Claude dans le navigateur, tâche programmée."
+       ],
+       [
+        "Livrable.",
+        "Un document Word, un tableur et une présentation produits ; un outil connecté ; une tâche programmée."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Bloc 2 · Claude Code et agents",
+    "duree": "8 heures",
+    "seances": [
+     {
+      "num": "03",
+      "titre": "Installer Claude Code et premiers pas",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Disposer d'un Claude Code fonctionnel et savoir lui faire explorer, créer et modifier un projet."
+       ],
+       [
+        "Notions clés.",
+        "Terminal, session, contexte, commandes slash, reprise de session."
+       ],
+       [
+        "Livrable.",
+        "Claude Code installé et connecté ; un mini-projet initialisé qui fonctionne."
+       ]
+      ]
+     },
+     {
+      "num": "04",
+      "titre": "Méthode de travail avec Claude Code",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Mener un projet de façon sûre (règles écrites, plan validé, historique Git, tests) et le mettre en ligne avec un lien partageable."
+       ],
+       [
+        "Notions clés.",
+        "CLAUDE.md, mode plan, Git, commits, branches, GitHub Pages, Netlify, permissions, tests, relecture."
+       ],
+       [
+        "Livrable.",
+        "Un projet versionné sur GitHub, documenté, testé et mis en ligne."
+       ]
+      ]
+     },
+     {
+      "num": "05",
+      "titre": "Concevoir un agent : sous-agents et skills",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Spécifier un agent utile à son activité et le construire avec des sous-agents et un skill."
+       ],
+       [
+        "Notions clés.",
+        "Agent, instructions, outils, mémoire, sous-agent, contexte isolé, skill, cas de test."
+       ],
+       [
+        "Livrable.",
+        "Un cahier des charges d'agent, deux sous-agents et un skill, testés sur cinq cas."
+       ]
+      ]
+     },
+     {
+      "num": "06",
+      "titre": "Connecter, automatiser et sécuriser un agent",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Relier son agent à un outil réel, le lancer automatiquement et en maîtriser les risques."
+       ],
+       [
+        "Notions clés.",
+        "Serveurs MCP, hooks, exécution non interactive, SDK, droits minimaux, secrets, coûts."
+       ],
+       [
+        "Livrable.",
+        "Un agent connecté à un outil et lancé automatiquement ; une checklist de sécurité."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Bloc 3 · Vidéo et consolidation",
+    "duree": "4 heures",
+    "seances": [
+     {
+      "num": "07",
+      "titre": "Monter une vidéo avec Claude Code",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Produire une vidéo montée et sous-titrée à partir de rushes, par un script que l'on peut rejouer."
+       ],
+       [
+        "Notions clés.",
+        "FFmpeg, transcription, sous-titres, recadrage vertical, script reproductible, droits d'usage."
+       ],
+       [
+        "Livrable.",
+        "Une vidéo exportée et sous-titrée ; le script de montage sauvegardé comme skill."
+       ]
+      ]
+     },
+     {
+      "num": "08",
+      "titre": "Focus ciblé et debrief",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Consolider les points qui posent encore difficulté et repartir avec un plan d'action pour poursuivre seul."
+       ],
+       [
+        "Notions clés.",
+        "Reprise de cas pratiques, corrections en direct, bilan des acquis, plan d'action."
+       ],
+       [
+        "Livrable.",
+        "Les points ciblés consolidés et un plan d'action à 30 jours."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "prat": {
+   "eyebrows": [
+    "Avant de commencer",
+    "Mesurer les progrès"
+   ],
+   "titres": [
+    "Ce qu'il <span>faut prévoir</span>",
+    "L'évaluation <span>des acquis</span>"
+   ]
+  },
+  "prerequis": [
+   "Un abonnement Claude compatible avec Claude Code (nous vous indiquons lequel avant le démarrage).",
+   "L'application Claude et l'extension pour Chrome installées.",
+   "Git, Node.js et VS Code installés en suivant le guide transmis avant la formation.",
+   "Un compte GitHub (et Netlify, facultatif).",
+   "2 à 5 minutes de rushes vidéo pour la séance de montage.",
+   "Un cas d'usage professionnel : les cas pratiques s'appuient sur votre activité réelle."
+  ],
+  "evaluation": [
+   [
+    "Avant la formation",
+    "Questionnaire de positionnement : niveau de départ, usages actuels, attentes."
+   ],
+   [
+    "Séances 1 à 7",
+    "Un livrable à la fin de chaque séance valide la compétence travaillée."
+   ],
+   [
+    "Séance 8",
+    "Debrief de 30 minutes avec la formatrice ou le formateur : bilan des acquis et plan d'action."
+   ],
+   [
+    "Fin de formation",
+    "Questionnaire de satisfaction et attestation de fin de formation."
+   ]
+  ],
+  "resp": {
+   "eyebrow": "Bonnes pratiques",
+   "titre": "Un usage <span>responsable</span> de l'IA",
+   "lead": "Former les personnes qui utilisent l'intelligence artificielle est une exigence du règlement européen sur l'IA. Cinq règles sont transmises dès la première séance."
+  },
+  "usageResponsable": [
+   [
+    "Protéger les données",
+    "Ne pas confier à un outil non validé des informations permettant d'identifier une personne ; anonymiser les exemples."
+   ],
+   [
+    "Vérifier avant d'utiliser",
+    "Un chiffre, une source ou une mention légale produits par l'IA sont relus avant toute diffusion."
+   ],
+   [
+    "Contrôler ce que fait un agent",
+    "Droits minimaux, secrets protégés, validation humaine avant toute action irréversible."
+   ],
+   [
+    "Signaler les contenus générés",
+    "Un contenu produit par l'IA et diffusé à un tiers est signalé comme tel."
+   ],
+   [
+    "Vérifier ce qu'on installe",
+    "Licence, origine et maintenance d'un outil tiers sont contrôlées avant de l'utiliser."
+   ]
+  ],
+  "formateur": {
+   "photo": "/img/wissam.webp",
+   "nom": "Wissam Bouakline",
+   "label": "Votre formatrice",
+   "role": "Formatrice experte Claude",
+   "bio": "Cheffe de projet et formatrice, elle est spécialisée dans les solutions IA métiers et l'automatisation no-code. Elle accompagne chaque apprenant pas à pas, du premier prompt jusqu'à l'agent connecté à ses outils."
+  },
+  "faqTitre": "Bootcamp Claude de A à Z&nbsp;: <span>questions fréquentes</span>",
+  "faq": [
+   {
+    "q": "À qui s'adresse le Bootcamp Claude ?",
+    "r": "Aux professionnels débutants ou intermédiaires qui veulent maîtriser l'ensemble de l'univers Claude : dirigeants, indépendants, chefs de projet, équipes marketing, opérations ou support. Un questionnaire de positionnement permet d'adapter le rythme au niveau de départ."
+   },
+   {
+    "q": "Faut-il savoir programmer pour utiliser Claude Code ?",
+    "r": "Non. Claude Code s'utilise dans un terminal, ce qui peut impressionner, mais la formatrice avance pas à pas et chaque commande est expliquée avant d'être lancée. Un guide d'installation est transmis avant la première séance."
+   },
+   {
+    "q": "Combien de temps dure la formation Claude ?",
+    "r": "16 heures. Chaque séance s'appuie sur la précédente et se termine par un livrable concret."
+   },
+   {
+    "q": "Que sait-on faire à la fin du bootcamp ?",
+    "r": "Déléguer des tâches longues à Claude, produire des documents Word, Excel et des présentations, développer et mettre en ligne un projet avec Claude Code, construire un agent connecté à un outil réel et monter une vidéo sous-titrée par script. L'apprenant repart avec un agent opérationnel, une vidéo montée et un plan d'action à 30 jours."
+   },
+   {
+    "q": "La formation se déroule-t-elle à distance ?",
+    "r": "Oui, en visioconférence, ou en présentiel selon ce qui est convenu. La formation est individuelle et entièrement pratique."
+   },
+   {
+    "q": "Le Bootcamp Claude peut-il être financé ?",
+    "r": "Capsule IA est un organisme de formation certifié Qualiopi et vous renseigne sur les possibilités de prise en charge par votre OPCO, selon les critères applicables. Le devis est envoyé sous 2 heures."
+   }
+  ],
+  "autres": [
+   "Vous utilisez plutôt ChatGPT ? Découvrez le <a href=\"/bootcamp-chatgpt/\">Bootcamp ChatGPT de A à Z</a>."
+  ]
+ },
+ {
+  "slug": "bootcamp-chatgpt",
+  "titre": "Bootcamp ChatGPT : GPT personnalisés, mode agent et Codex | Capsule IA",
+  "description": "Formation ChatGPT de 16 heures : prompts, projets, GPT personnalisés, mode agent, Codex et automatisation, avec Wissam Bouakline.",
+  "nom": "Bootcamp ChatGPT de A à Z",
+  "teaches": [
+   "ChatGPT",
+   "GPT personnalisés",
+   "Mode agent",
+   "Codex",
+   "Automatisation",
+   "Rédaction de prompts"
+  ],
+  "niveau": "Débutant à intermédiaire",
+  "instructeur": {
+   "@type": "Person",
+   "name": "Wissam Bouakline",
+   "jobTitle": "Formatrice experte en assistants IA",
+   "worksFor": {
+    "@id": "https://www.capsuleia.fr/#organisme"
+   }
+  },
+  "audience": "Professionnels, indépendants et équipes en entreprise",
+  "eyebrow": "Bootcamp · 16 heures",
+  "kw": "Formation ChatGPT",
+  "accroche": "ChatGPT de A à Z.",
+  "sousTitre": "Prompts, projets, GPT personnalisés, mode agent, Codex et automatisation : tout l'univers de ChatGPT en 16 heures de pratique.",
+  "puces": [
+   [
+    "16 h",
+    "de pratique"
+   ],
+   [
+    "3",
+    "blocs, un livrable par séance"
+   ],
+   [
+    "Qualiopi",
+    "organisme certifié"
+   ]
+  ],
+  "actions": [
+   [
+    "Demander un devis",
+    "/devis/"
+   ],
+   [
+    "Voir le programme ↓",
+    "#programme"
+   ]
+  ],
+  "demo": {
+   "couleur": "#10a37f",
+   "titre": "chatgpt — gpt capsule",
+   "logo": "<svg width=\"18\" height=\"18\" style=\"border-radius:4px\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 2406 2406\">\n\t<path d=\"M1 578.4C1 259.5 259.5 1 578.4 1h1249.1c319 0 577.5 258.5 577.5 577.4V2406H578.4C259.5 2406 1 2147.5 1 1828.6V578.4z\" fill=\"#74aa9c\"/>\n\t<path id=\"a\" d=\"M1107.3 299.1c-197.999 0-373.9 127.3-435.2 315.3L650 743.5v427.9c0 21.4 11 40.4 29.4 51.4l344.5 198.515V833.3h.1v-27.9L1372.7 604c33.715-19.52 70.44-32.857 108.47-39.828L1447.6 450.3C1361 353.5 1237.1 298.5 1107.3 299.1zm0 117.5-.6.6c79.699 0 156.3 27.5 217.6 78.4-2.5 1.2-7.4 4.3-11 6.1L952.8 709.3c-18.4 10.4-29.4 30-29.4 51.4V1248l-155.1-89.4V755.8c-.1-187.099 151.601-338.9 339-339.2z\" fill=\"#fff\"/>\n\t<use xlink:href=\"#a\" transform=\"rotate(60 1203 1203)\"/>\n  \t<use xlink:href=\"#a\" transform=\"rotate(120 1203 1203)\"/>\n\t<use xlink:href=\"#a\" transform=\"rotate(180 1203 1203)\"/>\n\t<use xlink:href=\"#a\" transform=\"rotate(240 1203 1203)\"/>\n\t<use xlink:href=\"#a\" transform=\"rotate(300 1203 1203)\"/>\n\n</svg>",
+   "lignes": [
+    [
+     "p",
+     "❯ Rédige 3 posts LinkedIn pour notre nouvelle offre"
+    ],
+    [
+     "o",
+     "● GPT « Voix Capsule » · ton expert et accessible"
+    ],
+    [
+     "s",
+     "▸ Post 1 · accroche + conseil… ok"
+    ],
+    [
+     "s",
+     "▸ Post 2 · étude de cas… ok"
+    ],
+    [
+     "s",
+     "▸ Post 3 · question à la communauté… ok"
+    ],
+    [
+     "ok",
+     "✓ 3 posts prêts à publier"
+    ]
+   ]
+  },
+  "bref": "Le Bootcamp ChatGPT de Capsule IA est une formation pratique de 16 heures, construite sur le même modèle que le Bootcamp Claude : formuler des demandes efficaces, déléguer des tâches longues en mode agent, créer ses GPT personnalisés, développer avec Codex, connecter et automatiser ses assistants, puis produire un contenu de bout en bout. Elle est animée par Wissam Bouakline et adaptée à l'activité et au niveau de l'apprenant.",
+  "objectifGlobal": "Rendre l'apprenant autonome pour déléguer des tâches à ChatGPT, créer ses propres GPT, développer avec Codex et automatiser ses usages en gardant la maîtrise des résultats.",
+  "fiche": [
+   [
+    "Durée",
+    "16 heures"
+   ],
+   [
+    "Format",
+    "Individuel, en visioconférence ou en présentiel, 100 % pratique"
+   ],
+   [
+    "Niveau",
+    "Débutant à intermédiaire"
+   ],
+   [
+    "Intervenante",
+    "Wissam Bouakline, formatrice experte en assistants IA"
+   ],
+   [
+    "Livrables",
+    "Un GPT personnalisé opérationnel, un projet réalisé avec Codex et un plan d'action à 30 jours"
+   ]
+  ],
+  "objTitre": "À l'issue des 16 heures, <span>vous savez</span>",
+  "objectifs": [
+   "Structurer une demande efficace, choisir le bon modèle, maîtriser coûts et limites, organiser son travail (projets, mémoire, instructions personnalisées).",
+   "Confier des tâches longues à ChatGPT : recherche approfondie, analyse de fichiers, documents, tableaux et présentations.",
+   "Faire agir ChatGPT en mode agent et planifier des tâches récurrentes.",
+   "Créer des GPT personnalisés : instructions, base de connaissances, actions.",
+   "Développer et mettre en ligne un petit projet avec Codex.",
+   "Évaluer la fiabilité d'un résultat, sécuriser ses accès et décider quand déléguer ou non."
+  ],
+  "progTitre": "8 séances, <span>3 blocs</span>",
+  "progLead": "Chaque séance s'appuie sur la précédente et se termine par un livrable concret.",
+  "blocs": [
+   {
+    "nom": "Bloc 1 · Prise en main",
+    "duree": "4 heures",
+    "seances": [
+     {
+      "num": "01",
+      "titre": "Découvrir ChatGPT et préparer son poste",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Formuler des demandes efficaces, choisir le bon modèle, maîtriser les coûts et les limites d'usage, organiser son travail dans un projet."
+       ],
+       [
+        "Notions clés.",
+        "Contexte, rôle, format de sortie, itération, projets, mémoire, instructions personnalisées, confidentialité des données."
+       ],
+       [
+        "Livrable.",
+        "Un projet ChatGPT configuré et une fiche personnelle « coûts et limites »."
+       ]
+      ]
+     },
+     {
+      "num": "02",
+      "titre": "Déléguer des tâches longues",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Confier à ChatGPT une tâche de bout en bout, produire des documents professionnels et contrôler le résultat."
+       ],
+       [
+        "Notions clés.",
+        "Brief de tâche, critères de réussite, recherche approfondie, analyse de fichiers, connecteurs, mode agent, tâches planifiées."
+       ],
+       [
+        "Livrable.",
+        "Un document, un tableur et une présentation produits ; un outil connecté ; une tâche planifiée."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Bloc 2 · GPT personnalisés, Codex et agents",
+    "duree": "8 heures",
+    "seances": [
+     {
+      "num": "03",
+      "titre": "Créer son premier GPT personnalisé",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Concevoir un assistant dédié à une tâche de son activité, avec ses instructions et ses documents de référence."
+       ],
+       [
+        "Notions clés.",
+        "Instructions, base de connaissances, amorces de conversation, partage, cas de test."
+       ],
+       [
+        "Livrable.",
+        "Un GPT personnalisé testé sur cinq cas."
+       ]
+      ]
+     },
+     {
+      "num": "04",
+      "titre": "Premiers pas avec Codex",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Disposer d'un environnement fonctionnel et savoir faire explorer, créer et modifier un projet par Codex."
+       ],
+       [
+        "Notions clés.",
+        "Terminal, dépôt, contexte, consignes de projet, relecture du code produit."
+       ],
+       [
+        "Livrable.",
+        "Un mini-projet initialisé qui fonctionne."
+       ]
+      ]
+     },
+     {
+      "num": "05",
+      "titre": "Méthode de travail et mise en ligne",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Mener un projet de façon sûre (règles écrites, plan validé, historique Git, tests) et le mettre en ligne."
+       ],
+       [
+        "Notions clés.",
+        "Fichier de consignes, plan, Git, GitHub, mise en ligne, permissions, tests."
+       ],
+       [
+        "Livrable.",
+        "Un projet versionné, testé et mis en ligne avec un lien public."
+       ]
+      ]
+     },
+     {
+      "num": "06",
+      "titre": "Connecter, automatiser et sécuriser",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Relier son assistant à un outil réel, le lancer automatiquement et en maîtriser les risques."
+       ],
+       [
+        "Notions clés.",
+        "Actions et connecteurs, API, déclencheurs, droits minimaux, secrets, coûts."
+       ],
+       [
+        "Livrable.",
+        "Un assistant connecté et automatisé ; une checklist de sécurité."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Bloc 3 · Création de contenu et consolidation",
+    "duree": "4 heures",
+    "seances": [
+     {
+      "num": "07",
+      "titre": "Produire un contenu de bout en bout",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Réaliser un contenu complet (texte, visuels, vidéo courte) par une méthode que l'on peut rejouer."
+       ],
+       [
+        "Notions clés.",
+        "Génération d'images, script reproductible, sous-titres, droits d'usage, signalement des contenus générés."
+       ],
+       [
+        "Livrable.",
+        "Un contenu finalisé et la méthode enregistrée pour être réutilisée."
+       ]
+      ]
+     },
+     {
+      "num": "08",
+      "titre": "Focus ciblé et debrief",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Consolider les points qui posent encore difficulté et repartir avec un plan d'action pour poursuivre seul."
+       ],
+       [
+        "Notions clés.",
+        "Reprise de cas pratiques, corrections en direct, bilan des acquis, plan d'action."
+       ],
+       [
+        "Livrable.",
+        "Les points ciblés consolidés et un plan d'action à 30 jours."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "prat": {
+   "eyebrows": [
+    "Avant de commencer",
+    "Mesurer les progrès"
+   ],
+   "titres": [
+    "Ce qu'il <span>faut prévoir</span>",
+    "L'évaluation <span>des acquis</span>"
+   ]
+  },
+  "prerequis": [
+   "Un abonnement ChatGPT adapté (nous vous indiquons lequel avant le démarrage).",
+   "L'application ChatGPT installée sur votre poste.",
+   "Git, Node.js et VS Code installés en suivant le guide transmis avant la formation.",
+   "Un compte GitHub.",
+   "Un cas d'usage professionnel : les cas pratiques s'appuient sur votre activité réelle."
+  ],
+  "evaluation": [
+   [
+    "Avant la formation",
+    "Questionnaire de positionnement : niveau de départ, usages actuels, attentes."
+   ],
+   [
+    "Séances 1 à 7",
+    "Un livrable à la fin de chaque séance valide la compétence travaillée."
+   ],
+   [
+    "Séance 8",
+    "Debrief de 30 minutes avec la formatrice ou le formateur : bilan des acquis et plan d'action."
+   ],
+   [
+    "Fin de formation",
+    "Questionnaire de satisfaction et attestation de fin de formation."
+   ]
+  ],
+  "resp": {
+   "eyebrow": "Bonnes pratiques",
+   "titre": "Un usage <span>responsable</span> de l'IA",
+   "lead": "Former les personnes qui utilisent l'intelligence artificielle est une exigence du règlement européen sur l'IA. Cinq règles sont transmises dès la première séance."
+  },
+  "usageResponsable": [
+   [
+    "Protéger les données",
+    "Ne pas confier à un outil non validé des informations permettant d'identifier une personne ; anonymiser les exemples."
+   ],
+   [
+    "Vérifier avant d'utiliser",
+    "Un chiffre, une source ou une mention légale produits par l'IA sont relus avant toute diffusion."
+   ],
+   [
+    "Contrôler ce que fait un agent",
+    "Droits minimaux, secrets protégés, validation humaine avant toute action irréversible."
+   ],
+   [
+    "Signaler les contenus générés",
+    "Un contenu produit par l'IA et diffusé à un tiers est signalé comme tel."
+   ],
+   [
+    "Vérifier ce qu'on installe",
+    "Licence, origine et maintenance d'un outil tiers sont contrôlées avant de l'utiliser."
+   ]
+  ],
+  "formateur": {
+   "photo": "/img/wissam.webp",
+   "nom": "Wissam Bouakline",
+   "label": "Votre formatrice",
+   "role": "Formatrice experte en assistants IA",
+   "bio": "Cheffe de projet et formatrice, elle est spécialisée dans les solutions IA métiers et l'automatisation no-code. Elle accompagne chaque apprenant pas à pas, du premier prompt jusqu'à l'assistant connecté à ses outils."
+  },
+  "faqTitre": "Bootcamp ChatGPT de A à Z&nbsp;: <span>questions fréquentes</span>",
+  "faq": [
+   {
+    "q": "À qui s'adresse le Bootcamp ChatGPT ?",
+    "r": "Aux professionnels débutants ou intermédiaires qui utilisent déjà un peu ChatGPT et veulent aller au bout de ses possibilités : GPT personnalisés, mode agent, Codex, automatisation. Un questionnaire de positionnement permet d'adapter le rythme."
+   },
+   {
+    "q": "Quelle différence avec le Bootcamp Claude ?",
+    "r": "La progression est la même : prise en main, délégation de tâches longues, développement et agents, puis consolidation. Seul l'outil change. Si vous hésitez, nous vous aidons à choisir selon vos usages et les outils déjà en place dans votre entreprise."
+   },
+   {
+    "q": "Combien de temps dure la formation ChatGPT ?",
+    "r": "16 heures. Chaque séance se termine par un livrable concret."
+   },
+   {
+    "q": "Proposez-vous ce bootcamp pour d'autres assistants IA ?",
+    "r": "Oui. Le même parcours peut être adapté à Gemini, Copilot ou Mistral : décrivez votre besoin dans le formulaire de devis."
+   },
+   {
+    "q": "Le Bootcamp ChatGPT peut-il être financé ?",
+    "r": "Capsule IA est un organisme de formation certifié Qualiopi et vous renseigne sur les possibilités de prise en charge par votre OPCO, selon les critères applicables. Le devis est envoyé sous 2 heures."
+   }
+  ],
+  "autres": [
+   "Vous utilisez plutôt Claude ? Découvrez le <a href=\"/bootcamp-claude/\">Bootcamp Claude de A à Z</a>."
+  ]
+ },
+ {
+  "slug": "bootcamp-copilot",
+  "titre": "Bootcamp Copilot de A à Z : Microsoft 365 Copilot, agents et Copilot Studio | Capsule IA",
+  "description": "Formation Capsule IA de 16 heures : Microsoft 365 Copilot dans Word, Excel, PowerPoint, Outlook et Teams, agents avec Copilot Studio et automatisation.",
+  "nom": "Bootcamp Copilot de A à Z",
+  "teaches": [
+   "Microsoft 365 Copilot",
+   "Copilot Studio",
+   "Agents IA",
+   "Power Automate",
+   "Word",
+   "Excel",
+   "PowerPoint",
+   "Outlook",
+   "Teams"
+  ],
+  "niveau": "Débutant à intermédiaire",
+  "instructeur": {
+   "@type": "Person",
+   "name": "Wissam Bouakline",
+   "jobTitle": "Formatrice experte en assistants IA",
+   "worksFor": {
+    "@id": "https://www.capsuleia.fr/#organisme"
+   }
+  },
+  "audience": "Professionnels, indépendants et équipes en entreprise",
+  "eyebrow": "Bootcamp · 16 heures",
+  "kw": "Bootcamp Copilot",
+  "accroche": "Copilot de A à Z.",
+  "sousTitre": "Copilot dans Word, Excel, PowerPoint, Outlook et Teams, agents déclaratifs et Copilot Studio : tout l'univers de Microsoft 365 Copilot en 16 heures de pratique.",
+  "puces": [
+   [
+    "16 h",
+    "de pratique"
+   ],
+   [
+    "3",
+    "blocs, un livrable par séance"
+   ],
+   [
+    "Qualiopi",
+    "organisme certifié"
+   ]
+  ],
+  "actions": [
+   [
+    "Demander un devis",
+    "/devis/"
+   ],
+   [
+    "Voir le programme ↓",
+    "#programme"
+   ]
+  ],
+  "demo": {
+   "couleur": "#05a6f0",
+   "titre": "copilot — microsoft 365",
+   "logo": "<svg width=\"18\" height=\"18\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 23 23\"><path fill=\"#f3f3f3\" d=\"M0 0h23v23H0z\"/><path fill=\"#f35325\" d=\"M1 1h10v10H1z\"/><path fill=\"#81bc06\" d=\"M12 1h10v10H12z\"/><path fill=\"#05a6f0\" d=\"M1 12h10v10H1z\"/><path fill=\"#ffba08\" d=\"M12 12h10v10H12z\"/></svg>",
+   "lignes": [
+    [
+     "p",
+     "❯ Résume la réunion et mets à jour le suivi"
+    ],
+    [
+     "o",
+     "● Teams · 45 min transcrites et résumées"
+    ],
+    [
+     "s",
+     "▸ 5 actions assignées dans Planner"
+    ],
+    [
+     "s",
+     "▸ Tableau Excel de suivi mis à jour"
+    ],
+    [
+     "s",
+     "▸ Compte rendu rédigé dans Word"
+    ],
+    [
+     "ok",
+     "✓ Envoyé à l’équipe via Outlook"
+    ]
+   ]
+  },
+  "bref": "Le Bootcamp Copilot de Capsule IA est une formation pratique de 16 heures, construite sur le même modèle que les Bootcamps Claude et ChatGPT et déclinée à l'environnement Microsoft 365 : formuler des demandes efficaces, déléguer des tâches longues, travailler dans Outlook et Teams, créer des agents avec Copilot Studio, connecter et automatiser, puis produire un contenu de bout en bout. Elle est animée par Wissam Bouakline et s'adresse aux équipes équipées de Microsoft 365.",
+  "objectifGlobal": "Rendre l'apprenant autonome pour déléguer des tâches à Copilot dans les applications Microsoft 365, créer ses propres agents avec Copilot Studio, automatiser un flux et produire un contenu de bout en bout.",
+  "fiche": [
+   [
+    "Durée",
+    "16 heures"
+   ],
+   [
+    "Format",
+    "Individuel, en visioconférence ou en présentiel, 100 % pratique"
+   ],
+   [
+    "Niveau",
+    "Débutant à intermédiaire"
+   ],
+   [
+    "Intervenante",
+    "Wissam Bouakline, formatrice experte en assistants IA"
+   ],
+   [
+    "Livrables",
+    "Un agent Copilot opérationnel et partagé, un flux automatisé et un plan d'action à 30 jours"
+   ]
+  ],
+  "objTitre": "À l'issue des 16 heures, <span>vous savez</span>",
+  "objectifs": [
+   "Structurer une demande efficace dans Copilot, choisir le bon mode, maîtriser coûts et limites, organiser son travail.",
+   "Confier des tâches longues à Copilot : documents Word, tableaux Excel, présentations PowerPoint, synthèses Outlook et Teams.",
+   "Exploiter ses fichiers et ses données Microsoft 365 (Graph) comme contexte de travail, dans le respect des droits.",
+   "Créer un agent déclaratif avec Copilot Studio : instructions, base de connaissances SharePoint, publication.",
+   "Connecter et automatiser un processus avec les connecteurs et Power Automate.",
+   "Évaluer la fiabilité d'un résultat, sécuriser ses accès et décider quand déléguer ou non."
+  ],
+  "progTitre": "8 séances, <span>3 blocs</span>",
+  "progLead": "Chaque séance s'appuie sur la précédente et se termine par un livrable concret.",
+  "blocs": [
+   {
+    "nom": "Bloc 1 · Prise en main",
+    "duree": "4 heures",
+    "seances": [
+     {
+      "num": "01",
+      "titre": "Découvrir Copilot et préparer son poste",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Formuler des demandes efficaces, comprendre les modes de Copilot, maîtriser les coûts et les limites d'usage, organiser son travail."
+       ],
+       [
+        "Notions clés.",
+        "Contexte, rôle, format de sortie, itération, Copilot Chat, mode web / mode travail, confidentialité des données."
+       ],
+       [
+        "Livrable.",
+        "Un environnement Copilot configuré et une fiche personnelle « coûts et limites »."
+       ]
+      ]
+     },
+     {
+      "num": "02",
+      "titre": "Déléguer des tâches longues",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Confier à Copilot une tâche de bout en bout, produire des documents professionnels et contrôler le résultat."
+       ],
+       [
+        "Notions clés.",
+        "Brief de tâche, critères de réussite, documents Word, Excel et PowerPoint, fichiers de référence, vérification."
+       ],
+       [
+        "Livrable.",
+        "Un document, un tableur et une présentation produits ; une synthèse vérifiée."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Bloc 2 · Copilot dans les apps, agents et Copilot Studio",
+    "duree": "8 heures",
+    "seances": [
+     {
+      "num": "03",
+      "titre": "Copilot dans Outlook et Teams",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Résumer réunions et fils de messages, dégager les actions, préparer des relances adaptées au ton."
+       ],
+       [
+        "Notions clés.",
+        "Résumé de réunion, compte-rendu, plan d'action, brouillons de réponses, priorisation."
+       ],
+       [
+        "Livrable.",
+        "Un compte-rendu de réunion généré et une relance prête à envoyer."
+       ]
+      ]
+     },
+     {
+      "num": "04",
+      "titre": "Créer son premier agent avec Copilot Studio",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Concevoir un assistant dédié à une tâche de son activité, avec ses instructions et ses documents de référence."
+       ],
+       [
+        "Notions clés.",
+        "Agent déclaratif, instructions, base de connaissances SharePoint, amorces de conversation, cas de test."
+       ],
+       [
+        "Livrable.",
+        "Un agent déclaratif testé sur cinq cas."
+       ]
+      ]
+     },
+     {
+      "num": "05",
+      "titre": "Publier et partager son agent",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Mettre l'agent à disposition de l'équipe de façon sûre : droits, portée, canaux de publication."
+       ],
+       [
+        "Notions clés.",
+        "Publication, autorisations, partage Teams, droits minimaux, adoption."
+       ],
+       [
+        "Livrable.",
+        "Un agent partagé à l'équipe avec les bons droits."
+       ]
+      ]
+     },
+     {
+      "num": "06",
+      "titre": "Connecter, automatiser et sécuriser",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Relier Copilot et ses agents aux outils réels, automatiser un flux et en maîtriser les risques."
+       ],
+       [
+        "Notions clés.",
+        "Connecteurs, Power Automate, déclencheurs, droits minimaux, secrets, coûts."
+       ],
+       [
+        "Livrable.",
+        "Un flux automatisé entre deux outils ; une checklist de sécurité."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Bloc 3 · Création de contenu et consolidation",
+    "duree": "4 heures",
+    "seances": [
+     {
+      "num": "07",
+      "titre": "Produire un contenu de bout en bout",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Réaliser un contenu complet (texte, visuels, présentation) par une méthode que l'on peut rejouer."
+       ],
+       [
+        "Notions clés.",
+        "Génération d'images avec Designer, mise en forme PowerPoint, droits d'usage, signalement des contenus générés."
+       ],
+       [
+        "Livrable.",
+        "Un contenu finalisé et la méthode enregistrée pour être réutilisée."
+       ]
+      ]
+     },
+     {
+      "num": "08",
+      "titre": "Focus ciblé et debrief",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Consolider les points qui posent encore difficulté et repartir avec un plan d'action pour poursuivre seul."
+       ],
+       [
+        "Notions clés.",
+        "Reprise de cas pratiques, corrections en direct, bilan des acquis, plan d'action."
+       ],
+       [
+        "Livrable.",
+        "Les points ciblés consolidés et un plan d'action à 30 jours."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "prat": {
+   "eyebrows": [
+    "Avant de commencer",
+    "Mesurer les progrès"
+   ],
+   "titres": [
+    "Ce qu'il <span>faut prévoir</span>",
+    "L'évaluation <span>des acquis</span>"
+   ]
+  },
+  "prerequis": [
+   "Une licence Microsoft 365 incluant Copilot (nous vous indiquons laquelle avant le démarrage).",
+   "Un compte professionnel Microsoft 365 avec accès à Teams, SharePoint et OneDrive.",
+   "Les applications Word, Excel, PowerPoint, Outlook et Teams installées.",
+   "L'accès à Copilot Studio (nous vérifions ensemble les droits nécessaires).",
+   "Un cas d'usage professionnel : les cas pratiques s'appuient sur votre activité réelle.",
+   "Le même parcours existe pour Claude et ChatGPT : nous vous aidons à choisir selon vos outils."
+  ],
+  "evaluation": [
+   [
+    "Avant la formation",
+    "Questionnaire de positionnement : niveau de départ, usages actuels, attentes."
+   ],
+   [
+    "Séances 1 à 7",
+    "Un livrable à la fin de chaque séance valide la compétence travaillée."
+   ],
+   [
+    "Séance 8",
+    "Debrief de 30 minutes avec la formatrice ou le formateur : bilan des acquis et plan d'action."
+   ],
+   [
+    "Fin de formation",
+    "Questionnaire de satisfaction et attestation de fin de formation."
+   ]
+  ],
+  "resp": {
+   "eyebrow": "Bonnes pratiques",
+   "titre": "Un usage <span>responsable</span> de l'IA",
+   "lead": "Former les personnes qui utilisent l'intelligence artificielle est une exigence du règlement européen sur l'IA. Cinq règles sont transmises dès la première séance."
+  },
+  "usageResponsable": [
+   [
+    "Protéger les données",
+    "Ne pas confier à un outil non validé des informations permettant d'identifier une personne ; anonymiser les exemples."
+   ],
+   [
+    "Vérifier avant d'utiliser",
+    "Un chiffre, une source ou une mention légale produits par l'IA sont relus avant toute diffusion."
+   ],
+   [
+    "Contrôler ce que fait un agent",
+    "Droits minimaux, secrets protégés, validation humaine avant toute action irréversible."
+   ],
+   [
+    "Signaler les contenus générés",
+    "Un contenu produit par l'IA et diffusé à un tiers est signalé comme tel."
+   ],
+   [
+    "Vérifier ce qu'on installe",
+    "Licence, origine et maintenance d'un outil tiers sont contrôlées avant de l'utiliser."
+   ]
+  ],
+  "formateur": {
+   "photo": "/img/wissam.webp",
+   "nom": "Wissam Bouakline",
+   "label": "Votre formatrice",
+   "role": "Formatrice experte en assistants IA",
+   "bio": "Cheffe de projet et formatrice, elle est spécialisée dans les solutions IA métiers et l'automatisation no-code. Elle accompagne chaque apprenant pas à pas, du premier prompt jusqu'à l'agent partagé à son équipe."
+  },
+  "faqTitre": "Bootcamp Copilot de A à Z&nbsp;: <span>questions fréquentes</span>",
+  "faq": [
+   {
+    "q": "À qui s'adresse le Bootcamp Copilot ?",
+    "r": "Aux professionnels et équipes équipés de Microsoft 365 qui veulent exploiter Copilot au quotidien : dirigeants, assistants, chefs de projet, équipes marketing, opérations ou support. Un questionnaire de positionnement permet d'adapter le rythme au niveau de départ."
+   },
+   {
+    "q": "Faut-il une licence particulière ?",
+    "r": "Oui : une licence Microsoft 365 incluant Copilot, et l'accès à Copilot Studio pour les séances agents. Nous vous indiquons la licence adaptée avant le démarrage et vérifions ensemble les droits nécessaires."
+   },
+   {
+    "q": "Combien de temps dure le Bootcamp Copilot ?",
+    "r": "16 heures. Chaque séance s'appuie sur la précédente et se termine par un livrable concret."
+   },
+   {
+    "q": "Que sait-on faire à la fin du bootcamp ?",
+    "r": "Déléguer des tâches longues à Copilot, produire documents Word, tableaux Excel et présentations PowerPoint, résumer réunions Teams et préparer des relances Outlook, créer et partager un agent avec Copilot Studio et automatiser un flux entre outils. L'apprenant repart avec un agent opérationnel partagé à son équipe, un flux automatisé et un plan d'action à 30 jours."
+   },
+   {
+    "q": "La formation se déroule-t-elle à distance ?",
+    "r": "Oui, en visioconférence, ou en présentiel selon ce qui est convenu. La formation est individuelle et entièrement pratique."
+   },
+   {
+    "q": "Le Bootcamp Copilot peut-il être financé ?",
+    "r": "Capsule IA est un organisme de formation certifié Qualiopi et vous renseigne sur les possibilités de prise en charge par votre OPCO, selon les critères applicables. Le devis est envoyé sous 2 heures."
+   }
+  ],
+  "autres": [
+   "Vous utilisez plutôt ChatGPT ou Claude ? Découvrez le <a href=\"/bootcamp-chatgpt/\">Bootcamp ChatGPT de A à Z</a>."
+  ]
+ },
+ {
+  "slug": "cerveau-ia",
+  "titre": "Concevoir le cerveau IA de votre entreprise : agents et automatisations | Capsule IA",
+  "description": "Formation Capsule IA de 16 heures : concevez le cerveau IA de votre entreprise — cartographie des processus, agents connectés à vos outils, gouvernance et feuille de route à 90 jours.",
+  "nom": "Concevoir le cerveau IA de votre entreprise",
+  "teaches": [
+   "Cartographie des processus",
+   "Base de connaissances IA",
+   "Conception d agents IA",
+   "Automatisation",
+   "Gouvernance et sécurité"
+  ],
+  "niveau": "Utilisateur régulier d'un assistant IA",
+  "instructeur": {
+   "@type": "Person",
+   "name": "Faouzi Fieve",
+   "jobTitle": "Entrepreneur et formateur en IA",
+   "worksFor": {
+    "@id": "https://www.capsuleia.fr/#organisme"
+   }
+  },
+  "audience": "Professionnels, indépendants et équipes en entreprise",
+  "eyebrow": "IA Expert · 16 heures",
+  "kw": "Formation Cerveau IA",
+  "accroche": "Votre cerveau IA.",
+  "sousTitre": "Cartographie des processus, base de connaissances, agents connectés et gouvernance : concevez le système qui s'occupe de ce qui se répète.",
+  "puces": [
+   [
+    "16 h",
+    "de pratique"
+   ],
+   [
+    "3",
+    "blocs, un livrable par séance"
+   ],
+   [
+    "Qualiopi",
+    "organisme certifié"
+   ]
+  ],
+  "actions": [
+   [
+    "Demander un devis",
+    "/devis/"
+   ],
+   [
+    "Voir le programme ↓",
+    "#programme"
+   ]
+  ],
+  "demo": {
+   "couleur": "#ff8565",
+   "titre": "cerveau ia — capsule",
+   "logo": "<img src=\"https://www.capsuleia.fr/img/logo.webp\" alt=\"Capsule IA\" width=\"20\" height=\"20\" style=\"border-radius:6px\">",
+   "lignes": [
+    [
+     "p",
+     "$ cerveau \"accueille un nouveau client\""
+    ],
+    [
+     "o",
+     "● Base de connaissances · 128 documents reliés"
+    ],
+    [
+     "s",
+     "▸ Processus « onboarding » cartographié"
+    ],
+    [
+     "s",
+     "▸ Agent déclenché · contrat + accès générés"
+    ],
+    [
+     "s",
+     "▸ CRM et planning mis à jour"
+    ],
+    [
+     "ok",
+     "✓ Votre cerveau IA s’en occupe"
+    ]
+   ]
+  },
+  "bref": "La formation Cerveau IA de Capsule IA est un parcours pratique de 16 heures, pour passer de l'usage ponctuel d'un assistant IA à un système organisé : les connaissances de l'entreprise structurées, les tâches répétitives confiées à des agents connectés à vos outils, le tout encadré par des règles claires. Elle est animée par Faouzi Fieve et s'applique directement à votre entreprise.",
+  "objectifGlobal": "Concevoir le « cerveau IA » de votre entreprise : cartographier ce qui se répète, structurer vos connaissances, connecter vos outils et repartir avec un agent conçu, un workflow automatisé et une feuille de route à 90 jours.",
+  "fiche": [
+   [
+    "Durée",
+    "16 heures"
+   ],
+   [
+    "Format",
+    "Individuel ou binôme, en visioconférence ou en présentiel, appliqué à votre cas réel"
+   ],
+   [
+    "Niveau",
+    "Utilisateur régulier d'un assistant IA"
+   ],
+   [
+    "Intervenant",
+    "Faouzi Fieve, entrepreneur et formateur en IA"
+   ],
+   [
+    "Livrables",
+    "Une cartographie de vos processus, un agent conçu, un workflow automatisé et une feuille de route à 90 jours"
+   ]
+  ],
+  "objTitre": "À l'issue des 16 heures, <span>vous savez</span>",
+  "objectifs": [
+   "Cartographier les tâches répétitives de son entreprise et chiffrer le temps récupérable.",
+   "Modéliser le trajet des données entre ses outils, de leur source à leur utilisation.",
+   "Structurer une base de connaissances exploitable par des agents IA.",
+   "Concevoir un agent utile : rôle, instructions, outils, limites et cas de test.",
+   "Connecter ses outils et automatiser un processus complet, avec contrôle humain.",
+   "Encadrer le dispositif : sécurité, droits, supervision et feuille de route de déploiement."
+  ],
+  "progTitre": "8 séances, <span>3 blocs</span>",
+  "progLead": "Chaque séance produit une pièce du futur « cerveau IA » de votre entreprise.",
+  "blocs": [
+   {
+    "nom": "Bloc 1 · Cartographier",
+    "duree": "4 heures",
+    "seances": [
+     {
+      "num": "01",
+      "titre": "Repérer ce qui se répète",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Inventorier les tâches répétitives de son activité, mesurer le temps qu'elles consomment, prioriser par gain et faisabilité."
+       ],
+       [
+        "Notions clés.",
+        "Inventaire des tâches, fréquence, temps passé, valeur, matrice gain / faisabilité, quick wins."
+       ],
+       [
+        "Livrable.",
+        "Une cartographie chiffrée de vos tâches répétitives et de leur potentiel."
+       ]
+      ]
+     },
+     {
+      "num": "02",
+      "titre": "Le trajet de vos données",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Cartographier d'où viennent les informations, où elles sont stockées, qui les utilise, et comment elles circulent entre vos outils."
+       ],
+       [
+        "Notions clés.",
+        "Sources de données, outils existants, flux, points de friction, doublons de saisie."
+       ],
+       [
+        "Livrable.",
+        "Un schéma des flux de données et des outils de votre entreprise."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Bloc 2 · Concevoir",
+    "duree": "8 heures",
+    "seances": [
+     {
+      "num": "03",
+      "titre": "Structurer la base de connaissances",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Rassembler et organiser ce que l'IA doit savoir : procédures, modèles, tarifs, ton et règles de la maison."
+       ],
+       [
+        "Notions clés.",
+        "Documents de référence, arborescence, nommage, niveaux de confidentialité, mise à jour."
+       ],
+       [
+        "Livrable.",
+        "Une arborescence de connaissances prête à brancher sur un agent."
+       ]
+      ]
+     },
+     {
+      "num": "04",
+      "titre": "Concevoir un agent",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Écrire la fiche d'un agent utile : sa mission, ses instructions, ses outils, ses limites et ses cas de test."
+       ],
+       [
+        "Notions clés.",
+        "Rôle, instructions, mémoire, outils, limites, critères de réussite, cas de test."
+       ],
+       [
+        "Livrable.",
+        "Le cahier des charges complet de votre agent prioritaire."
+       ]
+      ]
+     },
+     {
+      "num": "05",
+      "titre": "Connecter les outils",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Comprendre les options de connexion et maquetter le branchement entre deux de vos outils réels."
+       ],
+       [
+        "Notions clés.",
+        "Connecteurs natifs, Make et n8n, serveurs MCP, API : ce que chaque option permet et coûte."
+       ],
+       [
+        "Livrable.",
+        "Une maquette de connexion entre deux de vos outils."
+       ]
+      ]
+     },
+     {
+      "num": "06",
+      "titre": "Automatiser un processus complet",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Construire un workflow de bout en bout, de la donnée d'entrée au résultat contrôlé, avec validation humaine aux points sensibles."
+       ],
+       [
+        "Notions clés.",
+        "Déclencheurs, étapes, contrôles, gestion des erreurs, journalisation."
+       ],
+       [
+        "Livrable.",
+        "Un workflow automatisé, testé sur des cas réels de votre activité."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Bloc 3 · Déployer et gouverner",
+    "duree": "4 heures",
+    "seances": [
+     {
+      "num": "07",
+      "titre": "Sécurité, droits et supervision",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Encadrer ce que les agents peuvent voir et faire : droits minimaux, secrets, validation humaine, RGPD et AI Act."
+       ],
+       [
+        "Notions clés.",
+        "Droits minimaux, gestion des secrets, validation humaine, journalisation, données personnelles."
+       ],
+       [
+        "Livrable.",
+        "Votre checklist de gouvernance et de sécurité."
+       ]
+      ]
+     },
+     {
+      "num": "08",
+      "titre": "Feuille de route et debrief",
+      "duree": "2 h",
+      "points": [
+       [
+        "Objectif.",
+        "Prioriser les prochains agents, estimer les coûts, préparer l'adoption par l'équipe et repartir avec une feuille de route."
+       ],
+       [
+        "Notions clés.",
+        "Priorisation, budget outils et abonnements, conduite du changement, mesure des gains."
+       ],
+       [
+        "Livrable.",
+        "Votre feuille de route « cerveau IA » à 90 jours."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "prat": {
+   "eyebrows": [
+    "Avant de commencer",
+    "Mesurer les progrès"
+   ],
+   "titres": [
+    "Ce qu'il <span>faut prévoir</span>",
+    "L'évaluation <span>des acquis</span>"
+   ]
+  },
+  "prerequis": [
+   "Un usage régulier d'un assistant IA (ChatGPT, Claude ou Copilot).",
+   "La liste de vos outils de travail (messagerie, tableurs, gestion, facturation…).",
+   "Un poste de travail avec navigateur internet ; aucun logiciel de développement requis.",
+   "L'accès en lecture à vos procédures et documents de référence existants.",
+   "Un processus réel à automatiser, choisi ensemble dès la séance 1.",
+   "En binôme : la présence du dirigeant et du référent qui portera le dispositif."
+  ],
+  "evaluation": [
+   [
+    "Avant la formation",
+    "Questionnaire de positionnement : usages actuels, outils en place, attentes."
+   ],
+   [
+    "Séances 1 à 7",
+    "Une pièce du dispositif à la fin de chaque séance valide la compétence travaillée."
+   ],
+   [
+    "Séance 8",
+    "Debrief de 30 minutes avec le formateur : bilan des acquis et feuille de route."
+   ],
+   [
+    "Fin de formation",
+    "Questionnaire de satisfaction et attestation de fin de formation."
+   ]
+  ],
+  "resp": {
+   "eyebrow": "Bonnes pratiques",
+   "titre": "Un usage <span>responsable</span> de l'IA",
+   "lead": "Former les personnes qui utilisent l'intelligence artificielle est une exigence du règlement européen sur l'IA. Cinq règles sont transmises dès la première séance."
+  },
+  "usageResponsable": [
+   [
+    "Protéger les données",
+    "Ne pas confier à un outil non validé des informations permettant d'identifier une personne ; anonymiser les exemples."
+   ],
+   [
+    "Vérifier avant d'utiliser",
+    "Un chiffre, une source ou une mention légale produits par l'IA sont relus avant toute diffusion."
+   ],
+   [
+    "Contrôler ce que fait un agent",
+    "Droits minimaux, secrets protégés, validation humaine avant toute action irréversible."
+   ],
+   [
+    "Signaler les contenus générés",
+    "Un contenu produit par l'IA et diffusé à un tiers est signalé comme tel."
+   ],
+   [
+    "Vérifier ce qu'on installe",
+    "Licence, origine et maintenance d'un outil tiers sont contrôlées avant de l'utiliser."
+   ]
+  ],
+  "formateur": {
+   "photo": "/img/faouzi.webp",
+   "nom": "Faouzi Fieve",
+   "label": "Votre formateur",
+   "role": "Entrepreneur et formateur en IA",
+   "bio": "Entrepreneur et formateur en IA, il conjugue expertise technologique, développement d'entreprise et expérience dans le secteur financier. Il conçoit des agents et des automatisations pour les PME au quotidien."
+  },
+  "faqTitre": "Concevoir le cerveau IA&nbsp;: <span>questions fréquentes</span>",
+  "faq": [
+   {
+    "q": "À qui s'adresse la formation Cerveau IA ?",
+    "r": "Aux dirigeants et responsables de PME qui utilisent déjà un assistant IA et veulent passer à un système organisé : connaissances structurées, agents connectés, processus automatisés. Elle peut se suivre en binôme (dirigeant + référent)."
+   },
+   {
+    "q": "Faut-il savoir programmer ?",
+    "r": "Non. La conception se fait en langage courant : cartographie, cahier des charges, maquettes de connexion. Aucun logiciel de développement n'est requis."
+   },
+   {
+    "q": "Combien de temps dure la formation ?",
+    "r": "16 heures. Chaque séance produit une pièce du futur « cerveau IA » de votre entreprise."
+   },
+   {
+    "q": "Que repart-on avec à la fin ?",
+    "r": "Une cartographie chiffrée de vos processus, une base de connaissances structurée, le cahier des charges de votre agent prioritaire, un workflow automatisé testé, une checklist de gouvernance et une feuille de route à 90 jours."
+   },
+   {
+    "q": "La formation se déroule-t-elle à distance ?",
+    "r": "Oui, en visioconférence, ou en présentiel selon ce qui est convenu. La formation est individuelle ou en binôme, et entièrement appliquée à votre entreprise."
+   },
+   {
+    "q": "La formation peut-elle être financée ?",
+    "r": "Capsule IA est un organisme de formation certifié Qualiopi et vous renseigne sur les possibilités de prise en charge par votre OPCO, selon les critères applicables. Le devis est envoyé sous 2 heures."
+   }
+  ],
+  "autres": [
+   "Pour maîtriser un assistant en profondeur, découvrez le <a href=\"/bootcamp-claude/\">Bootcamp Claude de A à Z</a>."
+  ]
+ }
+]

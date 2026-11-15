@@ -2,8 +2,10 @@
 // Bloc « En bref + questions fréquentes » des pages modules.
 // Texte visible et données structurées FAQPage viennent de src/data/modules.js.
 import { modules } from '../data/modules.js';
+import { syllabus } from '../data/bootcamps.js';
 const { cle } = Astro.props;
 const m = modules.find((x) => x.cle === cle);
+const pdf = syllabus[m.href.replaceAll('/', '')];
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -23,6 +25,7 @@ const faqLd = {
         <div><dt>Qualité</dt><dd>Organisme certifié Qualiopi</dd></div>
         <div><dt>Animation</dt><dd>{m.formateur}</dd></div>
       </dl>
+      {pdf && <p class="fqm-pdf"><a href={pdf.href} download>Télécharger le syllabus <span>PDF · {pdf.pages} pages</span></a></p>}
     </div>
     <div class="fqm-faq">
       <h2 id="fqm-titre">{m.nom}&nbsp;: <span>questions fréquentes</span></h2>
@@ -45,6 +48,11 @@ const faqLd = {
   .fqm-resume { margin: 0; font: 400 15px/1.6 'Poppins', sans-serif; }
   dl { margin: 22px 0 0; display: grid; gap: 10px; }
   dl div { display: flex; gap: 12px; align-items: baseline; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, .25); font: 400 13.5px/1.4 'Poppins', sans-serif; }
+  .fqm-pdf { margin: 20px 0 0; font: 700 14px/1.3 'Poppins', sans-serif; }
+  .fqm-pdf a { color: #fff; text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .fqm-pdf a::before { content: '↓ '; color: var(--yellow); }
+  .fqm-pdf a:hover { color: var(--yellow); }
+  .fqm-pdf span { font-weight: 400; opacity: .8; margin-left: 6px; }
   dt { flex: 0 0 86px; font-weight: 700; color: var(--yellow); }
   dd { margin: 0; }
   h2 { margin: 0 0 22px; font: 700 clamp(26px, 3vw, 38px)/1.05 'Inter Variable', Inter, sans-serif; letter-spacing: -.045em; text-wrap: balance; }

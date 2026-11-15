@@ -26,7 +26,7 @@ export function GET({ site }) {
     b.fiche.forEach(([k, v]) => out.push(`- ${k} : ${v}`));
     out.push('', 'Programme :');
     let n = 0;
-    b.blocs.forEach((bl) => bl.seances.forEach((s) => out.push(`- Séance ${++n} (${bl.nom}) : ${s.titre}. ${s.objectif} Livrable : ${s.livrable}`)));
+    b.blocs.forEach((bl) => bl.seances.forEach((s) => out.push(`- Séance ${++n} (${bl.nom}) : ${s.titre}. ${s.points.map(([k, v]) => `${k} ${v}`).join(' ')}`)));
     out.push('', 'Questions fréquentes :', '');
     b.faq.forEach((f) => out.push(`Q : ${f.q}`, `R : ${f.r}`, ''));
   }

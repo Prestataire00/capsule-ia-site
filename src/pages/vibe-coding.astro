@@ -1,6 +1,7 @@
 ---
 import FaqModule from '../components/FaqModule.astro';
 import Layout from '../layouts/Layout.astro';
+import { syllabus } from '../data/bootcamps.js';
 import CtaBand from '../components/CtaBand.astro';
 import VibeDemo from '../components/VibeDemo.astro';
 ---
@@ -194,6 +195,6 @@ import VibeDemo from '../components/VibeDemo.astro';
 </div>
 </section>
 <FaqModule cle="vibe" />
-<CtaBand />
+<CtaBand doc={{ href: syllabus['vibe-coding'].href, libelle: 'Télécharger le syllabus', detail: `PDF · ${syllabus['vibe-coding'].pages} pages` }} />
 </main>
 </Layout>

@@ -2,6 +2,7 @@
 import FaqModule from '../components/FaqModule.astro';
 import Layout from '../layouts/Layout.astro';
 import RgpdDemo from '../components/RgpdDemo.astro';
+import { syllabus } from '../data/bootcamps.js';
 import CtaBand from '../components/CtaBand.astro';
 ---
 
@@ -191,6 +192,6 @@ import CtaBand from '../components/CtaBand.astro';
 </div>
 </section>
 <FaqModule cle="rgpd" />
-<CtaBand />
+<CtaBand doc={{ href: syllabus['rgpd-reglementation'].href, libelle: 'Télécharger le syllabus', detail: `PDF · ${syllabus['rgpd-reglementation'].pages} pages` }} />
 </main>
 </Layout>

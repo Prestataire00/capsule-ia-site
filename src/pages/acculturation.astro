@@ -2,6 +2,7 @@
 import FaqModule from '../components/FaqModule.astro';
 import Layout from '../layouts/Layout.astro';
 import PromptDemo from '../components/PromptDemo.astro';
+import { syllabus } from '../data/bootcamps.js';
 import CtaBand from '../components/CtaBand.astro';
 ---
 
@@ -199,6 +200,6 @@ import CtaBand from '../components/CtaBand.astro';
 </div>
 </section>
 <FaqModule cle="acculturation" />
-<CtaBand />
+<CtaBand doc={{ href: syllabus['acculturation'].href, libelle: 'Télécharger le syllabus', detail: `PDF · ${syllabus['acculturation'].pages} pages` }} />
 </main>
 </Layout>

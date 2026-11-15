@@ -1,0 +1,42 @@
+---
+// Rubrique « Sur mesure » de l'accueil : capsules e-learning et formations B2B sur mesure.
+---
+
+<section id="sur-mesure" class="sm">
+  <div class="sm-in">
+    <p class="sm-eyebrow">SUR MESURE</p>
+    <h2 class="sm-h2">Au-delà des bootcamps, <span class="sm-hl">du sur-mesure.</span></h2>
+    <p class="sm-lead">Capsule IA, c'est aussi du contenu et des parcours conçus pour votre entreprise.</p>
+    <div class="sm-grid">
+      <article class="sm-card">
+        <span class="sm-tag">Les Capsules</span>
+        <h3>Contenu e-learning sur mesure</h3>
+        <p>Nous créons pour vous des capsules e-learning sur mesure : un contenu conçu pour votre entreprise, vos outils et vos équipes.</p>
+        <a class="sm-cta" href="/devis/">Demander un devis</a>
+      </article>
+      <article class="sm-card">
+        <span class="sm-tag">Formations B2B</span>
+        <h3>Des parcours adaptés à votre équipe</h3>
+        <p>Nos formations B2B existent en version sur mesure — les bootcamps, eux, suivent un programme fixe.</p>
+        <a class="sm-cta" href="/devis/">Demander un devis</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sm { background: #fff8ed; padding: clamp(3rem, 7vw, 5.5rem) 0; }
+  .sm-in { max-width: 1140px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem); }
+  .sm-eyebrow { font: 700 .78rem/1 Poppins, sans-serif; letter-spacing: .22em; color: #c40d60; text-align: center; margin: 0 0 1rem; }
+  .sm-h2 { font-family: Poppins, sans-serif; font-weight: 700; font-size: clamp(1.9rem, 4.5vw, 2.9rem); line-height: 1.12; color: #1c1712; text-align: center; margin: 0 0 1.1rem; }
+  .sm-h2 .sm-hl { background: #ffe897; padding: 0 .18em; border-radius: .18em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .sm-lead { max-width: 680px; margin: 0 auto 3rem; text-align: center; font-size: 1.05rem; line-height: 1.65; color: #4a3f33; font-family: Poppins, sans-serif; }
+  .sm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.2rem, 3vw, 2.2rem); }
+  @media (max-width: 820px) { .sm-grid { grid-template-columns: 1fr; } }
+  .sm-card { background: #fff; border: 1px solid rgba(28, 23, 18, .1); border-radius: 24px; padding: clamp(1.6rem, 3.5vw, 2.4rem); box-shadow: 0 18px 45px -28px rgba(28, 23, 18, .35); display: flex; flex-direction: column; font-family: Poppins, sans-serif; }
+  .sm-tag { display: inline-block; align-self: flex-start; font: 700 .72rem/1 Poppins, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: #c40d60; border-radius: 999px; padding: .45rem .9rem; margin-bottom: 1.1rem; }
+  .sm-card h3 { font-family: Poppins, sans-serif; font-weight: 700; font-size: 1.45rem; line-height: 1.2; margin: 0 0 .7rem; color: #1c1712; }
+  .sm-card p { font-size: 1rem; line-height: 1.65; color: #4a3f33; margin: 0 0 1.6rem; flex: 1; }
+  .sm-cta { display: inline-block; align-self: flex-start; font: 600 italic 1.05rem/1 Poppins, sans-serif; color: #1c1712; background: #ffe897; border-radius: 999px; padding: .85rem 1.6rem; text-decoration: none; transition: transform .15s; }
+  .sm-cta:hover { transform: translateY(-2px); }
+</style>

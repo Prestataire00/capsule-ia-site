@@ -1,5 +1,8 @@
 ---
 // Bandeau de rappel vers le devis, placé en bas des pages modules.
+// `doc` remplace la brochure par un autre document (le syllabus de la formation).
+const { doc } = Astro.props;
+const d = doc || { href: '/Brochure-Capsule-IA.pdf', nom: 'Brochure Capsule IA.pdf', libelle: 'Télécharger la brochure', detail: 'PDF · 12 pages' };
 ---
 
 <section class="ctab" aria-labelledby="ctab-titre">
@@ -12,7 +15,7 @@
       <li><strong>48 h</strong> Rappel d'un formateur sous 48 heures</li>
     </ul>
     <a class="ctab-btn" href="/devis/">Demander mon devis</a>
-    <p class="ctab-broch"><a href="/Brochure-Capsule-IA.pdf" download="Brochure Capsule IA.pdf">Télécharger la brochure <span>PDF · 12 pages</span></a></p>
+    <p class="ctab-broch"><a href={d.href} download={d.nom || true}>{d.libelle} <span>{d.detail}</span></a></p>
   </div>
 </section>
 
