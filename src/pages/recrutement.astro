@@ -68,7 +68,7 @@ import '../styles/formation.css';
 </label>
 <div class="rec-choices">
 <label>
-<input type="radio" name="niveau" value="Intermédiaire" />Intermédiaire</label>
+<input type="radio" name="niveau" value="Intermédiaire" required />Intermédiaire</label>
 <label>
 <input type="radio" name="niveau" value="Confirmé" />Confirmé</label>
 <label>
@@ -91,7 +91,34 @@ import '../styles/formation.css';
 <label>
 <input type="checkbox" name="sujets" value="Acculturation IA" />Acculturation IA</label>
 <label>
-<input type="checkbox" name="sujets" value="Autre" />Autre</label>
+<input type="checkbox" name="sujets" value="Autre" data-rec-ouvre="f-autre" />Autre</label>
+</div>
+<div class="rec-sous" id="f-autre" hidden>
+<label for="f-sujets-autre">Précisez votre autre sujet d'expertise<em>*</em></label>
+<input id="f-sujets-autre" name="sujets-autre" type="text" placeholder="Ex. : automatisation avec Make ou n8n, Gemini, Mistral…" data-rec-requis />
+</div>
+</div>
+<div class="rec-f">
+<label>Êtes-vous mobile pour des formations en présentiel ?<em>*</em></label>
+<div class="rec-choices">
+<label><input type="radio" name="mobilite" value="Oui" required data-rec-ouvre="f-mobilite" />Oui</label>
+<label><input type="radio" name="mobilite" value="Non, à distance uniquement" required data-rec-ferme="f-mobilite" />Non, à distance uniquement</label>
+</div>
+<div class="rec-sous" id="f-mobilite" hidden>
+<label for="f-ville">Votre ville de départ<em>*</em></label>
+<input id="f-ville" name="ville-depart" type="text" placeholder="Ex. : Orléans" data-rec-requis />
+<label for="f-rayon">Jusqu'où pouvez-vous vous déplacer ?<em>*</em></label>
+<select id="f-rayon" name="rayon-mobilite" data-rec-requis>
+<option value="">Choisir…</option>
+<option>Ma ville et ses environs (30 km)</option>
+<option>Mon département</option>
+<option>Ma région</option>
+<option>Plusieurs régions</option>
+<option>Toute la France</option>
+<option>France et étranger</option>
+</select>
+<label for="f-zones">Précisions sur vos déplacements (facultatif)</label>
+<input id="f-zones" name="zones-mobilite" type="text" placeholder="Ex. : Île-de-France et Centre-Val de Loire, 2 jours par semaine" />
 </div>
 </div>
 <div class="rec-f">
@@ -192,6 +219,18 @@ import '../styles/formation.css';
   (function () {
     if (window.__capsuleRec) return;
     window.__capsuleRec = true;
+    // Champs qui s'ouvrent selon la réponse (« Autre », mobilité) ; ils ne sont obligatoires que lorsqu'ils sont visibles.
+    function regler(bloc, ouvert) {
+      if (!bloc) return;
+      bloc.hidden = !ouvert;
+      bloc.querySelectorAll('[data-rec-requis]').forEach(function (c) { c.required = ouvert; if (!ouvert) c.value = ''; });
+    }
+    document.addEventListener('change', function (e) {
+      var t = e.target;
+      if (!t.matches || !t.matches('[data-rec-ouvre], [data-rec-ferme]')) return;
+      if (t.hasAttribute('data-rec-ferme')) return regler(document.getElementById(t.getAttribute('data-rec-ferme')), false);
+      regler(document.getElementById(t.getAttribute('data-rec-ouvre')), t.checked);
+    });
     function confirmer() {
       var m = location.search.match(/envoye=(formateurs|stagiaires)/);
       var c = m && document.getElementById(m[1]);
@@ -235,4 +274,12 @@ import '../styles/formation.css';
 .rec-card.rec-ok-on .rec-ok{display:block}
 .rec-rgpd{max-width:760px;margin:2.4rem auto 0;text-align:center;font-size:.8rem;line-height:1.6;color:#8a7d6d}
 .rec-rgpd a{color:#c40d60;font-weight:700}
+/* Dégradé progressif entre le haut de page magenta et les formulaires, comme sur les pages formations */
+.rec{padding-top:0}
+.rec::before{content:'';display:block;height:clamp(84px,11vw,150px);margin-bottom:clamp(1.6rem,4vw,3rem);background:linear-gradient(180deg,#c40d60,#fff8ed);background:linear-gradient(180deg in oklab,#c40d60 0%,#fff8ed 92%)}
+.rec-sous{margin-top:.8rem;padding:.9rem 1rem 1rem;border-left:3px solid #c40d60;background:rgba(196,13,96,.05);border-radius:0 12px 12px 0}
+.rec-sous[hidden]{display:none}
+.rec-sous label:not(:first-child){margin-top:.8rem}
+@media (prefers-reduced-motion:no-preference){.rec-sous:not([hidden]){animation:rec-ouvre .3s ease both}}
+@keyframes rec-ouvre{from{opacity:0;translate:0 -6px}}
 </style>
