@@ -161,18 +161,23 @@ export const bootcamps = [
     nom: 'Bootcamp ChatGPT de A à Z',
     titre: 'Bootcamp ChatGPT : GPT personnalisés, mode agent et Codex | Capsule IA',
     description:
-      "Formation ChatGPT de 16 heures : prompts, projets, GPT personnalisés, mode agent, Codex et automatisation. 8 séances pratiques, programme adapté à votre activité.",
+      "Formation ChatGPT de 16 heures : prompts, projets, GPT personnalisés, mode agent, Codex et automatisation. 8 séances pratiques avec Wissam Bouakline.",
     accroche: 'ChatGPT de A à Z.',
     sousTitre: "Prompts, projets, GPT personnalisés, mode agent, Codex et automatisation : tout l'univers de ChatGPT en 16 heures de pratique.",
-    bref: "Le Bootcamp ChatGPT de Capsule IA est une formation pratique de 16 heures, en 8 séances de 2 heures, construite sur le même modèle que le Bootcamp Claude : formuler des demandes efficaces, déléguer des tâches longues en mode agent, créer ses GPT personnalisés, développer avec Codex, connecter et automatiser ses assistants, puis produire un contenu de bout en bout. Le programme est adapté à l'activité et au niveau de l'apprenant.",
+    bref: "Le Bootcamp ChatGPT de Capsule IA est une formation pratique de 16 heures, en 8 séances de 2 heures, construite sur le même modèle que le Bootcamp Claude : formuler des demandes efficaces, déléguer des tâches longues en mode agent, créer ses GPT personnalisés, développer avec Codex, connecter et automatiser ses assistants, puis produire un contenu de bout en bout. Elle est animée par Wissam Bouakline et adaptée à l'activité et au niveau de l'apprenant.",
     fiche: [
       ['Durée', '16 heures : 8 séances de 2 h, ou 4 demi-journées de 4 h'],
       ['Format', 'Individuel, en visioconférence ou en présentiel, 100 % pratique'],
       ['Niveau', 'Débutant à intermédiaire'],
-      ['Intervenant', 'Un formateur Capsule IA'],
+      ['Intervenante', 'Wissam Bouakline, formatrice experte en assistants IA'],
       ['Livrables', "Un GPT personnalisé opérationnel, un projet réalisé avec Codex et un plan d'action à 30 jours"],
     ],
-    formateur: null,
+    formateur: {
+      nom: 'Wissam Bouakline',
+      role: 'Formatrice experte en assistants IA',
+      bio: "Cheffe de projet et formatrice, elle est spécialisée dans les solutions IA métiers et l'automatisation no-code. Elle accompagne chaque apprenant pas à pas, du premier prompt jusqu'à l'assistant connecté à ses outils.",
+      photo: '/img/wissam.webp',
+    },
     objectifGlobal:
       "Rendre l'apprenant autonome pour déléguer des tâches à ChatGPT, créer ses propres GPT, développer avec Codex et automatiser ses usages en gardant la maîtrise des résultats.",
     objectifs: [
