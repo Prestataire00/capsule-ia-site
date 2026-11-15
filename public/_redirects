@@ -3,3 +3,6 @@ http://capsuleia.netlify.app/* https://www.capsuleia.fr/:splat 301!
 # Lien court à envoyer aux clients pour laisser un avis
 /avis https://fr.trustpilot.com/evaluate/capsuleia.fr 302
 /avis/ https://fr.trustpilot.com/evaluate/capsuleia.fr 302
+/Avis https://fr.trustpilot.com/evaluate/capsuleia.fr 302
+/AVIS https://fr.trustpilot.com/evaluate/capsuleia.fr 302
+/avis. https://fr.trustpilot.com/evaluate/capsuleia.fr 302

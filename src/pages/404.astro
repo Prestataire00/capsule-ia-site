@@ -20,6 +20,13 @@ const liens = [
       {liens.map(([href, nom], i) => <li><a class={i === 0 ? 'is-main' : ''} href={href}>{nom}</a></li>)}
     </ul>
   </main>
+<script is:inline>
+  // Adresse mal saisie (majuscules, ponctuation collée à la fin) : on tente la version corrigée une seule fois.
+  (function () {
+    var p = location.pathname, n = p.toLowerCase().replace(/[.,;:!?)\]'"`*\s]+$/g, '').replace(/%20+$/g, '');
+    if (n && n !== p && !/[?&]r=1/.test(location.search)) location.replace(n + (n.endsWith('/') || /\.[a-z0-9]+$/.test(n) ? '' : '') + '?r=1');
+  })();
+</script>
 </Layout>
 
 <style>
