@@ -1,0 +1,28 @@
+---
+// Adresse courte à envoyer aux clients : capsuleia.fr/avis.
+// Renvoie vers le formulaire d'avis Trustpilot ; le bouton sert de secours.
+import Layout from '../layouts/Layout.astro';
+const url = 'https://fr.trustpilot.com/evaluate/capsuleia.fr';
+---
+
+<Layout title="Donner votre avis | Capsule IA" description="Laissez votre avis sur votre formation Capsule IA." noindex>
+  <main class="av">
+    <img src="/img/logo.webp" alt="" width="110" height="110" />
+    <p class="av-eyebrow">Votre avis</p>
+    <h1>Merci pour <span>votre retour.</span></h1>
+    <p>Vous allez être redirigé vers la page d'avis de Capsule IA sur Trustpilot.</p>
+    <a class="av-btn" href={url} rel="nofollow noopener">Donner mon avis</a>
+  </main>
+  <script is:inline define:vars={{ url }}>
+    location.replace(url);
+  </script>
+</Layout>
+
+<style>
+  .av { min-height: 100vh; display: grid; place-content: center; justify-items: center; gap: 14px; text-align: center; padding: 40px 20px; background: #ffe897; color: #1c1712; font-family: 'Poppins', sans-serif; }
+  .av-eyebrow { margin: 0; font: 700 12px/1 'Poppins', sans-serif; letter-spacing: .5em; text-transform: uppercase; color: #c40d60; }
+  h1 { margin: 0; font: 700 clamp(36px, 6vw, 64px)/1 'Inter Variable', Inter, sans-serif; letter-spacing: -.049em; }
+  h1 span { background: rgba(255, 133, 101, .5); padding: 0 .12em; }
+  p { margin: 0; font-size: 16px; }
+  .av-btn { margin-top: 10px; background: #c40d60; color: #fff; padding: 15px 32px; border-radius: 999px; font: italic 700 18px/1 'Poppins', sans-serif; letter-spacing: -.04em; box-shadow: 0 12px 18px -8px rgba(0, 0, 0, .45); }
+</style>

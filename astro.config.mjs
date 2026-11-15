@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 // Adresse définitive du site : à ajuster si le domaine est différent.
 export default defineConfig({
   site: 'https://www.capsuleia.fr',
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/avis/') })],
   build: { inlineStylesheets: 'auto' },
 });
