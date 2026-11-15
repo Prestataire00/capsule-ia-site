@@ -18,6 +18,9 @@ const schema = [
     datePublished: r.date,
     dateModified: r.date,
     inLanguage: 'fr-FR',
+    articleSection: r.theme,
+    timeRequired: `PT${r.lecture}M`,
+    isPartOf: { '@id': new URL('/#site', Astro.site) },
     mainEntityOfPage: new URL(`/ressources/${r.slug}/`, Astro.site),
     image: new URL('/partage.jpg', Astro.site),
     author: { '@id': new URL('/#organisme', Astro.site) },
@@ -26,7 +29,7 @@ const schema = [
 ];
 ---
 
-<Layout title={`${r.titre} | Capsule IA`} description={r.description} fil={r.titre} schema={schema}>
+<Layout title={r.titre.length > 52 ? r.titre : `${r.titre} | Capsule IA`} description={r.description} fil={r.titre} schema={schema}>
   <EnTete />
   <main class="ar">
     <article>

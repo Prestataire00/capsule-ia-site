@@ -36,6 +36,22 @@ const organisme = {
   address: { '@type': 'PostalAddress', addressLocality: 'Orléans', addressRegion: 'Centre-Val de Loire', addressCountry: 'FR' },
   sameAs: ['https://www.instagram.com/capsuleai.fr/', 'https://www.linkedin.com/company/108125643/'],
   areaServed: [{ '@type': 'Country', name: 'France' }],
+  slogan: "L'IA au service de vos métiers.",
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Certification Qualiopi',
+    credentialCategory: 'Certification qualité des organismes de formation',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Formations à l\'intelligence artificielle',
+    itemListElement: [
+      ['Formation Acculturation IA', '/acculturation/'],
+      ['Formation IA & Métiers', '/metiers/'],
+      ['Formation IA, RGPD & réglementation', '/rgpd-reglementation/'],
+      ['Formation Vibe coding', '/vibe-coding/'],
+    ].map(([name, href]) => ({ '@type': 'Course', name, url: new URL(href, Astro.site), provider: { '@id': new URL('/#organisme', Astro.site) } })),
+  },
   knowsAbout: ['Intelligence artificielle', 'IA générative', 'Rédaction de prompts', 'RGPD', 'AI Act', 'Vibe coding'],
   contactPoint: {
     '@type': 'ContactPoint',
@@ -78,6 +94,8 @@ const jsonLd = {
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Présentation pour les assistants IA" />
+    {!noindex && <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />}
     <meta name="theme-color" content="#c40d60" />
 
     <meta property="og:type" content="website" />

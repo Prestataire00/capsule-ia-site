@@ -1,0 +1,63 @@
+---
+// Bloc « En bref + questions fréquentes » des pages modules.
+// Texte visible et données structurées FAQPage viennent de src/data/modules.js.
+import { modules } from '../data/modules.js';
+const { cle } = Astro.props;
+const m = modules.find((x) => x.cle === cle);
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': new URL(m.href + '#faq', Astro.site),
+  mainEntity: m.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.r } })),
+};
+---
+
+<section class="fqm" aria-labelledby="fqm-titre">
+  <div class="fqm-in">
+    <div class="fqm-bref">
+      <p class="fqm-eyebrow">En bref</p>
+      <p class="fqm-resume">{m.bref}</p>
+      <dl>
+        <div><dt>Format</dt><dd>À distance, partout en France</dd></div>
+        <div><dt>Programme</dt><dd>Sur mesure, selon vos équipes</dd></div>
+        <div><dt>Qualité</dt><dd>Organisme certifié Qualiopi</dd></div>
+        <div><dt>Animation</dt><dd>{m.formateur}</dd></div>
+      </dl>
+    </div>
+    <div class="fqm-faq">
+      <h2 id="fqm-titre">{m.nom}&nbsp;: <span>questions fréquentes</span></h2>
+      {m.faq.map((f, i) => (
+        <details class="fqm-item" open={i === 0}>
+          <summary>{f.q}</summary>
+          <p>{f.r}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqLd)} />
+</section>
+
+<style>
+  .fqm { background: var(--cream-warm); padding: clamp(44px, 5.5vw, 84px) 20px; color: var(--dark); }
+  .fqm-in { max-width: 1020px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+  .fqm-bref { background: var(--magenta); color: #fff; border-radius: 30px; padding: clamp(24px, 2.6vw, 34px); box-shadow: 0 20px 30px -16px rgba(0, 0, 0, .4); position: sticky; top: 90px; }
+  .fqm-eyebrow { margin: 0 0 14px; font: 700 12px/1 'Poppins', sans-serif; letter-spacing: .5em; text-transform: uppercase; color: var(--yellow); }
+  .fqm-resume { margin: 0; font: 400 15px/1.6 'Poppins', sans-serif; }
+  dl { margin: 22px 0 0; display: grid; gap: 10px; }
+  dl div { display: flex; gap: 12px; align-items: baseline; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, .25); font: 400 13.5px/1.4 'Poppins', sans-serif; }
+  dt { flex: 0 0 86px; font-weight: 700; color: var(--yellow); }
+  dd { margin: 0; }
+  h2 { margin: 0 0 22px; font: 700 clamp(26px, 3vw, 38px)/1.05 'Inter Variable', Inter, sans-serif; letter-spacing: -.045em; text-wrap: balance; }
+  h2 span { background: rgba(102, 209, 218, .5); padding: 0 .12em; }
+  .fqm-item { background: #fff; border-radius: 16px; margin-top: 10px; box-shadow: 0 8px 16px -12px rgba(0, 0, 0, .35); overflow: hidden; }
+  .fqm-item summary { list-style: none; cursor: pointer; padding: 17px 52px 17px 20px; position: relative; font: 700 15.5px/1.35 'Poppins', sans-serif; letter-spacing: -.02em; }
+  .fqm-item summary::-webkit-details-marker { display: none; }
+  .fqm-item summary::after { content: '+'; position: absolute; right: 18px; top: 50%; translate: 0 -50%; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: var(--yellow); font: 700 18px/1 'Poppins', sans-serif; transition: rotate .3s cubic-bezier(.3, 1.5, .5, 1), background .2s; }
+  .fqm-item[open] summary::after { rotate: 45deg; background: var(--salmon); }
+  .fqm-item summary:focus-visible { outline: 3px solid var(--teal); outline-offset: -3px; }
+  .fqm-item p { margin: 0; padding: 0 20px 18px; font: 400 14.5px/1.6 'Poppins', sans-serif; color: var(--ink); }
+  @media (max-width: 760px) {
+    .fqm-in { grid-template-columns: 1fr; }
+    .fqm-bref { position: static; }
+  }
+</style>
