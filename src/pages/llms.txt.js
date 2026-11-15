@@ -1,5 +1,6 @@
 // /llms.txt : présentation du site pour les assistants IA (ChatGPT, Claude, Perplexity…).
 import { modules, organisme } from '../data/modules.js';
+import { bootcamps } from '../data/bootcamps.js';
 import { ressources } from '../data/ressources.js';
 
 export function GET({ site }) {
@@ -19,6 +20,10 @@ export function GET({ site }) {
     '## Formations',
     '',
     ...modules.map((m) => `- [${m.nom}](${u(m.href)}) : ${m.bref}`),
+    '',
+    '## Bootcamps (parcours intensifs de 16 heures)',
+    '',
+    ...bootcamps.map((b) => `- [${b.nom}](${u(`/${b.slug}/`)}) : ${b.bref}`),
     '',
     '## Guides',
     '',

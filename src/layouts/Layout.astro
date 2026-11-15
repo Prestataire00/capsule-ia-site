@@ -50,6 +50,8 @@ const organisme = {
       ['Formation IA & Métiers', '/metiers/'],
       ['Formation IA, RGPD & réglementation', '/rgpd-reglementation/'],
       ['Formation Vibe coding', '/vibe-coding/'],
+      ['Bootcamp Claude de A à Z', '/bootcamp-claude/'],
+      ['Bootcamp ChatGPT de A à Z', '/bootcamp-chatgpt/'],
     ].map(([name, href]) => ({ '@type': 'Course', name, url: new URL(href, Astro.site), provider: { '@id': new URL('/#organisme', Astro.site) } })),
   },
   knowsAbout: ['Intelligence artificielle', 'IA générative', 'Rédaction de prompts', 'RGPD', 'AI Act', 'Vibe coding'],
