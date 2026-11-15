@@ -27,6 +27,7 @@ export function GET({ site }) {
     '## Pages utiles',
     '',
     `- [Demander un devis](${u('/devis/')}) : formulaire de demande, réponse sous 2 heures.`,
+    `- [Brochure Capsule IA (PDF, 12 pages)](${u('/Brochure-Capsule-IA.pdf')}) : présentation de l'organisme, de l'approche, des formations, d'exemples de missions et des formateurs.`,
     `- [Accueil](${u('/')}) : présentation, approche, équipe et références.`,
     `- [Version détaillée pour les assistants IA](${u('/llms-full.txt')}) : contenu complet des formations, questions fréquentes et guides.`,
     '',

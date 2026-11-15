@@ -2,3 +2,6 @@
   Cache-Control: public, max-age=31536000, immutable
 /img/*
   Cache-Control: public, max-age=2592000
+/Brochure-Capsule-IA.pdf
+  Cache-Control: public, max-age=86400
+  Content-Disposition: attachment; filename="Brochure Capsule IA.pdf"

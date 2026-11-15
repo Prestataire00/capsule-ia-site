@@ -26,6 +26,7 @@ const schema = [
       <p class="rs-eyebrow">Ressources</p>
       <h1>Des repères <span>pour avancer.</span></h1>
       <p class="rs-lead">Des guides courts et concrets pour comprendre l'IA, l'utiliser avec les bons réflexes et préparer la formation de vos équipes.</p>
+      <p class="rs-broch"><a href="/Brochure-Capsule-IA.pdf" download="Brochure Capsule IA.pdf"><b>↓</b> Télécharger la brochure Capsule IA <span>PDF · 12 pages</span></a></p>
     </header>
     <ul class="rs-liste">
       {
@@ -59,4 +60,9 @@ const schema = [
   h2 { margin: 0; font: 700 clamp(22px, 2.3vw, 28px)/1.12 'Inter Variable', Inter, sans-serif; letter-spacing: -.03em; text-wrap: balance; }
   .rs-liste p { margin: 0; font-size: 15px; line-height: 1.55; color: #4a443d; }
   .rs-lire { margin-top: auto; padding-top: 6px; font-weight: 700; font-style: italic; color: #c40d60; font-size: 15px; }
+  .rs-broch { margin: 26px 0 0; }
+  .rs-broch a { display: inline-flex; align-items: center; gap: 10px; background: #c40d60; color: #fff; padding: 13px 24px; border-radius: 999px; font: 700 15px/1.2 'Poppins', sans-serif; box-shadow: 0 12px 18px -10px rgba(0, 0, 0, .45); transition: transform .25s cubic-bezier(.3, 1.4, .5, 1); }
+  .rs-broch a:hover { transform: translateY(-3px); }
+  .rs-broch b { color: #ffe897; font-size: 18px; }
+  .rs-broch span { font-weight: 400; opacity: .85; font-size: 13px; }
 </style>
