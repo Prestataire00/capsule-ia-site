@@ -311,4 +311,49 @@ export const ressources = [
 </ul>
 <p>Capsule IA construit des programmes sur mesure sur l'automatisation, à partir des tâches de vos équipes.</p>`,
   },
+  {
+    slug: 'verifier-reponse-ia',
+    titre: "Comment vérifier une réponse d'IA avant de l'utiliser ?",
+    description:
+      "Chiffres, noms, sources, raisonnement, oublis : cinq contrôles simples pour repérer les erreurs d'un assistant IA avant d'envoyer un document ou de décider.",
+    theme: 'Acculturation IA',
+    lecture: 4,
+    date: '2026-11-15',
+    module: { href: '/acculturation/', nom: 'la formation Acculturation IA' },
+    corps: `
+<p>Pour vérifier une réponse d'IA, contrôlez d'abord ce qui peut se vérifier : les chiffres, les dates, les noms et les sources, en les comparant à un document de référence. Relisez ensuite le raisonnement, puis adaptez le niveau de contrôle à l'enjeu : un brouillon interne ne demande pas la même attention qu'un courrier client ou qu'une décision.</p>
+<h2>Pourquoi une réponse bien écrite peut être fausse</h2>
+<p>Un assistant IA génératif produit un texte plausible à partir de ce qu'il a appris et de ce que vous lui avez fourni. Il ne garantit pas l'exactitude de chaque affirmation. Une erreur est donc rédigée avec la même assurance qu'une information juste : la qualité du style ne dit rien de la fiabilité du contenu.</p>
+<h2>Les cinq contrôles</h2>
+<ol>
+<li><strong>Les chiffres et les dates.</strong> Montants, pourcentages, échéances : comparez-les à la source d'origine. Dans un résumé ou un tableau, vérifiez qu'aucune valeur n'a été arrondie, inversée ou ajoutée.</li>
+<li><strong>Les noms propres.</strong> Personnes, sociétés, produits, références de dossier : une lettre ou un chiffre modifié suffit à créer une confusion.</li>
+<li><strong>Les sources et les citations.</strong> Si la réponse cite un texte, une étude ou un site, retrouvez-le vous-même. Une référence peut ne pas exister, ou ne pas dire ce que la réponse lui fait dire.</li>
+<li><strong>Le raisonnement.</strong> La conclusion découle-t-elle des éléments fournis ? Un calcul se refait, une comparaison se relit ligne par ligne.</li>
+<li><strong>Ce qui manque.</strong> Une synthèse peut omettre une réserve, une exception ou une condition. Relisez le document d'origine sur les points qui comptent pour vous.</li>
+</ol>
+<h2>Demander à l'IA de faciliter le contrôle</h2>
+<p>La façon de formuler la demande rend la vérification plus rapide :</p>
+<ul>
+<li><strong>Fournir la matière.</strong> Une réponse appuyée sur un document que vous avez transmis se contrôle plus facilement qu'une réponse donnée de mémoire.</li>
+<li><strong>Demander l'origine de chaque information.</strong> « Pour chaque point, indique le passage du document sur lequel tu t'appuies. »</li>
+<li><strong>Demander ce qui est incertain.</strong> « Signale ce qui ne figure pas dans le texte fourni et ce dont tu n'es pas sûr. »</li>
+</ul>
+<p>Ces consignes aident, sans remplacer votre relecture : l'IA peut aussi se tromper lorsqu'elle se relit. La méthode pour construire une consigne est détaillée dans <a href="/ressources/rediger-un-bon-prompt/">Comment rédiger un bon prompt</a>.</p>
+<h2>Adapter le contrôle à l'enjeu</h2>
+<ul>
+<li><strong>Usage interne, enjeu faible.</strong> Recherche d'idées, brouillon, reformulation : une relecture attentive suffit.</li>
+<li><strong>Document qui sort de l'entreprise.</strong> Devis, courrier, publication : les chiffres, les noms et les engagements se vérifient un par un.</li>
+<li><strong>Sujet juridique, financier, médical ou lié aux ressources humaines.</strong> La réponse est un point de départ, à faire valider par une personne compétente.</li>
+</ul>
+<h2>Les signaux qui doivent alerter</h2>
+<ul>
+<li>un chiffre très précis donné sans source ;</li>
+<li>une citation ou une référence que vous ne retrouvez pas ;</li>
+<li>une réponse qui change sur le fond quand vous reposez la même question ;</li>
+<li>une affirmation sur votre entreprise ou sur un fait récent que l'outil n'a aucune raison de connaître.</li>
+</ul>
+<h2>En faire un réflexe d'équipe</h2>
+<p>La vérification tient mieux quand elle est partagée : une règle simple (« ce qui sort de l'entreprise est relu par la personne qui signe »), une liste de contrôles connue de tous, et des exemples d'erreurs repérées discutés en équipe. La personne qui utilise une réponse en reste responsable. Ce réflexe se travaille dans la formation <a href="/acculturation/">Acculturation IA</a> et complète les <a href="/ressources/ia-rgpd-reflexes-entreprise/">réflexes RGPD</a> sur ce que l'on transmet à l'outil.</p>`,
+  },
 ];
