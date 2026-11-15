@@ -321,6 +321,7 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
             body: JSON.stringify({ ...v, _subject: `Demande de devis — ${v.Entreprise || ''}` }),
           });
           if (!res.ok) throw new Error(String(res.status));
+          window.dispatchEvent(new CustomEvent('capsule:devis'));
           done(false);
         } catch {
           send.disabled = false;

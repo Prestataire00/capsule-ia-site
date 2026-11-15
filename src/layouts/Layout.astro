@@ -8,6 +8,7 @@ import '@fontsource/poppins/700-italic.css';
 import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
 import '../styles/global.css';
+import Consentement from '../components/Consentement.astro';
 
 interface Props {
   title: string;
@@ -151,6 +152,7 @@ const jsonLd = {
         </a>
       )
     }
+    <Consentement />
     <script>
       import '../scripts/main.js';
     </script>

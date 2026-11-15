@@ -1,0 +1,92 @@
+---
+// Bandeau de consentement + Pixel Meta. Le Pixel n'est chargé qu'après un
+// « Accepter » (règle de la CNIL) ; le choix est gardé 6 mois puis redemandé.
+// Rien n'est rendu tant que META_PIXEL_ID est vide (src/data/suivi.js).
+import { META_PIXEL_ID } from '../data/suivi.js';
+---
+
+{META_PIXEL_ID && (
+  <div class="ck" id="ck" hidden role="dialog" aria-modal="false" aria-labelledby="ck-titre">
+    <p class="ck-titre" id="ck-titre">Cookies publicitaires</p>
+    <p class="ck-texte">
+      Avec votre accord, nous utilisons le Pixel Meta pour mesurer l'efficacité de nos publicités sur Facebook et
+      Instagram. Aucun traceur n'est déposé sans votre accord, et vous pouvez changer d'avis à tout moment.
+    </p>
+    <div class="ck-actions">
+      <button type="button" class="ck-btn" data-ck="non">Refuser</button>
+      <button type="button" class="ck-btn" data-ck="oui">Accepter</button>
+    </div>
+  </div>
+)}
+{META_PIXEL_ID && (
+  <script is:inline define:vars={{ ID: META_PIXEL_ID }}>
+    (function () {
+      if (window.__capsuleCk) return;
+      window.__capsuleCk = true;
+      var CLE = 'capsule-cookies', DUREE = 1000 * 60 * 60 * 24 * 182;
+      function lire() {
+        try {
+          var v = JSON.parse(localStorage.getItem(CLE) || 'null');
+          return v && Date.now() - v.t < DUREE ? v.c : null;
+        } catch (e) { return null; }
+      }
+      function ecrire(c) {
+        try { localStorage.setItem(CLE, JSON.stringify({ c: c, t: Date.now() })); } catch (e) {}
+      }
+      function charger() {
+        if (window.fbq) return;
+        var n = (window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); });
+        if (!window._fbq) window._fbq = n;
+        n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+        var s = document.createElement('script');
+        s.async = true; s.src = 'https://connect.facebook.net/fr_FR/fbevents.js';
+        document.head.appendChild(s);
+        window.fbq('init', ID);
+      }
+      function page() {
+        var choix = lire(), b = document.getElementById('ck');
+        if (b) b.hidden = choix !== null;
+        if (choix === 'oui') { charger(); window.fbq('track', 'PageView'); }
+      }
+      document.addEventListener('click', function (e) {
+        var t = e.target.closest && e.target.closest('[data-ck], [data-ck-ouvrir]');
+        if (!t) return;
+        var b = document.getElementById('ck');
+        if (t.hasAttribute('data-ck-ouvrir')) { e.preventDefault(); if (b) b.hidden = false; return; }
+        var avant = lire(), c = t.getAttribute('data-ck');
+        ecrire(c);
+        if (b) b.hidden = true;
+        if (c === 'oui' && avant !== 'oui') { charger(); window.fbq('track', 'PageView'); }
+        if (c === 'non' && avant === 'oui') location.reload();
+      });
+      window.addEventListener('capsule:devis', function () {
+        if (lire() === 'oui' && window.fbq) window.fbq('track', 'Lead', { content_name: 'Demande de devis' });
+      });
+      document.addEventListener('astro:page-load', page);
+      if (document.readyState !== 'loading') page();
+    })();
+  </script>
+)}
+
+<style is:global>
+  .ck {
+    position: fixed; left: 16px; bottom: 16px; z-index: 90; width: min(380px, calc(100vw - 32px));
+    background: #fff; color: #1c1712; border-radius: 22px; padding: 20px 22px;
+    box-shadow: 0 24px 40px -16px rgba(0, 0, 0, .5), 0 0 0 1px rgba(0, 0, 0, .06);
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+  .ck[hidden] { display: none; }
+  .ck-titre { margin: 0 0 6px; font: 700 16px/1.2 'Inter Variable', Inter, sans-serif; letter-spacing: -.02em; }
+  .ck-texte { margin: 0; font-size: 13px; line-height: 1.5; color: #353535; }
+  .ck-actions { display: flex; gap: 10px; margin-top: 16px; }
+  .ck-btn {
+    flex: 1; cursor: pointer; border: 2px solid #1c1712; background: #fff; color: #1c1712;
+    padding: 10px 14px; border-radius: 999px; font: 700 14px/1 'Poppins', sans-serif;
+    transition: background .2s, color .2s;
+  }
+  .ck-btn:hover, .ck-btn:focus-visible { background: #1c1712; color: #fff; }
+  @media (prefers-reduced-motion: no-preference) {
+    .ck:not([hidden]) { animation: ck-in .5s cubic-bezier(.2, .8, .2, 1) both; }
+    @keyframes ck-in { from { opacity: 0; translate: 0 20px; } }
+  }
+</style>
