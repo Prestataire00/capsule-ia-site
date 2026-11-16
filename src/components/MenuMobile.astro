@@ -59,18 +59,20 @@ const liens = [
 </script>
 
 <style is:global>
-  .mm-btn { display: none; }
+  .mm-btn, .barre-menu { display: none; }
   @media (max-width: 760px) {
     .mm-btn {
       display: grid; place-content: center; gap: 5px;
-      position: fixed; top: 14px; right: 14px; z-index: 80;
+      position: absolute; top: 14px; right: 14px; z-index: 60;
       width: 48px; height: 48px; border: 0; border-radius: 50%;
       background: #1c1712; box-shadow: 0 0 0 2px #fff, 0 10px 20px -8px rgba(0, 0, 0, .55); cursor: pointer;
     }
     .mm-btn span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: #fff; }
     /* le bouton remplace la pastille « Découvrir nos modules » des en-têtes */
     .navbar .btn, .et-pill { display: none !important; }
-    .barre-in { padding-right: 72px !important; }
+    .barre-menu { display: grid; place-content: center; gap: 4px; flex: none; width: 42px; height: 42px; border: 0; border-radius: 50%; background: #1c1712; cursor: pointer; }
+    .barre-menu span { display: block; width: 18px; height: 2px; border-radius: 2px; background: #fff; }
+    .barre .barre-logo span { display: none; }
   }
   .mm {
     width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0;

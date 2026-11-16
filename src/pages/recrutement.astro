@@ -302,6 +302,8 @@ import '../styles/formation.css';
 .rec-choices label{display:inline-flex;align-items:center;gap:.42rem;font:500 .84rem/1 Inter,sans-serif;color:#1c1712;background:#fff8ed;border:1.5px solid rgba(28,23,18,.18);border-radius:999px;padding:.5rem .8rem;cursor:pointer;margin:0;transition:border-color .15s,background .15s}
 .rec-choices label:has(input:checked){border-color:#c40d60;background:rgba(196,13,96,.08)}
 .rec-choices input{accent-color:#c40d60;margin:0}
+.rec-choices label:has(input:checked){font-weight:700;box-shadow:0 6px 12px -8px rgba(196,13,96,.6)}
+@media (max-width:600px){.rec-choices{gap:.5rem}.rec-choices label{font-size:.92rem;padding:.68rem .95rem}.rec-choices input{width:18px;height:18px}}
 .rec-hp{position:absolute;left:-9999px;top:-9999px}
 .rec-submit{margin-top:1.4rem}
 .rec-submit .bc-btn{width:100%;text-align:center;justify-content:center}

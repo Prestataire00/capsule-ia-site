@@ -24,6 +24,7 @@ const { title, description, schema = [], fil, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const image = new URL('/partage.jpg', Astro.site);
 const surDevis = Astro.url.pathname.startsWith('/devis');
+const surRecrutement = Astro.url.pathname.startsWith('/recrutement');
 
 const organisme = {
   '@type': 'EducationalOrganization',
@@ -140,16 +141,17 @@ const jsonLd = {
               <a href="/recrutement/">Recrutement</a>
             </nav>
             <a class="barre-btn" href="/devis/">Demander un devis</a>
+            <button class="barre-menu" type="button" aria-label="Ouvrir le menu" data-mm-ouvrir><span></span><span></span><span></span></button>
           </div>
         </header>
       )
     }
     <slot />
-    {!surDevis && <MenuMobile />}
+    <MenuMobile />
     {
-      !surDevis && (
+      !surDevis && !surRecrutement && (
         <a class="cta-flottant" href="/devis/" aria-label="Parlons de votre besoin : devis garanti sous 2 heures">
-          <span class="cta-flottant-pastille">2 h</span>
+          <span class="cta-flottant-pastille"><em>Devis</em>2 h</span>
           <span class="cta-flottant-texte">
             <b>Parlons de votre besoin</b>
             <small>Devis garanti sous 2 h</small>
