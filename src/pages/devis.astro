@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 
 // Les demandes sont envoyées au formulaire Formspree « Devis Capsule IA ».
 // Pour utiliser un autre service, définir PUBLIC_FORM_ENDPOINT (voir .env.example).
-const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.io/f/xwlovqob';
+const endpoint = '/';
 const email = 'contact@capsuleia.fr';
 
 // Liste déroulante des formations, par famille. `v` est le libellé reçu dans la demande.
@@ -88,13 +88,17 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
       <form
         class="dv-form"
         id="dv-form"
-        action={`mailto:${email}`}
+        name="devis"
+        data-netlify="true"
+        netlify-honeypot="site-web-pot"
+        action="/devis/?envoye=1"
         method="post"
-        enctype="text/plain"
         data-endpoint={endpoint}
         data-email={email}
         novalidate
       >
+        <input type="hidden" name="form-name" value="devis" />
+        <p hidden><label>Ne pas remplir : <input name="site-web-pot" tabindex="-1" autocomplete="off" /></label></p>
         <ol class="dv-steps" aria-label="Étapes du devis">
           {etapes.map((e, i) => (
             <li data-step-dot={i}>
@@ -391,8 +395,8 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
         try {
           const res = await fetch(endpoint, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify({ ...v, _subject: `Demande de devis — ${v.Entreprise || ''}` }),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ ...v, 'form-name': 'devis' }).toString(),
           });
           if (!res.ok) throw new Error(String(res.status));
           window.dispatchEvent(new CustomEvent('capsule:devis'));
