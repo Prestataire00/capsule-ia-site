@@ -6,17 +6,33 @@ import Layout from '../layouts/Layout.astro';
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.io/f/xwlovqob';
 const email = 'contact@capsuleia.fr';
 
-const formations = [
-  { v: 'Acculturation IA', d: "Découvrir les fondamentaux et les bons réflexes" },
-  { v: 'IA & Métiers', d: 'Des usages adaptés à chaque métier' },
-  { v: 'RGPD & réglementation', d: 'Utiliser l’IA de manière responsable' },
-  { v: 'Vibe coding', d: 'Créer ses premiers prototypes avec l’IA' },
-  { v: 'Je ne sais pas encore', d: 'On en parle ensemble' },
+// Liste déroulante des formations, par famille. `v` est le libellé reçu dans la demande.
+const catalogue = [
+  { groupe: 'Bootcamps & IA Expert · 16 heures', items: [
+    { v: 'Bootcamp Claude de A à Z', cle: 'bootcamp-claude' },
+    { v: 'Bootcamp ChatGPT de A à Z', cle: 'bootcamp-chatgpt' },
+    { v: 'Bootcamp Copilot de A à Z', cle: 'bootcamp-copilot' },
+    { v: 'Cerveau IA : concevoir le cerveau IA de votre entreprise', cle: 'cerveau-ia' },
+  ] },
+  { groupe: 'Formations pour vos équipes', items: [
+    { v: 'Acculturation IA : utiliser l’IA au quotidien', cle: 'acculturation' },
+    { v: 'IA & Métiers', cle: 'metiers' },
+    { v: 'IA, RGPD & réglementation', cle: 'rgpd-reglementation' },
+    { v: 'Vibe coding : créer une application avec l’IA', cle: 'vibe-coding' },
+  ] },
+  { groupe: 'Sur mesure', items: [
+    { v: 'Capsules e-learning sur mesure', cle: 'e-learning' },
+    { v: 'Formation sur mesure pour mon entreprise', cle: 'sur-mesure' },
+  ] },
+  { groupe: 'Pas encore décidé', items: [{ v: 'Je ne sais pas encore, conseillez-moi', cle: 'conseil' }] },
 ];
-const tailles = ['1 à 5', '6 à 12', '13 à 30', 'Plus de 30'];
+const autres = ['Bootcamp Claude', 'Bootcamp ChatGPT', 'Bootcamp Copilot', 'Cerveau IA', 'Acculturation IA', 'IA & Métiers', 'RGPD & réglementation', 'Vibe coding', 'E-learning sur mesure'];
+const organisations = ['En individuel', 'Un seul groupe', 'Plusieurs groupes', 'À définir ensemble'];
+const outils = ['ChatGPT', 'Claude', 'Copilot', 'Gemini', 'Mistral', 'Aucun pour l’instant'];
+const effectifs = ['1 à 10', '11 à 50', '51 à 250', 'Plus de 250'];
 const niveaux = ['Débutant', 'Intermédiaire', 'Avancé', 'Niveaux mixtes'];
 const metiers = ['Marketing & communication', 'Commercial', 'Administration & gestion', 'Management', 'RH', 'Autre'];
-const formats = ['Présentiel', 'Distanciel', 'E-learning', 'À définir ensemble'];
+const formats = ['Distanciel', 'Présentiel', 'E-learning', 'À définir ensemble'];
 const echeances = ['Dès que possible', 'Sous 1 mois', 'Sous 3 mois', 'Pas de date précise'];
 const opco = ['Oui', 'Non', 'Je ne sais pas'];
 const creneaux = ['Le matin', "L'après-midi", 'Peu importe'];
@@ -90,26 +106,52 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
         <div class="dv-bar"><i id="dv-progress"></i></div>
 
         <fieldset class="dv-step" data-step="0">
-          <legend>Quelles formations vous intéressent ?</legend>
-          <p class="dv-hint">Plusieurs choix possibles.</p>
-          <div class="dv-cards">
-            {formations.map((f) => (
-              <label class="dv-opt dv-opt--card">
-                <input type="checkbox" name="Formations" value={f.v} />
-                <b>{f.v}</b>
-                <small>{f.d}</small>
-              </label>
+          <legend>Quelle formation vous intéresse ?</legend>
+          <label class="dv-field">
+            <span>Formation souhaitée en priorité</span>
+            <select name="Formation" id="dv-formation" required>
+              <option value="">Choisir dans la liste…</option>
+              {catalogue.map((g) => (
+                <optgroup label={g.groupe}>
+                  {g.items.map((f) => <option value={f.v} data-cle={f.cle}>{f.v}</option>)}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+          <p class="dv-aide" id="dv-aide" hidden></p>
+          <p class="dv-label">D'autres formations vous intéressent aussi ? <em>(facultatif)</em></p>
+          <div class="dv-chips">
+            {autres.map((t) => (
+              <label class="dv-opt"><input type="checkbox" name="Autres formations" value={t} />{t}</label>
             ))}
           </div>
-          <p class="dv-error" hidden>Sélectionnez au moins une formation.</p>
+          <label class="dv-field">
+            <span>Votre objectif : que doivent savoir faire les participants à la fin ?</span>
+            <textarea name="Objectif" rows="3" required placeholder="Ex. : rédiger nos devis et comptes rendus avec l’IA, créer un agent qui trie les demandes clients…"></textarea>
+          </label>
+          <p class="dv-error" hidden>Choisissez une formation et décrivez votre objectif en une phrase.</p>
         </fieldset>
 
         <fieldset class="dv-step" data-step="1">
           <legend>Parlez-nous de votre équipe</legend>
-          <p class="dv-label">Nombre de participants</p>
+          <div class="dv-grid">
+            <label class="dv-field">
+              <span>Nombre de personnes à former</span>
+              <input type="number" name="Participants" min="1" max="5000" step="1" inputmode="numeric" required placeholder="Ex. : 8" />
+              <small class="dv-note">Un ordre d'idée suffit.</small>
+            </label>
+            <label class="dv-field">
+              <span>Effectif total de l'entreprise</span>
+              <select name="Effectif entreprise" required>
+                <option value="">Choisir…</option>
+                {effectifs.map((t) => <option>{t}</option>)}
+              </select>
+            </label>
+          </div>
+          <p class="dv-label">Organisation souhaitée</p>
           <div class="dv-chips">
-            {tailles.map((t) => (
-              <label class="dv-opt"><input type="radio" name="Participants" value={t} required />{t}</label>
+            {organisations.map((t) => (
+              <label class="dv-opt"><input type="radio" name="Organisation" value={t} required />{t}</label>
             ))}
           </div>
           <p class="dv-label">Niveau actuel en IA</p>
@@ -124,7 +166,13 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
               <label class="dv-opt"><input type="checkbox" name="Métiers" value={t} />{t}</label>
             ))}
           </div>
-          <p class="dv-error" hidden>Indiquez le nombre de participants et le niveau.</p>
+          <p class="dv-label">Assistants IA déjà utilisés dans l'entreprise <em>(facultatif)</em></p>
+          <div class="dv-chips">
+            {outils.map((t) => (
+              <label class="dv-opt"><input type="checkbox" name="Outils déjà utilisés" value={t} />{t}</label>
+            ))}
+          </div>
+          <p class="dv-error" hidden>Indiquez le nombre de personnes, l'effectif, l'organisation et le niveau.</p>
         </fieldset>
 
         <fieldset class="dv-step" data-step="2">
@@ -160,6 +208,10 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
             <label class="dv-field">
               <span>Entreprise</span>
               <input type="text" name="Entreprise" autocomplete="organization" required />
+            </label>
+            <label class="dv-field">
+              <span>Secteur d'activité</span>
+              <input type="text" name="Secteur" placeholder="Ex. : paysage, expertise comptable, industrie…" required />
             </label>
             <label class="dv-field">
               <span>E-mail professionnel</span>
@@ -257,8 +309,7 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
 
       const valid = (i) => {
         const step = steps[i];
-        let ok = [...step.querySelectorAll('input, textarea')].every((el) => el.checkValidity());
-        if (i === 0) ok = step.querySelectorAll('input:checked').length > 0;
+        const ok = [...step.querySelectorAll('input, textarea, select')].every((el) => el.checkValidity());
         step.querySelector('.dv-error').hidden = ok;
         return ok;
       };
@@ -276,6 +327,29 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
         send.hidden = i !== steps.length - 1;
         if (focus) steps[i].querySelector('legend').scrollIntoView({ behavior: 'smooth', block: 'center' });
       };
+
+      // Formation : aide contextuelle selon le choix, et présélection par /devis/?formation=<clé>.
+      const choix = document.getElementById('dv-formation');
+      const aide = document.getElementById('dv-aide');
+      const AIDES = {
+        bootcamp: 'Les bootcamps suivent un programme fixe de 16 heures, en individuel. Indiquez à l’étape suivante combien de personnes vous souhaitez former.',
+        'cerveau-ia': 'Formation de 16 heures, en individuel ou en binôme (dirigeant et référent), appliquée à votre cas réel.',
+        'e-learning': 'Précisez dans votre objectif le sujet des capsules, le public visé et le nombre de modules envisagé.',
+        'sur-mesure': 'Décrivez votre contexte dans l’objectif : nous construisons le programme après un échange.',
+        conseil: 'Décrivez simplement votre situation : nous vous recommandons la formation la plus adaptée.',
+      };
+      const majAide = () => {
+        const cle = choix.selectedOptions[0]?.dataset.cle || '';
+        const texte = AIDES[cle.startsWith('bootcamp') ? 'bootcamp' : cle] || '';
+        aide.textContent = texte;
+        aide.hidden = !texte;
+      };
+      choix.addEventListener('change', majAide);
+      const demandee = new URLSearchParams(location.search).get('formation');
+      if (demandee) {
+        const opt = [...choix.options].find((o) => o.dataset.cle === demandee);
+        if (opt) { choix.value = opt.value; majAide(); }
+      }
 
       next.addEventListener('click', () => valid(current) && show(current + 1));
       prev.addEventListener('click', () => show(current - 1));
@@ -401,6 +475,12 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
     .dv-field input, .dv-field textarea { font: 400 16px/1.4 'Poppins', sans-serif; padding: 12px 14px; border-radius: 14px; border: 2px solid #e4e0d8; background: #fbfaf7; color: var(--ink); width: 100%; transition: border-color .2s, background .2s; }
     .dv-field input:focus, .dv-field textarea:focus { border-color: var(--magenta); background: #fff; }
     .dv-field textarea { resize: vertical; }
+    .dv-field select { font: 400 16px/1.4 'Poppins', sans-serif; padding: 12px 40px 12px 14px; border-radius: 14px; border: 2px solid #e4e0d8; background: #fbfaf7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231c1712' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center; color: var(--ink); width: 100%; appearance: none; -webkit-appearance: none; cursor: pointer; transition: border-color .2s, background-color .2s; }
+    .dv-field select:focus { border-color: var(--magenta); background-color: #fff; }
+    .dv-field select:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+    .dv-note { font-weight: 400; font-size: 12.5px; color: #77716a; }
+    .dv-aide { margin: 12px 0 0; padding: 12px 16px; border-radius: 14px; background: #fff3c9; border-left: 4px solid var(--magenta); font-size: 14px; line-height: 1.5; }
+    .dv-aide[hidden] { display: none; }
     .dv-step > .dv-field { margin-top: 22px; }
     .dv-consent { display: flex; gap: 12px; align-items: flex-start; margin-top: 20px; font-size: 13.5px; line-height: 1.45; cursor: pointer; }
     .dv-consent input { flex: none; width: 20px; height: 20px; margin-top: 1px; accent-color: var(--magenta); }

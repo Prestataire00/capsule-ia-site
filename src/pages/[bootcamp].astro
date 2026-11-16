@@ -55,7 +55,7 @@ const g = (prev, bg) => `--prev:${prev};--bg:${bg}`;
           {b.puces.map(([n, l]) => <li><b>{n}</b> {l}</li>)}
         </ul>
         <p class="bc-actions">
-          <a class="bc-btn" href="/devis/">Demander un devis</a>
+          <a class="bc-btn" href={`/devis/?formation=${b.slug}`}>Demander un devis</a>
           <a class="bc-lien" href="#programme">Voir le programme ↓</a>
           {pdf && <a class="bc-lien" href={pdf.href} download>Télécharger le syllabus (PDF)</a>}
         </p>
