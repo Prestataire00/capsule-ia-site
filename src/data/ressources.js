@@ -356,4 +356,50 @@ export const ressources = [
 <h2>En faire un réflexe d'équipe</h2>
 <p>La vérification tient mieux quand elle est partagée : une règle simple (« ce qui sort de l'entreprise est relu par la personne qui signe »), une liste de contrôles connue de tous, et des exemples d'erreurs repérées discutés en équipe. La personne qui utilise une réponse en reste responsable. Ce réflexe se travaille dans la formation <a href="/acculturation/">Acculturation IA</a> et complète les <a href="/ressources/ia-rgpd-reflexes-entreprise/">réflexes RGPD</a> sur ce que l'on transmet à l'outil.</p>`,
   },
+  {
+    slug: 'faire-adopter-ia-equipe',
+    titre: "Faire adopter l'IA par son équipe : 6 leviers concrets",
+    description:
+      "Usages choisis, règles claires, formation sur des cas réels, relais internes : six leviers pour que votre équipe utilise vraiment l'IA au travail.",
+    theme: 'Conduite du changement',
+    lecture: 5,
+    date: '2026-11-16',
+    module: { href: '/acculturation/', nom: 'la formation Acculturation IA' },
+    corps: `
+<p>Pour faire adopter l'IA par une équipe, partez de ses tâches réelles plutôt que de l'outil : choisissez deux ou trois usages utiles, fixez des règles simples sur ce qui est permis, formez sur des cas concrets et laissez du temps pour pratiquer. L'adoption se joue moins sur la technologie que sur la confiance et sur l'habitude.</p>
+<h2>Pourquoi ouvrir des accès ne suffit pas</h2>
+<p>Donner un compte à chacun ne crée pas un usage. Sans repères, certains essaient une fois et abandonnent, d'autres s'en servent sans le dire, d'autres encore s'en tiennent à l'écart. Les freins sont le plus souvent les mêmes :</p>
+<ul>
+<li>ne pas savoir par où commencer ni pour quelle tâche ;</li>
+<li>craindre de mal faire, ou de transmettre une information qu'il ne fallait pas ;</li>
+<li>s'inquiéter de ce que l'outil change pour son poste ;</li>
+<li>rester sur une première réponse décevante.</li>
+</ul>
+<h2>Les six leviers</h2>
+<ol>
+<li><strong>Partir des tâches.</strong> Demandez à l'équipe ce qui lui prend du temps chaque semaine : comptes rendus, relances, synthèses, mises en forme. Retenez deux ou trois usages précis pour commencer. Notre liste d'<a href="/ressources/usages-ia-par-metier/">usages concrets par métier</a> peut servir de point de départ.</li>
+<li><strong>Dire ce qui est permis.</strong> Quel outil utiliser, quelles informations ne pas y mettre, qui relit ce qui sort de l'entreprise. Une page suffit. Des règles claires rassurent ceux qui hésitent et encadrent ceux qui pratiquent déjà.</li>
+<li><strong>Former sur des cas réels.</strong> Une démonstration impressionne, un exercice sur ses propres documents installe un réflexe. Chacun doit repartir avec au moins une tâche qu'il sait refaire seul.</li>
+<li><strong>S'appuyer sur des relais.</strong> Dans chaque équipe, une ou deux personnes sont plus à l'aise que les autres. Donnez-leur un rôle reconnu : répondre aux questions, partager une consigne qui fonctionne, faire remonter les difficultés.</li>
+<li><strong>Laisser du temps.</strong> Un nouvel usage demande quelques essais avant de devenir plus rapide que l'ancienne façon de faire. Si l'agenda ne prévoit aucun moment pour essayer, l'habitude d'avant reprend le dessus.</li>
+<li><strong>Montrer l'exemple.</strong> Quand le responsable explique comment il a préparé une réunion avec l'assistant, et ce qu'il a dû corriger, il rend l'usage légitime et rappelle que la relecture fait partie du travail.</li>
+</ol>
+<h2>Répondre aux inquiétudes</h2>
+<p>Les réticences méritent une réponse, pas un argumentaire. Trois points reviennent souvent :</p>
+<ul>
+<li><strong>« Est-ce que l'outil va me remplacer ? »</strong> Dites ce que vous attendez concrètement : quelles tâches sont concernées, lesquelles ne le sont pas, et que la décision reste à la personne.</li>
+<li><strong>« Et si je me trompe ? »</strong> Une réponse d'IA se contrôle. Donner une méthode pour <a href="/ressources/verifier-reponse-ia/">vérifier une réponse avant de l'utiliser</a> lève une bonne part de la crainte.</li>
+<li><strong>« Je n'y arrive pas. »</strong> Le premier essai est rarement le bon. Regarder ensemble une consigne qui n'a pas marché apprend davantage qu'un exemple parfait.</li>
+</ul>
+<h2>Les erreurs à éviter</h2>
+<ul>
+<li><strong>Imposer l'outil sans expliquer pourquoi.</strong> L'équipe l'utilise pour la forme, puis l'oublie.</li>
+<li><strong>Tout interdire par prudence.</strong> Les usages continuent, mais sans cadre et hors de votre vue.</li>
+<li><strong>Vouloir tout couvrir d'un coup.</strong> Mieux vaut trois usages maîtrisés que vingt survolés.</li>
+<li><strong>Former une fois, puis ne plus en parler.</strong> Sans suivi, les acquis s'estompent.</li>
+</ul>
+<h2>Comment savoir si l'adoption prend</h2>
+<p>Inutile de mesurer des connexions. Posez plutôt trois questions à l'équipe, quelques semaines après le démarrage : pour quelles tâches utilisez-vous l'assistant ? Qu'est-ce qui ne fonctionne pas ? De quoi auriez-vous besoin pour aller plus loin ? Les réponses indiquent les usages à généraliser, ceux à abandonner et les règles à préciser.</p>
+<p>Un socle commun aide à démarrer sur de bonnes bases : c'est l'objet de la formation <a href="/acculturation/">Acculturation IA</a>, construite à partir des situations de travail de vos équipes.</p>`,
+  },
 ];
