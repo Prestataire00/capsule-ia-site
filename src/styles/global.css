@@ -497,3 +497,9 @@ a.t[href]:hover { letter-spacing: .06em !important; }
   .pcard > p:first-of-type::after { bottom: 0; }
 }
 .pcard.pcard-libre::after { display: none; }
+
+/* Téléphone : étiquettes et encadrés contenant une seule ligne de texte */
+@media (max-width: 760px) {
+  .bx:has(> p.t:only-child):not(.btn):not(.card):not(.clip):not(.note) { padding: 12px 18px; border-radius: 16px !important; }
+  .bx:has(> p.t:only-child) > p.t { margin: 0; }
+}

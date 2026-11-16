@@ -1,0 +1,97 @@
+---
+// Menu de navigation sur téléphone : bouton fixe en haut à droite + panneau plein écran.
+const liens = [
+  ['Accueil', '/'],
+  ['Nos formations', '/#modules'],
+  ['Bootcamps & IA Expert', '/#bootcamps'],
+  ['Notre approche', '/#approche'],
+  ['À propos', '/#a-propos'],
+  ['Ressources', '/ressources/'],
+  ['Recrutement', '/recrutement/'],
+  ['FAQ', '/#faq'],
+];
+---
+
+<button class="mm-btn" type="button" aria-label="Ouvrir le menu" aria-controls="mm-panneau" aria-expanded="false" data-mm-ouvrir>
+  <span></span><span></span><span></span>
+</button>
+
+<dialog class="mm" id="mm-panneau" aria-label="Menu">
+  <div class="mm-tete">
+    <a href="/" class="mm-logo" aria-label="Capsule IA — accueil">
+      <img src="/img/logo.webp" alt="" width="44" height="44" />
+      <span>Capsule IA</span>
+    </a>
+    <button class="mm-fermer" type="button" aria-label="Fermer le menu" data-mm-fermer>×</button>
+  </div>
+  <nav aria-label="Menu principal">
+    {liens.map(([nom, href], i) => <a href={href} style={`--i:${i}`}>{nom}</a>)}
+  </nav>
+  <div class="mm-pied">
+    <a class="mm-devis" href="/devis/">Demander un devis</a>
+    <a class="mm-doc" href="/Brochure-Capsule-IA.pdf" download="Brochure Capsule IA.pdf">↓ Brochure (PDF)</a>
+    <a class="mm-tel" href="tel:+33621005894">06 21 00 58 94</a>
+  </div>
+</dialog>
+
+<script is:inline>
+  (function () {
+    if (window.__capsuleMenu) return;
+    window.__capsuleMenu = true;
+    document.addEventListener('click', function (e) {
+      var d = document.getElementById('mm-panneau');
+      var b = document.querySelector('[data-mm-ouvrir]');
+      if (!d) return;
+      if (e.target.closest('[data-mm-ouvrir]')) {
+        d.showModal();
+        b && b.setAttribute('aria-expanded', 'true');
+      } else if (e.target.closest('[data-mm-fermer]') || e.target === d || (d.open && e.target.closest('#mm-panneau a'))) {
+        d.close();
+      }
+    });
+    document.addEventListener('close', function (e) {
+      if (e.target.id === 'mm-panneau') {
+        var b = document.querySelector('[data-mm-ouvrir]');
+        b && b.setAttribute('aria-expanded', 'false');
+      }
+    }, true);
+  })();
+</script>
+
+<style is:global>
+  .mm-btn { display: none; }
+  @media (max-width: 760px) {
+    .mm-btn {
+      display: grid; place-content: center; gap: 5px;
+      position: fixed; top: 14px; right: 14px; z-index: 80;
+      width: 48px; height: 48px; border: 0; border-radius: 50%;
+      background: #1c1712; box-shadow: 0 0 0 2px #fff, 0 10px 20px -8px rgba(0, 0, 0, .55); cursor: pointer;
+    }
+    .mm-btn span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: #fff; }
+    /* le bouton remplace la pastille « Découvrir nos modules » des en-têtes */
+    .navbar .btn, .et-pill { display: none !important; }
+    .barre-in { padding-right: 72px !important; }
+  }
+  .mm {
+    width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0;
+    background: #c40d60; color: #fff; font-family: 'Poppins', sans-serif;
+  }
+  .mm[open] { display: flex; flex-direction: column; animation: mm-entree .35s cubic-bezier(.16, 1, .3, 1); }
+  .mm::backdrop { background: rgba(28, 23, 18, .4); }
+  @keyframes mm-entree { from { opacity: 0; translate: 0 -12px; } }
+  .mm-tete { display: flex; align-items: center; justify-content: space-between; padding: 14px 14px 14px 20px; }
+  .mm-logo { display: flex; align-items: center; gap: 10px; color: #fff; font: 700 18px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -.03em; }
+  .mm-logo img { background: #fff; border-radius: 50%; padding: 3px; }
+  .mm-fermer { width: 48px; height: 48px; border: 0; border-radius: 50%; background: #fff; color: #c40d60; font-size: 30px; line-height: 1; cursor: pointer; }
+  .mm nav { display: flex; flex-direction: column; padding: 12px 20px; flex: 1; overflow-y: auto; }
+  .mm nav a {
+    padding: 13px 0; border-bottom: 1px solid rgba(255, 255, 255, .22); color: #fff;
+    font: 700 24px/1.15 'Inter Variable', Inter, sans-serif; letter-spacing: -.035em;
+    animation: mm-lien .45s cubic-bezier(.16, 1, .3, 1) both; animation-delay: calc(var(--i) * 35ms + 60ms);
+  }
+  @keyframes mm-lien { from { opacity: 0; translate: 16px 0; } }
+  .mm-pied { display: grid; gap: 12px; padding: 16px 20px max(24px, env(safe-area-inset-bottom)); }
+  .mm-devis { display: block; text-align: center; background: #ffe897; color: #1c1712; padding: 15px; border-radius: 999px; font: italic 700 18px/1 'Poppins', sans-serif; letter-spacing: -.04em; }
+  .mm-doc, .mm-tel { text-align: center; color: #fff; font-weight: 700; font-size: 15px; text-decoration: underline; text-underline-offset: 4px; }
+  @media (prefers-reduced-motion: reduce) { .mm[open], .mm nav a { animation: none; } }
+</style>
