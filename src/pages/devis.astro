@@ -317,6 +317,7 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
       const merci = document.getElementById('dv-merci');
       let current = 0;
 
+      const FORMSPREE = 'https://formspree.io/f/xwlovqob';
       const TECHNIQUES = ['form-name', 'subject', 'Résumé de la demande', 'site-web-pot'];
       const values = () => {
         const out = {};
@@ -448,12 +449,21 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
           delete champs['form-name']; delete champs.subject; delete champs['Résumé de la demande']; delete champs['site-web-pot'];
           const resume = Object.entries(champs).map(([k, val]) => `${k} : ${val}`).join('\n');
           const sujet = `Demande de devis — ${v.Entreprise || v.Nom || 'nouveau contact'} — ${v.Formation || ''}`;
-          const res = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({ ...champs, 'form-name': 'devis', subject: sujet, 'Résumé de la demande': resume }).toString(),
-          });
-          if (!res.ok) throw new Error(String(res.status));
+          // Envoi en double : Netlify (e-mails à contact@ et à Faouzi) et Formspree (tableau de suivi « Devis Capsule IA »).
+          // La demande est validée dès que l'un des deux services l'a reçue.
+          const envois = await Promise.allSettled([
+            fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams({ ...champs, 'form-name': 'devis', subject: sujet, 'Résumé de la demande': resume }).toString(),
+            }),
+            fetch(FORMSPREE, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+              body: JSON.stringify({ ...champs, _subject: sujet, ...(champs['E-mail'] ? { _replyto: champs['E-mail'] } : {}) }),
+            }),
+          ]);
+          if (!envois.some((r) => r.status === 'fulfilled' && r.value.ok)) throw new Error('envoi');
           window.dispatchEvent(new CustomEvent('capsule:devis'));
           done(false);
         } catch {
