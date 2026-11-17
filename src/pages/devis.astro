@@ -102,6 +102,8 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
         novalidate
       >
         <input type="hidden" name="form-name" value="devis" />
+        <input type="hidden" name="subject" data-remove-prefix value="Nouvelle demande de devis" />
+        <input type="hidden" name="Résumé de la demande" value="" />
         <p hidden><label>Ne pas remplir : <input name="site-web-pot" tabindex="-1" autocomplete="off" /></label></p>
         <ol class="dv-steps" aria-label="Étapes du devis">
           {etapes.map((e, i) => (
@@ -315,10 +317,11 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
       const merci = document.getElementById('dv-merci');
       let current = 0;
 
+      const TECHNIQUES = ['form-name', 'subject', 'Résumé de la demande', 'site-web-pot'];
       const values = () => {
         const out = {};
         for (const [k, v] of new FormData(form)) {
-          if (!String(v).trim()) continue;
+          if (!String(v).trim() || TECHNIQUES.includes(k)) continue;
           out[k] = out[k] ? out[k] + ', ' + v : String(v);
         }
         return out;
@@ -440,10 +443,15 @@ const etapes = ['Votre besoin', 'Votre équipe', 'Les modalités', 'Vos coordonn
         send.disabled = true;
         status.textContent = 'Envoi en cours…';
         try {
+          // Résumé lisible en tête de l'e-mail (seules les réponses remplies), et objet explicite.
+          const champs = { ...v };
+          delete champs['form-name']; delete champs.subject; delete champs['Résumé de la demande']; delete champs['site-web-pot'];
+          const resume = Object.entries(champs).map(([k, val]) => `${k} : ${val}`).join('\n');
+          const sujet = `Demande de devis — ${v.Entreprise || v.Nom || 'nouveau contact'} — ${v.Formation || ''}`;
           const res = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({ ...v, 'form-name': 'devis' }).toString(),
+            body: new URLSearchParams({ ...champs, 'form-name': 'devis', subject: sujet, 'Résumé de la demande': resume }).toString(),
           });
           if (!res.ok) throw new Error(String(res.status));
           window.dispatchEvent(new CustomEvent('capsule:devis'));

@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EnTete from '../components/EnTete.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const titre = 'Formation IA à Orléans pour les entreprises';
+const description =
+  "Capsule IA, organisme de formation à l'intelligence artificielle basé à Orléans et certifié Qualiopi : formations IA pour vos équipes dans le Loiret et en Centre-Val de Loire, en présentiel ou à distance, finançables par votre OPCO.";
+
+const formations = [
+  { nom: 'Acculturation IA', href: '/acculturation/', texte: "Comprendre l'IA générative, bien formuler ses demandes et vérifier les réponses. Pour les équipes qui débutent." },
+  { nom: 'IA & Métiers', href: '/metiers/', texte: 'Des usages concrets par fonction : marketing, commercial, administration, management.' },
+  { nom: 'IA, RGPD & réglementation', href: '/rgpd-reglementation/', texte: "Protéger les données, comprendre l'AI Act et adopter des pratiques responsables." },
+  { nom: 'Vibe coding', href: '/vibe-coding/', texte: 'Créer un premier prototype d’application avec l’IA, sans être développeur.' },
+  { nom: 'Bootcamp Claude de A à Z', href: '/bootcamp-claude/', texte: '16 heures pour maîtriser tout l’univers Claude, jusqu’à Claude Code et les agents.' },
+  { nom: 'Bootcamp ChatGPT de A à Z', href: '/bootcamp-chatgpt/', texte: '16 heures de pratique : prompts, projets, GPT personnalisés, mode agent.' },
+  { nom: 'Bootcamp Copilot de A à Z', href: '/bootcamp-copilot/', texte: 'Copilot dans Word, Excel, PowerPoint, Outlook et Teams, jusqu’à Copilot Studio.' },
+  { nom: 'Concevoir le cerveau IA de votre entreprise', href: '/cerveau-ia/', texte: 'Cartographier vos processus et concevoir le système IA qui prend en charge les tâches répétitives.' },
+];
+
+const faq = [
+  {
+    q: 'Où se déroulent vos formations IA à Orléans ?',
+    r: "Dans vos locaux, à Orléans, dans la métropole et plus largement dans le Loiret et en Centre-Val de Loire, ou à distance en visioconférence. Les modalités sont définies ensemble lors de l'analyse de votre besoin.",
+  },
+  {
+    q: 'Une formation IA peut-elle être financée par notre OPCO ?',
+    r: "Capsule IA est certifié Qualiopi, condition nécessaire pour une prise en charge par les OPCO. Nous vous indiquons les démarches et les possibilités selon les critères de votre OPCO.",
+  },
+  {
+    q: 'Faut-il déjà connaître l’IA pour suivre une formation ?',
+    r: "Non. Nos formations partent de situations professionnelles concrètes et s'adaptent au niveau de chaque équipe, des débutants aux profils déjà à l'aise avec les outils.",
+  },
+  {
+    q: 'Combien de temps faut-il pour obtenir un devis ?',
+    r: 'Vous recevez votre devis sous 2 heures après votre demande en ligne, et un formateur vous rappelle sous 48 heures pour affiner le programme.',
+  },
+  {
+    q: 'Formez-vous uniquement les entreprises orléanaises ?',
+    r: 'Non. Notre siège est à Orléans, mais nous formons des équipes partout en France à distance, et nous nous déplaçons selon les besoins.',
+  },
+];
+
+const schema = [
+  {
+    '@type': 'WebPage',
+    name: titre,
+    description,
+    url: new URL('/formation-ia-orleans/', Astro.site),
+    about: { '@id': new URL('/#organisme', Astro.site) },
+    inLanguage: 'fr-FR',
+  },
+  {
+    '@type': 'Service',
+    name: 'Formation à l’intelligence artificielle pour les entreprises à Orléans',
+    serviceType: 'Formation professionnelle en intelligence artificielle',
+    provider: { '@id': new URL('/#organisme', Astro.site) },
+    areaServed: [
+      { '@type': 'City', name: 'Orléans' },
+      { '@type': 'AdministrativeArea', name: 'Loiret' },
+      { '@type': 'AdministrativeArea', name: 'Centre-Val de Loire' },
+      { '@type': 'Country', name: 'France' },
+    ],
+    url: new URL('/formation-ia-orleans/', Astro.site),
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.r } })),
+  },
+];
+---
+
+<Layout title="Formation IA à Orléans, certifiée Qualiopi | Capsule IA" description={description} fil="Formation IA à Orléans" schema={schema}>
+  <EnTete />
+  <main class="lo">
+    <header class="lo-tete">
+      <p class="lo-eyebrow">Orléans · Loiret · Centre-Val de Loire</p>
+      <h1>Formation IA à Orléans <span>pour vos équipes.</span></h1>
+      <p class="lo-lead">
+        Capsule IA est un organisme de formation à l'intelligence artificielle installé à Orléans et certifié
+        Qualiopi. Nous formons les salariés, dirigeants et indépendants de la métropole orléanaise, du Loiret et de
+        la région Centre-Val de Loire à utiliser l'IA générative dans leur travail : ChatGPT, Claude, Copilot,
+        Mistral et les autres.
+      </p>
+      <ul class="lo-atouts">
+        <li><strong>Qualiopi</strong> organisme certifié</li>
+        <li><strong>OPCO</strong> financement possible</li>
+        <li><strong>2 h</strong> pour recevoir votre devis</li>
+      </ul>
+      <a class="lo-btn" href="/devis/">Demander un devis</a>
+    </header>
+
+    <section class="lo-bloc">
+      <h2>Pourquoi se former à l'IA avec un organisme orléanais ?</h2>
+      <p>
+        Une formation IA utile commence par vos métiers, pas par les outils. Être à Orléans nous permet de venir
+        rencontrer vos équipes, de comprendre vos situations de travail et d'animer les séances dans vos locaux quand
+        c'est le plus efficace. Quand vos équipes sont réparties sur plusieurs sites, les mêmes formations se suivent
+        en visioconférence, avec le même niveau de pratique.
+      </p>
+      <p>
+        Chaque programme est construit après un échange : nous identifions les tâches où l'IA fait gagner du temps
+        (rédaction, synthèse, recherche, analyse, relation client, automatisation) et les précautions à prendre,
+        notamment sur les données personnelles et la confidentialité.
+      </p>
+    </section>
+
+    <section class="lo-bloc">
+      <h2>Nos formations IA proposées à Orléans</h2>
+      <ul class="lo-cartes">
+        {formations.map((f) => (
+          <li>
+            <a href={f.href}>
+              <b>{f.nom}</b>
+              <span>{f.texte}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="lo-bloc">
+      <h2>Comment se déroule une formation ?</h2>
+      <ol class="lo-etapes">
+        <li><b>Analyse de votre besoin.</b> Vous décrivez votre projet en ligne ; vous recevez un devis sous 2 heures et un formateur vous rappelle sous 48 heures.</li>
+        <li><b>Programme sur mesure.</b> Nous adaptons les exemples et les exercices à vos métiers, vos outils et le niveau de vos équipes.</li>
+        <li><b>Formation pratique.</b> En présentiel à Orléans et alentour, ou à distance : chaque participant travaille sur des cas tirés de son quotidien.</li>
+        <li><b>Suivi et évaluation.</b> Évaluation des acquis, questionnaire de satisfaction et attestation de fin de formation.</li>
+      </ol>
+    </section>
+
+    <section class="lo-bloc">
+      <h2>Questions fréquentes</h2>
+      <div class="lo-faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.r}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+  <CtaBand />
+</Layout>
+
+<style>
+  .lo { background: #f6f8ef; color: #1c1712; font-family: 'Poppins', sans-serif; padding: clamp(32px, 5vw, 72px) 20px clamp(40px, 6vw, 80px); }
+  .lo > * { max-width: 920px; margin-inline: auto; }
+  .lo-tete { text-align: center; padding-bottom: clamp(28px, 4vw, 48px); }
+  .lo-eyebrow { margin: 0 0 16px; font-size: 12px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: #c40d60; }
+  h1 { margin: 0; font: 700 clamp(36px, 6vw, 72px)/.98 'Inter Variable', Inter, sans-serif; letter-spacing: -.05em; text-wrap: balance; }
+  h1 span { display: inline-block; background: rgba(102, 209, 218, .5); padding: 0 .12em; }
+  .lo-lead { margin: 22px auto 0; max-width: 64ch; font-size: clamp(15px, 1.3vw, 17px); line-height: 1.65; }
+  .lo-atouts { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .lo-atouts li { background: #c40d60; color: #fff; border-radius: 16px; padding: 10px 16px; font-size: 13px; font-weight: 700; display: flex; gap: 8px; align-items: center; }
+  .lo-atouts strong { color: #ffe897; font: 800 18px/1 'Inter Variable', Inter, sans-serif; }
+  .lo-btn { display: inline-block; margin-top: 26px; background: #ffe897; color: #1c1712; padding: 15px 28px; border-radius: 999px; font: italic 700 17px/1 'Poppins', sans-serif; letter-spacing: -.04em; box-shadow: 0 10px 16px -8px rgba(0, 0, 0, .4); }
+  .lo-bloc { background: #fff; border-radius: clamp(24px, 3vw, 36px); padding: clamp(22px, 4vw, 48px); margin-top: 20px; box-shadow: 0 18px 30px -22px rgba(0, 0, 0, .35); }
+  h2 { margin: 0 0 14px; font: 700 clamp(24px, 3vw, 34px)/1.1 'Inter Variable', Inter, sans-serif; letter-spacing: -.04em; text-wrap: balance; }
+  .lo-bloc p { margin: 0 0 12px; line-height: 1.7; font-size: 15.5px; }
+  .lo-cartes { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .lo-cartes a { display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 16px 18px; border-radius: 18px; background: #fff8ed; border: 2px solid #f1e6d2; transition: border-color .2s, translate .2s; }
+  .lo-cartes a:hover { border-color: #c40d60; translate: 0 -2px; }
+  .lo-cartes b { font: 700 17px/1.2 'Inter Variable', Inter, sans-serif; letter-spacing: -.02em; color: #c40d60; }
+  .lo-cartes span { font-size: 14px; line-height: 1.5; color: #4a443d; }
+  .lo-etapes { margin: 0; padding-left: 22px; display: grid; gap: 12px; line-height: 1.6; font-size: 15.5px; }
+  .lo-etapes b { color: #c40d60; }
+  .lo-faq { display: grid; gap: 10px; }
+  .lo-faq details { background: #fff8ed; border-radius: 16px; padding: 14px 18px; }
+  .lo-faq summary { cursor: pointer; font-weight: 700; font-size: 15.5px; }
+  .lo-faq p { margin: 10px 0 0; }
+</style>
