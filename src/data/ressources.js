@@ -402,4 +402,45 @@ export const ressources = [
 <p>Inutile de mesurer des connexions. Posez plutôt trois questions à l'équipe, quelques semaines après le démarrage : pour quelles tâches utilisez-vous l'assistant ? Qu'est-ce qui ne fonctionne pas ? De quoi auriez-vous besoin pour aller plus loin ? Les réponses indiquent les usages à généraliser, ceux à abandonner et les règles à préciser.</p>
 <p>Un socle commun aide à démarrer sur de bonnes bases : c'est l'objet de la formation <a href="/acculturation/">Acculturation IA</a>, construite à partir des situations de travail de vos équipes.</p>`,
   },
+  {
+    slug: 'ia-service-client-usages',
+    titre: "IA et service client : comment s'en servir au quotidien ?",
+    description:
+      "Comprendre une demande, préparer une réponse, alimenter une base de réponses : les usages utiles de l'IA au service client et les règles à garder.",
+    theme: 'IA & Métiers',
+    lecture: 5,
+    date: '2026-11-17',
+    module: { href: '/metiers/', nom: 'la formation IA & Métiers' },
+    corps: `
+<p>Au service client, l'IA sert surtout à préparer : comprendre une demande longue, proposer un brouillon de réponse, reformuler un message délicat ou tenir à jour les réponses aux questions fréquentes. La réponse qui part chez le client reste relue et validée par un conseiller, qui garde la relation et la décision.</p>
+<h2>Ce que l'IA fait bien, ce qu'elle ne doit pas faire seule</h2>
+<p>Un assistant IA est à l'aise avec le langage : résumer, classer, reformuler, adapter un ton. Il ne connaît pas en revanche le dossier du client, les conditions de son contrat ni les engagements que l'entreprise peut prendre, sauf si on les lui fournit. Tout ce qui engage l'entreprise (un remboursement, un délai, un geste commercial, une explication sur une facture) relève donc du conseiller.</p>
+<h2>Six usages concrets</h2>
+<ul>
+<li><strong>Comprendre une demande confuse.</strong> Demander à l'assistant d'extraire d'un long message le problème principal, ce que le client attend et les informations qui manquent pour lui répondre.</li>
+<li><strong>Préparer un brouillon de réponse.</strong> À partir de la demande et des éléments que vous fournissez, obtenir une première version à corriger plutôt qu'une page blanche.</li>
+<li><strong>Ajuster le ton.</strong> Rendre une réponse plus claire, plus courte ou plus chaleureuse, notamment face à un client mécontent, sans changer le fond.</li>
+<li><strong>Expliquer simplement une procédure.</strong> Transformer une note interne technique en étapes compréhensibles pour un client.</li>
+<li><strong>Construire la base des réponses fréquentes.</strong> Repérer les questions qui reviennent dans un lot de demandes anonymisées et proposer une trame de réponse pour chacune, à valider par l'équipe.</li>
+<li><strong>Synthétiser les retours.</strong> Faire ressortir les motifs de contact les plus récurrents pour signaler aux autres services ce qui pose problème.</li>
+</ul>
+<h2>Un exemple de consigne</h2>
+<p>« Je travaille au service client d'une entreprise de vente de matériel de bureau. Voici le message d'un client, dont j'ai retiré le nom et les coordonnées, et nos conditions de retour. Rédige une réponse de dix lignes au plus, polie et directe, qui explique la marche à suivre pour le retour. N'ajoute aucun engagement qui ne figure pas dans les conditions fournies. »</p>
+<p>La consigne donne le contexte, l'objectif, la matière et le format, et fixe une limite claire : l'assistant ne doit rien promettre au-delà de ce qui lui a été transmis.</p>
+<h2>Les règles à garder</h2>
+<ul>
+<li><strong>Protéger les données des clients.</strong> Nom, coordonnées, numéro de commande, historique : ces informations ne vont que dans un outil autorisé par l'entreprise, et seulement si la tâche l'exige. Les <a href="/ressources/ia-rgpd-reflexes-entreprise/">réflexes RGPD</a> s'appliquent pleinement ici.</li>
+<li><strong>Relire avant d'envoyer.</strong> Vérifier les délais, les montants, les références et toute promesse. Une réponse bien tournée peut contenir une erreur : voir <a href="/ressources/verifier-reponse-ia/">comment vérifier une réponse d'IA</a>.</li>
+<li><strong>Ne pas inventer de règle.</strong> Si l'information n'est pas dans les documents fournis, la réponse ne doit pas la supposer. Mieux vaut demander à un collègue.</li>
+<li><strong>Garder sa propre voix.</strong> Un client remarque vite un message impersonnel. Le brouillon se retravaille pour ressembler à l'entreprise et à la personne qui signe.</li>
+</ul>
+<h2>Par où commencer dans une équipe</h2>
+<ol>
+<li><strong>Choisir un type de demande</strong> fréquent et sans enjeu sensible, par exemple les questions sur un suivi de livraison.</li>
+<li><strong>Rassembler les documents de référence</strong> que l'assistant pourra utiliser : conditions générales, procédures, réponses déjà validées.</li>
+<li><strong>Tester sur des cas réels anonymisés</strong> et comparer avec les réponses habituelles de l'équipe.</li>
+<li><strong>Partager les consignes qui fonctionnent</strong> pour que chaque conseiller puisse les réutiliser.</li>
+</ol>
+<p>Ces usages se travaillent sur les situations propres à votre service dans la formation <a href="/metiers/">IA &amp; Métiers</a>, qui part des demandes et des outils de vos équipes.</p>`,
+  },
 ];
