@@ -443,4 +443,54 @@ export const ressources = [
 </ol>
 <p>Ces usages se travaillent sur les situations propres à votre service dans la formation <a href="/metiers/">IA &amp; Métiers</a>, qui part des demandes et des outils de vos équipes.</p>`,
   },
+  {
+    slug: 'bibliotheque-prompts-equipe',
+    titre: "Créer une bibliothèque de prompts d'équipe : mode d'emploi",
+    description:
+      "Quelles consignes garder, comment les rédiger, les ranger et les tenir à jour : la méthode pour partager des prompts qui fonctionnent dans une équipe.",
+    theme: 'Acculturation IA',
+    lecture: 5,
+    date: '2026-11-18',
+    module: { href: '/acculturation/', nom: 'la formation Acculturation IA' },
+    corps: `
+<p>Une bibliothèque de prompts d'équipe rassemble les consignes qui ont déjà donné de bons résultats sur des tâches récurrentes, pour que chacun puisse les réutiliser au lieu de repartir de zéro. Pour qu'elle serve, elle doit rester courte, rédigée sous forme de modèles à compléter, rangée par tâche et relue régulièrement par une personne désignée.</p>
+<h2>Pourquoi partager ses consignes</h2>
+<p>Dans une équipe qui utilise un assistant IA, chacun finit par trouver des formulations qui marchent. Tant qu'elles restent dans l'historique de quelques personnes, les autres refont les mêmes essais. Une bibliothèque commune permet de :</p>
+<ul>
+<li><strong>gagner du temps</strong> sur les tâches qui reviennent chaque semaine ;</li>
+<li><strong>harmoniser les résultats</strong>, par exemple le format d'un compte rendu ou le ton d'une relance ;</li>
+<li><strong>aider ceux qui débutent</strong>, qui disposent d'un point de départ éprouvé ;</li>
+<li><strong>rappeler les règles</strong> au bon endroit, comme les informations à ne pas transmettre.</li>
+</ul>
+<h2>Quelles consignes y mettre</h2>
+<p>Toutes ne méritent pas d'y figurer. Retenez celles qui répondent à trois conditions : la tâche est fréquente, la consigne a été testée par au moins deux personnes, et le résultat obtenu a été jugé utilisable après relecture. Quelques exemples courants :</p>
+<ul>
+<li>transformer des notes de réunion en décisions et en actions ;</li>
+<li>résumer un document long pour une personne qui doit décider ;</li>
+<li>reformuler un message délicat sans changer le fond ;</li>
+<li>préparer une trame de réponse à une question fréquente.</li>
+</ul>
+<h2>Rédiger un modèle réutilisable</h2>
+<p>Une consigne copiée telle quelle d'une conversation contient souvent des détails propres à un cas. Pour la rendre réutilisable, gardez la structure et remplacez les éléments variables par des zones à compléter, signalées entre crochets. Reprenez les quatre éléments d'une bonne consigne, détaillés dans <a href="/ressources/rediger-un-bon-prompt/">Comment rédiger un bon prompt</a> : contexte, objectif, informations, format.</p>
+<p><strong>Exemple :</strong> « Je suis [fonction] et je prépare [type de document] pour [destinataire]. Voici mes notes : [coller les notes, sans données personnelles]. Rédige [longueur] avec [structure attendue]. Ton [neutre, cordial, direct]. Signale les points qui manquent dans mes notes. »</p>
+<h2>Une fiche par consigne</h2>
+<p>Chaque modèle gagne à être accompagné de quelques informations, pour que la personne qui le reprend sache quand et comment l'utiliser :</p>
+<ol>
+<li><strong>La tâche</strong> à laquelle il sert, en une phrase.</li>
+<li><strong>Le modèle</strong> lui-même, avec ses zones à compléter.</li>
+<li><strong>Ce qu'il ne faut pas y mettre</strong> : données personnelles, informations confidentielles.</li>
+<li><strong>Le point à vérifier</strong> dans la réponse : chiffres, dates, engagements.</li>
+<li><strong>La personne à contacter</strong> et la date de la dernière mise à jour.</li>
+</ol>
+<h2>Où la ranger et comment la faire vivre</h2>
+<p>Un document partagé ou une page de l'intranet suffisent pour commencer. Classez les fiches par tâche plutôt que par outil : on cherche « préparer une relance », pas « consigne n° 12 ». Certains assistants permettent aussi d'enregistrer des instructions réutilisables, comme les GPT personnalisés présentés dans le <a href="/bootcamp-chatgpt/">Bootcamp ChatGPT</a> ; la fiche écrite reste utile pour expliquer l'usage et les règles.</p>
+<p>Une bibliothèque se périme si personne ne s'en occupe. Quelques règles simples la gardent utile :</p>
+<ul>
+<li><strong>Un responsable</strong> qui valide les nouvelles fiches et retire celles qui ne servent plus.</li>
+<li><strong>Un moment régulier</strong>, par exemple en réunion d'équipe, pour partager une consigne qui a bien fonctionné ou une qui a déçu.</li>
+<li><strong>Peu de fiches</strong> : une dizaine de modèles utilisés vaut mieux qu'un catalogue que personne n'ouvre.</li>
+</ul>
+<h2>Les limites à garder en tête</h2>
+<p>Un bon modèle ne dispense pas de relire la réponse : la même consigne peut produire un résultat différent d'une fois à l'autre, ou d'un outil à l'autre. La bibliothèque est un point de départ, pas une garantie. Elle fonctionne d'autant mieux qu'elle s'inscrit dans une démarche d'équipe, comme le montrent les <a href="/ressources/faire-adopter-ia-equipe/">leviers pour faire adopter l'IA</a>. La formation Acculturation IA permet de construire ces premières consignes sur les tâches réelles de vos équipes.</p>`,
+  },
 ];
