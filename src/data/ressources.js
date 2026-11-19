@@ -493,4 +493,47 @@ export const ressources = [
 <h2>Les limites à garder en tête</h2>
 <p>Un bon modèle ne dispense pas de relire la réponse : la même consigne peut produire un résultat différent d'une fois à l'autre, ou d'un outil à l'autre. La bibliothèque est un point de départ, pas une garantie. Elle fonctionne d'autant mieux qu'elle s'inscrit dans une démarche d'équipe, comme le montrent les <a href="/ressources/faire-adopter-ia-equipe/">leviers pour faire adopter l'IA</a>. La formation Acculturation IA permet de construire ces premières consignes sur les tâches réelles de vos équipes.</p>`,
   },
+  {
+    slug: 'charte-usage-ia-entreprise',
+    titre: "Charte d'usage de l'IA : que doit-elle contenir ?",
+    description:
+      "Outils autorisés, données interdites, relecture, transparence, contact en cas de doute : les rubriques d'une charte d'usage de l'IA claire et appliquée.",
+    theme: 'RGPD & réglementation',
+    lecture: 5,
+    date: '2026-11-19',
+    module: { href: '/rgpd-reglementation/', nom: 'la formation RGPD & réglementation' },
+    corps: `
+<p>Une charte d'usage de l'IA dit aux salariés quels outils ils peuvent utiliser, quelles informations ils ne doivent jamais y transmettre, ce qui doit être relu avant de sortir de l'entreprise et à qui s'adresser en cas de doute. Pour être appliquée, elle doit tenir en peu de pages, partir des usages réels de l'équipe et être expliquée, pas seulement diffusée.</p>
+<h2>Pourquoi en rédiger une</h2>
+<p>Dans beaucoup d'entreprises, les assistants IA sont déjà utilisés, avec ou sans cadre. Sans règle écrite, chacun décide seul de ce qu'il peut faire : certains n'osent rien essayer, d'autres transmettent des documents qu'il aurait fallu garder. Une charte donne un repère commun. Elle aide aussi à montrer les mesures prises pour que les équipes utilisent l'IA en connaissance de cause, ce que l'AI Act demande aux entreprises qui s'en servent : voir <a href="/ressources/ai-act-obligation-formation-ia/">l'obligation de former ses équipes à l'IA</a>.</p>
+<h2>Les rubriques essentielles</h2>
+<ol>
+<li><strong>Le champ d'application.</strong> À qui s'adresse la charte (salariés, stagiaires, prestataires qui travaillent pour vous) et quels outils elle couvre : assistants conversationnels, fonctions IA intégrées aux logiciels, extensions de navigateur.</li>
+<li><strong>Les outils autorisés.</strong> La liste des outils validés par l'entreprise, avec le compte à utiliser. Précisez ce qu'il en est des comptes personnels ou gratuits, qui n'offrent pas les mêmes garanties.</li>
+<li><strong>Les informations à ne pas transmettre.</strong> Données personnelles de clients, de candidats ou de collègues, informations confidentielles, documents couverts par une clause de confidentialité. Donnez des exemples tirés de votre activité plutôt que des catégories abstraites.</li>
+<li><strong>La relecture.</strong> Qui vérifie une réponse avant qu'elle serve à décider ou qu'elle parte chez un client, un fournisseur ou un partenaire. La personne qui utilise le résultat en reste responsable.</li>
+<li><strong>La transparence.</strong> Dans quels cas signaler qu'un contenu a été préparé avec l'aide de l'IA, en interne comme à l'extérieur.</li>
+<li><strong>Les usages qui demandent un accord préalable.</strong> Par exemple tout ce qui touche à l'évaluation ou à la sélection de personnes, ou l'automatisation d'un échange avec des clients.</li>
+<li><strong>Le contact en cas de doute.</strong> Le nom ou le service à solliciter : délégué à la protection des données, service juridique, responsable informatique.</li>
+</ol>
+<h2>Les erreurs qui la rendent inutile</h2>
+<ul>
+<li><strong>Un texte trop long ou trop juridique.</strong> S'il faut une demi-heure pour le lire, personne ne s'y référera au moment d'utiliser l'outil.</li>
+<li><strong>Tout interdire.</strong> Les usages continuent, mais hors de tout cadre et sans que vous le sachiez.</li>
+<li><strong>Rester dans les principes.</strong> « Faire preuve de prudence » n'aide personne. « Remplacer le nom du client par “le client” avant de coller un courriel » est une consigne applicable.</li>
+<li><strong>La rédiger sans les équipes.</strong> Une charte écrite sans savoir comment l'IA est réellement utilisée passe à côté des vrais risques.</li>
+</ul>
+<h2>Comment la construire</h2>
+<ol>
+<li><strong>Recenser les usages actuels</strong> en demandant simplement aux équipes quels outils elles utilisent et pour quelles tâches.</li>
+<li><strong>Associer les bonnes personnes</strong> : direction, responsable informatique, délégué à la protection des données s'il y en a un, et quelques utilisateurs réguliers.</li>
+<li><strong>Rédiger une version courte</strong>, avec des exemples concrets pour chaque règle.</li>
+<li><strong>Vérifier sa portée juridique.</strong> Selon la façon dont vous souhaitez la rendre applicable aux salariés, des formalités peuvent être nécessaires : faites relire le texte par votre service juridique ou votre conseil.</li>
+<li><strong>La présenter</strong> lors d'un temps d'échange plutôt que par un simple envoi, et répondre aux questions.</li>
+<li><strong>La mettre à jour</strong> quand un nouvel outil est adopté ou qu'un usage pose question.</li>
+</ol>
+<h2>Une charte ne remplace pas la formation</h2>
+<p>Une règle n'est respectée que si elle est comprise. Savoir reconnaître une donnée personnelle dans un tableau ou une information confidentielle dans un compte rendu s'apprend sur des cas concrets. Les <a href="/ressources/ia-rgpd-reflexes-entreprise/">six réflexes avant d'utiliser un assistant IA</a> peuvent servir de base à cette présentation, et la formation <a href="/rgpd-reglementation/">RGPD &amp; réglementation</a> permet de travailler ces réflexes sur les situations de vos équipes.</p>
+<p class="note">Cet article donne une information générale et ne constitue pas un conseil juridique.</p>`,
+  },
 ];
