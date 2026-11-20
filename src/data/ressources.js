@@ -536,4 +536,45 @@ export const ressources = [
 <p>Une règle n'est respectée que si elle est comprise. Savoir reconnaître une donnée personnelle dans un tableau ou une information confidentielle dans un compte rendu s'apprend sur des cas concrets. Les <a href="/ressources/ia-rgpd-reflexes-entreprise/">six réflexes avant d'utiliser un assistant IA</a> peuvent servir de base à cette présentation, et la formation <a href="/rgpd-reglementation/">RGPD &amp; réglementation</a> permet de travailler ces réflexes sur les situations de vos équipes.</p>
 <p class="note">Cet article donne une information générale et ne constitue pas un conseil juridique.</p>`,
   },
+  {
+    slug: 'deleguer-tache-agent-ia',
+    titre: 'Déléguer une tâche à un agent IA : comment la briefer ?',
+    description:
+      "Résultat attendu, matière, périmètre, critères de réussite, points de contrôle : la méthode pour confier une tâche longue à un agent IA et garder la main.",
+    theme: 'Assistants IA',
+    lecture: 5,
+    date: '2026-11-20',
+    module: { href: '/bootcamp-claude/', nom: 'le Bootcamp Claude' },
+    corps: `
+<p>Pour déléguer une tâche à un agent IA, rédigez un brief comme vous le feriez pour un nouveau collègue : le résultat attendu, la matière à utiliser, ce qu'il a le droit de faire, les critères qui diront si le travail est réussi et les moments où il doit s'arrêter pour vous demander. Plus la tâche est longue, plus ce cadrage compte, car l'agent enchaîne les étapes sans que vous relisiez chacune d'elles.</p>
+<h2>Ce qui change par rapport à une simple question</h2>
+<p>Dans une conversation classique, vous posez une question, vous lisez la réponse, vous corrigez. En mode agent, l'assistant mène plusieurs étapes à la suite : il lit des fichiers, cherche des informations, produit un document, parfois agit dans un autre outil. Vous ne voyez le résultat qu'à la fin, ou à quelques étapes. Une consigne floue ne donne donc pas seulement une réponse moyenne : elle peut faire partir tout le travail dans une mauvaise direction.</p>
+<h2>Les cinq éléments d'un brief de tâche</h2>
+<ol>
+<li><strong>Le résultat attendu.</strong> Décrivez le livrable, pas l'activité. « Un tableau comparatif de trois prestataires, une ligne par critère, avec une recommandation en cinq lignes » est plus utile que « regarde ces devis ».</li>
+<li><strong>La matière.</strong> Indiquez les documents à utiliser et ceux qui font référence en cas de contradiction. Précisez si l'agent doit s'en tenir à ce que vous fournissez ou s'il peut chercher ailleurs.</li>
+<li><strong>Le périmètre.</strong> Dites ce qu'il peut faire et ce qu'il ne doit pas faire : créer un nouveau fichier plutôt que modifier l'original, préparer un message sans l'envoyer, ne rien supprimer.</li>
+<li><strong>Les critères de réussite.</strong> Donnez deux ou trois conditions vérifiables : tous les montants sont repris des devis, chaque affirmation renvoie à un passage du document, le texte tient sur une page.</li>
+<li><strong>Les points de contrôle.</strong> Demandez un plan avant le démarrage, et un arrêt dès qu'une information manque ou qu'un choix engage l'entreprise.</li>
+</ol>
+<p>Ces éléments prolongent la méthode décrite dans <a href="/ressources/rediger-un-bon-prompt/">Comment rédiger un bon prompt</a> : le contexte, l'objectif, les informations et le format restent la base, auxquels s'ajoutent les limites et les contrôles.</p>
+<h2>Un exemple de brief</h2>
+<p>« Voici trois devis de prestataires de nettoyage et notre cahier des charges. Prépare un tableau comparatif : prix, fréquence des passages, prestations incluses, durée d'engagement, conditions de résiliation. Utilise uniquement les informations des devis ; si une donnée manque, écris “non précisé” au lieu de la supposer. Ajoute ensuite une recommandation de cinq lignes au plus. Avant de commencer, présente-moi ton plan. Ne contacte personne et ne modifie aucun des fichiers fournis. »</p>
+<h2>Quelles tâches déléguer, lesquelles garder</h2>
+<ul>
+<li><strong>Bonnes candidates.</strong> Les tâches longues mais bien définies, dont le résultat se contrôle : comparer des documents, mettre en forme un dossier, préparer une synthèse, construire une première version d'un tableau ou d'une présentation.</li>
+<li><strong>À encadrer de près.</strong> Tout ce qui sort de l'entreprise ou modifie des données existantes : l'agent prépare, une personne valide avant l'envoi ou l'enregistrement.</li>
+<li><strong>À garder.</strong> Les décisions, les arbitrages et ce qui concerne une personne identifiable : l'agent peut éclairer un choix, il ne le fait pas à votre place.</li>
+</ul>
+<h2>Contrôler le résultat</h2>
+<p>Déléguer ne dispense pas de relire. Reprenez vos critères de réussite un par un, puis contrôlez ce qui se vérifie : chiffres, dates, noms, sources. Les contrôles détaillés dans <a href="/ressources/verifier-reponse-ia/">Comment vérifier une réponse d'IA</a> s'appliquent pleinement. Demandez aussi à l'agent un court compte rendu : ce qu'il a fait, ce qu'il n'a pas pu faire, ce dont il n'est pas sûr. Ce compte rendu oriente la relecture, sans la remplacer.</p>
+<h2>Les précautions quand l'agent peut agir</h2>
+<ul>
+<li><strong>Des droits limités.</strong> N'ouvrez à l'agent que les dossiers et les outils nécessaires à la tâche.</li>
+<li><strong>Une validation humaine</strong> avant toute action difficile à annuler : envoi d'un message, suppression, publication, paiement.</li>
+<li><strong>Des données protégées.</strong> Les informations personnelles ou confidentielles ne vont que dans un outil autorisé par l'entreprise, et seulement si la tâche l'exige.</li>
+<li><strong>Un premier essai sans enjeu.</strong> Testez sur une copie ou sur un cas simple avant de confier un vrai dossier.</li>
+</ul>
+<p>Savoir rédiger un brief de tâche, fixer des critères de réussite et décider quand déléguer ou non fait partie de ce que l'on pratique dans le <a href="/bootcamp-claude/">Bootcamp Claude</a>, sur des tâches tirées de votre activité.</p>`,
+  },
 ];
