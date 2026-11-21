@@ -577,4 +577,46 @@ export const ressources = [
 </ul>
 <p>Savoir rédiger un brief de tâche, fixer des critères de réussite et décider quand déléguer ou non fait partie de ce que l'on pratique dans le <a href="/bootcamp-claude/">Bootcamp Claude</a>, sur des tâches tirées de votre activité.</p>`,
   },
+  {
+    slug: 'ia-comptabilite-pme-usages',
+    titre: 'IA en comptabilité : quels usages pour une PME ?',
+    description:
+      "Relances de factures, commentaires de chiffres, résumés de contrats, procédures : les usages utiles de l'IA en comptabilité de PME et les règles à garder.",
+    theme: 'IA & Métiers',
+    lecture: 5,
+    date: '2026-11-21',
+    module: { href: '/metiers/', nom: 'la formation IA & Métiers' },
+    corps: `
+<p>Dans une PME, l'IA générative aide la comptabilité sur tout ce qui entoure les chiffres : rédiger une relance de facture, commenter un écart, résumer un contrat, mettre une procédure par écrit. Elle ne remplace ni le logiciel comptable ni l'expert-comptable : les écritures, les calculs et les choix de traitement restent vérifiés et validés par une personne compétente.</p>
+<h2>Ce que l'IA fait bien, ce qu'il ne faut pas lui confier seule</h2>
+<p>Un assistant IA est à l'aise avec le texte : reformuler, résumer, classer, expliquer. Il ne connaît en revanche ni vos comptes, ni vos contrats, ni les règles propres à votre situation, sauf si vous les lui fournissez. Il peut se tromper dans un calcul, et présenter une règle comptable ou fiscale de façon inexacte ou dépassée avec la même assurance qu'une information juste. Une réponse sur un traitement comptable, sur la TVA ou sur une échéance déclarative est donc un point de départ à faire confirmer, jamais une décision.</p>
+<h2>Six usages concrets</h2>
+<ul>
+<li><strong>Rédiger les relances de factures.</strong> Préparer plusieurs modèles, du simple rappel à la relance ferme, à partir de vos conditions de règlement, puis les adapter à chaque situation.</li>
+<li><strong>Commenter un chiffre.</strong> Transformer vos notes en quelques lignes claires pour le dirigeant : ce qui a évolué par rapport à la période précédente, pourquoi, et ce qu'il faut surveiller.</li>
+<li><strong>Résumer un document long.</strong> Faire ressortir d'un contrat ou des conditions d'un fournisseur ce qui intéresse la comptabilité : échéances, conditions de paiement, pénalités, durée d'engagement.</li>
+<li><strong>Mettre une procédure par écrit.</strong> Décrire en vrac la façon dont se traitent les notes de frais ou la clôture du mois, et obtenir un mode opératoire structuré, à corriger avec l'équipe.</li>
+<li><strong>Demander des pièces manquantes.</strong> Rédiger un message précis et courtois aux collègues, avec la liste des justificatifs attendus et la date limite.</li>
+<li><strong>Se faire aider sur un tableur.</strong> Demander une formule, l'explication d'une formule existante ou la structure d'un tableau de suivi, puis tester le résultat sur quelques lignes dont vous connaissez la réponse.</li>
+</ul>
+<h2>Un exemple de consigne</h2>
+<p>« Je suis responsable comptable dans une PME de négoce. Un client professionnel n'a pas réglé une facture arrivée à échéance, malgré un premier rappel. Rédige une deuxième relance de huit lignes au plus, ferme et courtoise, qui rappelle l'échéance et demande une date de règlement. Laisse entre crochets le nom du client, le numéro de facture et le montant : je les compléterai moi-même. N'évoque ni pénalité ni procédure. »</p>
+<p>La consigne donne le contexte, l'objectif et le format. Elle fixe aussi deux limites : aucune donnée du client n'est transmise à l'outil, et l'assistant ne doit rien ajouter qui engage l'entreprise.</p>
+<h2>Les règles à garder</h2>
+<ul>
+<li><strong>Refaire les calculs.</strong> Un total, un pourcentage ou une conversion se recalcule dans le tableur ou le logiciel comptable, pas de tête ni sur la foi de la réponse.</li>
+<li><strong>Protéger les données.</strong> Relevés bancaires, bulletins de paie, coordonnées de clients et de fournisseurs ne vont que dans un outil autorisé par l'entreprise, et seulement si la tâche l'exige. Voir les <a href="/ressources/ia-rgpd-reflexes-entreprise/">réflexes avant d'utiliser un assistant IA au travail</a>.</li>
+<li><strong>Faire valider ce qui engage.</strong> Une question de traitement comptable, de fiscalité ou de paie se pose à l'expert-comptable ou à la personne compétente dans l'entreprise. La réponse de l'IA sert tout au plus à préparer la question.</li>
+<li><strong>Relire avant d'envoyer.</strong> Montants, dates, références et noms se contrôlent un par un : la méthode est détaillée dans <a href="/ressources/verifier-reponse-ia/">Comment vérifier une réponse d'IA</a>.</li>
+</ul>
+<h2>Par où commencer</h2>
+<ol>
+<li><strong>Choisir une tâche de rédaction récurrente</strong> et sans donnée sensible, par exemple les relances ou les demandes de justificatifs.</li>
+<li><strong>Rassembler la matière</strong> : conditions de règlement, messages déjà envoyés dont le ton convient, procédures existantes.</li>
+<li><strong>Tester sur des cas anonymisés</strong> et comparer avec ce que l'équipe écrit d'habitude.</li>
+<li><strong>Partager les consignes qui fonctionnent</strong> pour que chacun puisse les réutiliser.</li>
+</ol>
+<p>Ces usages se travaillent sur les documents et les tâches de votre service dans la formation <a href="/metiers/">IA &amp; Métiers</a>, construite à partir de l'activité de vos équipes.</p>
+<p class="note">Cet article donne une information générale et ne remplace pas l'avis de votre expert-comptable.</p>`,
+  },
 ];
