@@ -619,4 +619,53 @@ export const ressources = [
 <p>Ces usages se travaillent sur les documents et les tâches de votre service dans la formation <a href="/metiers/">IA &amp; Métiers</a>, construite à partir de l'activité de vos équipes.</p>
 <p class="note">Cet article donne une information générale et ne remplace pas l'avis de votre expert-comptable.</p>`,
   },
+  {
+    slug: 'base-connaissances-ia-documents',
+    titre: 'Base de connaissances IA : quels documents préparer ?',
+    description:
+      "Procédures, modèles, règles, réponses types : quels documents fournir à un assistant IA, lesquels écarter, et comment les préparer et les tenir à jour.",
+    theme: 'Assistants IA',
+    lecture: 5,
+    date: '2026-11-23',
+    module: { href: '/cerveau-ia/', nom: 'la formation Cerveau IA' },
+    corps: `
+<p>Pour qu'un assistant IA réponde avec les informations de votre entreprise, il faut lui fournir des documents de référence : ce que vous faites, vos procédures, vos modèles et vos règles. Une base de connaissances utile est courte, à jour, rangée par sujet et débarrassée des données qui n'ont pas à y figurer. Quelques documents fiables servent mieux qu'un grand nombre de fichiers qui se contredisent.</p>
+<h2>Pourquoi l'assistant a besoin de vos documents</h2>
+<p>Un assistant IA ne connaît ni vos offres, ni vos procédures, ni votre façon d'écrire, sauf si vous les lui transmettez. Sans cette matière, il répond par des généralités ou suppose ce qu'il ignore. La plupart des assistants permettent de joindre des documents à un espace de travail ou à un assistant dédié à une tâche : il peut alors s'y référer sans que vous ayez à tout recopier dans chaque consigne.</p>
+<h2>Les documents à préparer en premier</h2>
+<ul>
+<li><strong>La présentation de l'activité.</strong> Qui vous êtes, ce que vous proposez et à qui, en une page.</li>
+<li><strong>Les procédures.</strong> La façon dont se traitent les demandes récurrentes : une demande de devis, un retour, une réclamation.</li>
+<li><strong>Les modèles.</strong> Courriels types, trames de compte rendu ou de proposition déjà validés.</li>
+<li><strong>Les règles de la maison.</strong> Le ton, le vocabulaire à employer ou à éviter, ce que l'on ne promet jamais à un client.</li>
+<li><strong>Les réponses aux questions fréquentes</strong>, relues par l'équipe.</li>
+<li><strong>Le lexique.</strong> Termes du métier, sigles internes, noms de produits et de services.</li>
+</ul>
+<h2>Ce qu'il ne faut pas y mettre</h2>
+<ul>
+<li><strong>Les données personnelles.</strong> Fichiers clients, candidatures, dossiers de salariés : la base sert à décrire vos façons de faire, pas à stocker des informations sur des personnes. Voir les <a href="/ressources/ia-rgpd-reflexes-entreprise/">réflexes avant d'utiliser un assistant IA au travail</a>.</li>
+<li><strong>Les informations confidentielles sans nécessité.</strong> Contrats, conditions négociées, données financières détaillées n'y entrent que si la tâche l'exige et si l'outil est autorisé par l'entreprise.</li>
+<li><strong>Les versions périmées et les brouillons.</strong> L'assistant ne sait pas, de lui-même, lequel de deux documents fait foi.</li>
+<li><strong>Les doublons.</strong> Deux fichiers qui décrivent la même règle de deux façons produisent des réponses hésitantes.</li>
+</ul>
+<h2>Rendre les documents exploitables</h2>
+<ol>
+<li><strong>Un sujet par document</strong>, avec un titre qui dit ce qu'il contient.</li>
+<li><strong>Des titres et des sous-titres clairs</strong>, et du texte plutôt qu'une photo ou un scan de page.</li>
+<li><strong>Un nom et une date lisibles.</strong> « Procédure retours, mise à jour de mars » renseigne mieux que « doc_final_v3 ».</li>
+<li><strong>Les règles implicites mises par écrit.</strong> Ce que toute l'équipe sait sans que ce soit noté nulle part est précisément ce qui manque à l'assistant.</li>
+<li><strong>Rien de superflu.</strong> Retirez les passages qui ne servent pas à la tâche.</li>
+</ol>
+<h2>Tester avant de s'y fier</h2>
+<p>Avant d'ouvrir la base à l'équipe, posez à l'assistant quelques questions dont vous connaissez la réponse. Vérifiez qu'il reprend bien vos documents, et demandez-lui d'indiquer le passage sur lequel il s'appuie. Ajoutez une consigne simple : « Si l'information ne figure pas dans les documents fournis, dis-le au lieu de la supposer. »</p>
+<p>Des documents fiables aident l'assistant sans dispenser de relire : les contrôles décrits dans <a href="/ressources/verifier-reponse-ia/">Comment vérifier une réponse d'IA</a> restent nécessaires, surtout pour ce qui sort de l'entreprise.</p>
+<h2>La tenir à jour</h2>
+<ul>
+<li><strong>Un responsable</strong> qui ajoute, corrige et retire les documents.</li>
+<li><strong>Une mise à jour à chaque changement</strong> de procédure ou d'offre : l'ancienne version est supprimée, pas simplement complétée.</li>
+<li><strong>Une revue régulière</strong>, pour écarter ce qui ne sert plus.</li>
+<li><strong>Des droits de modification limités</strong> à quelques personnes, pour que la base reste cohérente.</li>
+</ul>
+<p>Rassembler et organiser ce que l'IA doit savoir est l'une des étapes de la formation <a href="/cerveau-ia/">Cerveau IA</a>, qui part de vos procédures et de vos documents existants.</p>`,
+  },
 ];
