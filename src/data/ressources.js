@@ -668,4 +668,45 @@ export const ressources = [
 </ul>
 <p>Rassembler et organiser ce que l'IA doit savoir est l'une des étapes de la formation <a href="/cerveau-ia/">Cerveau IA</a>, qui part de vos procédures et de vos documents existants.</p>`,
   },
+  {
+    slug: 'vibe-coding-decrire-son-outil',
+    titre: "Vibe coding : comment décrire son outil à l'IA ?",
+    description:
+      "Problème, utilisateurs, informations, parcours, règles, périmètre : la méthode pour décrire un outil à une IA et obtenir un prototype fidèle au besoin.",
+    theme: 'Vibe coding',
+    lecture: 5,
+    date: '2026-11-24',
+    module: { href: '/vibe-coding/', nom: 'la formation Vibe coding' },
+    corps: `
+<p>Pour obtenir un prototype utile en vibe coding, décrivez votre outil comme vous l'expliqueriez à un prestataire : qui va s'en servir, pour faire quoi, avec quelles informations et selon quelles règles. Commencez par une version réduite à l'essentiel, puis ajoutez les fonctions une par une. Une description précise évite une bonne part des allers-retours.</p>
+<h2>Pourquoi la description compte autant</h2>
+<p>L'IA construit ce qui est écrit et comble le reste par des suppositions. « Fais-moi un outil de suivi des demandes » donne un résultat qui fonctionne, mais rarement celui que vous aviez en tête : les champs, les statuts et les écrans ont été choisis à votre place. Dans le <a href="/ressources/vibe-coding-definition/">vibe coding</a>, savoir décrire un besoin est la compétence centrale, bien avant la technique.</p>
+<h2>Les six éléments à décrire</h2>
+<ol>
+<li><strong>Le problème à résoudre.</strong> La façon dont la tâche est faite aujourd'hui et ce qui gêne : un tableau que chacun modifie, des demandes perdues dans les courriels, une double saisie.</li>
+<li><strong>Les utilisateurs.</strong> Qui se servira de l'outil, sur un ordinateur ou un téléphone, et si tous ont le même rôle ou non.</li>
+<li><strong>Les informations.</strong> Chaque donnée que l'outil enregistre, avec sa nature : texte libre, date, nombre, liste de choix, champ obligatoire ou non.</li>
+<li><strong>Le parcours.</strong> Ce que l'utilisateur fait, étape par étape : ce qu'il voit en arrivant, ce qu'il saisit, ce qui s'affiche ensuite.</li>
+<li><strong>Les règles.</strong> Ce qui est calculé, ce qui est refusé, ce qui change de statut et à quelle condition.</li>
+<li><strong>Ce que l'outil ne fait pas.</strong> Fixer le périmètre évite que l'IA ajoute des fonctions que personne n'a demandées.</li>
+</ol>
+<p>On retrouve la logique d'une bonne consigne, détaillée dans <a href="/ressources/rediger-un-bon-prompt/">Comment rédiger un bon prompt</a> : du contexte, un objectif, de la matière et un résultat attendu.</p>
+<h2>Un exemple avant / après</h2>
+<p><strong>Avant :</strong> « Crée une application pour gérer les prêts de matériel. »</p>
+<p><strong>Après :</strong> « Je veux un outil interne pour suivre le prêt du matériel partagé de notre agence : vidéoprojecteur, ordinateurs portables de secours, appareil photo. Une douzaine de collègues l'utiliseront depuis leur ordinateur. Chaque prêt comporte le matériel, choisi dans une liste, le nom de l'emprunteur, la date de sortie et la date de retour prévue. L'écran d'accueil affiche le matériel disponible et les prêts en cours, avec les retards signalés en rouge. Un matériel déjà sorti ne peut pas être emprunté. Pas de comptes utilisateurs ni d'envoi de courriels dans cette première version. Avant de commencer, pose-moi les questions qui te manquent. »</p>
+<p>La seconde version tient en quelques lignes, mais elle répond d'avance aux choix que l'IA aurait faits seule.</p>
+<h2>Avancer par petites étapes</h2>
+<ul>
+<li><strong>Une première version réduite.</strong> Une seule fonction qui marche vaut mieux que dix à moitié terminées.</li>
+<li><strong>Une demande à la fois.</strong> Plusieurs changements demandés ensemble rendent les erreurs difficiles à localiser.</li>
+<li><strong>Décrire ce que vous observez.</strong> « Quand j'enregistre un prêt sans date de retour, la ligne est créée ; elle devrait être refusée » aide davantage que « ça ne marche pas ».</li>
+<li><strong>Faire reformuler.</strong> Demandez à l'IA de résumer ce qu'elle a compris avant de générer : les malentendus apparaissent tout de suite.</li>
+<li><strong>Tenir la description à jour.</strong> Gardez-la dans un document et complétez-la à chaque décision : elle sert de référence si vous devez repartir d'une nouvelle conversation.</li>
+</ul>
+<h2>Tester sur des cas précis</h2>
+<p>Préparez quelques situations avant de juger le résultat : le cas normal, un champ laissé vide, une date de retour antérieure à la date de sortie, deux personnes qui veulent le même matériel. Pendant ces essais, utilisez des données fictives : un prototype n'est pas l'endroit où saisir des informations réelles sur des clients ou des collègues.</p>
+<h2>Les limites à garder en tête</h2>
+<p>Une bonne description donne un bon prototype, pas un outil prêt à être déployé. La sécurité, la protection des données et la maintenance demandent une vérification par une personne compétente avant toute mise en service. Votre description écrite reste alors utile : elle sert de base à l'échange avec un développeur ou un prestataire.</p>
+<p>Passer d'une idée à une description claire, puis à un premier prototype testé, est ce que l'on pratique dans la formation <a href="/vibe-coding/">Vibe coding</a>, à partir d'un besoin tiré de votre activité.</p>`,
+  },
 ];
