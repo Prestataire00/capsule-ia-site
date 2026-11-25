@@ -709,4 +709,52 @@ export const ressources = [
 <p>Une bonne description donne un bon prototype, pas un outil prêt à être déployé. La sécurité, la protection des données et la maintenance demandent une vérification par une personne compétente avant toute mise en service. Votre description écrite reste alors utile : elle sert de base à l'échange avec un développeur ou un prestataire.</p>
 <p>Passer d'une idée à une description claire, puis à un premier prototype testé, est ce que l'on pratique dans la formation <a href="/vibe-coding/">Vibe coding</a>, à partir d'un besoin tiré de votre activité.</p>`,
   },
+  {
+    slug: 'automatisation-ia-validation-humaine',
+    titre: 'Automatisation et IA : où garder une validation humaine ?',
+    description:
+      "Envoi vers l'extérieur, action irréversible, argent, personnes : comment repérer les étapes d'une automatisation IA qui demandent une validation humaine.",
+    theme: 'Automatisation',
+    lecture: 5,
+    date: '2026-11-25',
+    module: { href: '/cerveau-ia/', nom: 'la formation Cerveau IA' },
+    corps: `
+<p>Dans une automatisation qui fait appel à l'IA, gardez une validation humaine à chaque étape dont l'effet sort de l'entreprise, ne peut pas être annulé, engage de l'argent ou une décision, ou concerne une personne. Le reste, comme le tri, la mise en forme ou la préparation de brouillons, peut tourner seul, à condition d'être relu par sondage. La question utile n'est donc pas « faut-il un contrôle ? », mais « à quel endroit, et par qui ? ».</p>
+<h2>Ni tout valider, ni tout laisser passer</h2>
+<p>Si chaque étape attend un accord, l'automatisation ne fait plus gagner de temps et les validations finissent par être données sans lire. À l'inverse, sans aucun contrôle, une erreur se propage : une IA peut mal classer une demande ou mal résumer un message, et le scénario répète cette erreur à chaque exécution sans que personne ne la remarque. Le bon réglage consiste à placer peu de contrôles, aux endroits où une erreur coûterait cher.</p>
+<h2>Quatre questions pour repérer les étapes sensibles</h2>
+<p>Reprenez votre scénario étape par étape, comme dans la méthode décrite dans <a href="/ressources/automatiser-taches-ia/">Automatiser ses tâches avec l'IA</a>, et posez pour chacune quatre questions :</p>
+<ol>
+<li><strong>Le résultat sort-il de l'entreprise ?</strong> Un courriel à un client, une publication, un document transmis à un fournisseur.</li>
+<li><strong>L'action est-elle difficile à annuler ?</strong> Une suppression, un envoi, la modification d'une fiche qui sert à d'autres.</li>
+<li><strong>Engage-t-elle de l'argent, un délai ou une décision ?</strong> Un devis, une commande, une promesse de date.</li>
+<li><strong>Concerne-t-elle une personne ?</strong> Un candidat, un salarié, un client identifié.</li>
+</ol>
+<p>Un seul « oui » suffit : l'étape attend l'accord d'une personne avant de s'exécuter.</p>
+<h2>Trois niveaux de contrôle</h2>
+<ul>
+<li><strong>La validation avant action.</strong> L'automatisation prépare, puis s'arrête. Une personne relit, corrige si besoin et déclenche la suite. C'est le niveau à retenir pour les étapes sensibles.</li>
+<li><strong>Le contrôle par sondage.</strong> L'étape s'exécute seule, et une personne relit régulièrement un échantillon de résultats. Ce niveau convient aux tâches internes dont l'erreur se rattrape : classer, étiqueter, reporter une information dans un tableau.</li>
+<li><strong>L'alerte sur exception.</strong> L'automatisation traite les cas courants et prévient quelqu'un dès qu'elle sort du cadre prévu : une information manquante, un montant inhabituel, une demande qu'elle ne sait pas classer.</li>
+</ul>
+<h2>Un exemple : les demandes de devis</h2>
+<p>Une PME reçoit ses demandes de devis par un formulaire. Le scénario peut se découper ainsi :</p>
+<ul>
+<li><strong>Extraire et classer la demande.</strong> L'IA repère le besoin et la catégorie. L'étape tourne seule, avec un contrôle par sondage.</li>
+<li><strong>Enregistrer la demande dans le tableau de suivi.</strong> Aucune validation : l'erreur éventuelle se corrige en une ligne.</li>
+<li><strong>Préparer la réponse au client.</strong> L'IA rédige un brouillon. Le commercial le relit, vérifie les prix et les délais, puis l'envoie lui-même.</li>
+<li><strong>Traiter une demande incomplète ou inhabituelle.</strong> L'automatisation ne suppose rien : elle signale la demande à la personne responsable.</li>
+</ul>
+<h2>Faire en sorte que la validation soit réelle</h2>
+<ul>
+<li><strong>Une personne nommée.</strong> Chaque validation a un responsable, et un remplaçant en cas d'absence.</li>
+<li><strong>La source sous les yeux.</strong> Le brouillon est présenté avec la demande d'origine, pour que la personne puisse comparer. Les contrôles utiles sont détaillés dans <a href="/ressources/verifier-reponse-ia/">Comment vérifier une réponse d'IA</a>.</li>
+<li><strong>Un volume tenable.</strong> Si les accords s'enchaînent sans lecture, il y a trop de validations : mieux vaut en garder moins et les faire vraiment.</li>
+<li><strong>Une trace.</strong> Noter qui a validé et quand aide à comprendre une erreur et à corriger le scénario.</li>
+<li><strong>Un blocage par défaut.</strong> Si personne ne valide, l'action attend. Elle ne part pas d'elle-même au bout d'un délai.</li>
+</ul>
+<h2>Ajuster le réglage avec le temps</h2>
+<p>Après quelques semaines, regardez ce que les personnes ont corrigé. Une étape que personne ne corrige plus peut passer d'une validation systématique à un contrôle par sondage, sauf si elle répond « oui » à l'une des quatre questions. Une étape souvent corrigée demande de revoir la consigne donnée à l'IA ou les documents qu'elle utilise. Et toute modification du scénario, d'un outil ou d'une procédure justifie une nouvelle période de relecture attentive.</p>
+<p>Automatiser un processus complet en y plaçant un contrôle humain, puis encadrer l'ensemble par des règles claires, fait partie de ce que l'on travaille dans la formation <a href="/cerveau-ia/">Cerveau IA</a>, à partir des processus de votre entreprise.</p>`,
+  },
 ];
