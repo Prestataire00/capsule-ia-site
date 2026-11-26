@@ -757,4 +757,45 @@ export const ressources = [
 <p>Après quelques semaines, regardez ce que les personnes ont corrigé. Une étape que personne ne corrige plus peut passer d'une validation systématique à un contrôle par sondage, sauf si elle répond « oui » à l'une des quatre questions. Une étape souvent corrigée demande de revoir la consigne donnée à l'IA ou les documents qu'elle utilise. Et toute modification du scénario, d'un outil ou d'une procédure justifie une nouvelle période de relecture attentive.</p>
 <p>Automatiser un processus complet en y plaçant un contrôle humain, puis encadrer l'ensemble par des règles claires, fait partie de ce que l'on travaille dans la formation <a href="/cerveau-ia/">Cerveau IA</a>, à partir des processus de votre entreprise.</p>`,
   },
+  {
+    slug: 'ia-artisans-usages-quotidien',
+    titre: 'IA pour les artisans : quels usages au quotidien ?',
+    description:
+      "Descriptifs de devis, réponses aux clients, comptes rendus de chantier, avis en ligne : les usages utiles de l'IA pour un artisan et les précautions à garder.",
+    theme: 'IA & Métiers',
+    lecture: 5,
+    date: '2026-11-26',
+    module: { href: '/metiers/', nom: 'la formation IA & Métiers' },
+    corps: `
+<p>Pour un artisan, l'IA générative sert surtout à alléger le travail de bureau : mettre au propre le descriptif d'un devis, répondre à une demande de client, rédiger un compte rendu de chantier ou une réponse à un avis en ligne. Elle ne connaît ni vos prix, ni vos chantiers, ni les règles de votre métier : les montants, les quantités et les choix techniques restent les vôtres.</p>
+<h2>Ce que l'IA fait bien, ce qui reste votre métier</h2>
+<p>Un assistant IA est à l'aise avec le texte : reformuler, résumer, structurer, corriger les fautes. Certains acceptent aussi la dictée, ce qui permet de leur confier ses notes à l'oral plutôt que de tout taper le soir. En revanche, un assistant peut se tromper avec assurance sur une norme, une règle technique ou un calcul de quantités. Il prépare un texte ; il ne remplace ni votre savoir-faire ni votre visite sur place.</p>
+<h2>Six usages concrets</h2>
+<ul>
+<li><strong>Mettre au propre le descriptif d'un devis.</strong> Vous dictez ou tapez vos notes de visite, l'assistant en tire un descriptif clair, poste par poste. Les prix et les quantités, vous les saisissez vous-même.</li>
+<li><strong>Répondre aux demandes de clients.</strong> Obtenir un brouillon de réponse à une demande reçue par courriel : accusé de réception, questions à poser avant la visite, proposition de rendez-vous.</li>
+<li><strong>Expliquer des travaux simplement.</strong> Transformer une explication technique en quelques phrases compréhensibles par un particulier : les étapes, leur ordre, ce qu'il doit préparer avant votre venue.</li>
+<li><strong>Rédiger un compte rendu de chantier.</strong> Passer de notes en vrac à un message structuré : ce qui a été fait, ce qui reste à faire, les points à décider avec le client.</li>
+<li><strong>Répondre aux avis en ligne.</strong> Préparer une réponse courtoise à un avis, y compris négatif, que vous ajustez ensuite avec vos mots.</li>
+<li><strong>Présenter son activité.</strong> Rédiger le texte d'un site, d'une fiche en ligne ou d'une publication qui montre une réalisation, à partir de ce que vous décrivez.</li>
+</ul>
+<h2>Un exemple de consigne</h2>
+<p>« Je suis plombier-chauffagiste et je travaille seul. Voici mes notes après la visite d'une salle de bains à rénover : [notes, sans le nom ni l'adresse du client]. Rédige le descriptif des travaux pour mon devis, poste par poste, en phrases courtes et compréhensibles par un particulier. N'indique aucun prix, aucune quantité ni aucune référence de norme : je les ajouterai moi-même. Signale ce qui te semble manquer dans mes notes. »</p>
+<p>La consigne donne le contexte, l'objectif, la matière et le format, comme dans la méthode décrite dans <a href="/ressources/rediger-un-bon-prompt/">Comment rédiger un bon prompt</a>. Elle fixe aussi une limite : l'assistant met en forme, il n'invente ni chiffre ni règle.</p>
+<h2>Les précautions à garder</h2>
+<ul>
+<li><strong>Vérifier tout ce qui engage.</strong> Prix, quantités, délais, références de matériel : relisez-les un par un avant d'envoyer. Les contrôles utiles sont détaillés dans <a href="/ressources/verifier-reponse-ia/">Comment vérifier une réponse d'IA</a>.</li>
+<li><strong>Ne pas s'en remettre à l'IA pour les règles du métier.</strong> Normes, règles de l'art, mentions à faire figurer sur un devis ou une facture, questions d'assurance : ces points se vérifient auprès de votre organisation professionnelle, de votre chambre de métiers, de votre expert-comptable ou de votre assureur.</li>
+<li><strong>Protéger les informations des clients.</strong> Nom, adresse, téléphone, photos d'un logement : retirez-les avant de transmettre vos notes, sauf si l'outil et la tâche le justifient. Voir les <a href="/ressources/ia-rgpd-reflexes-entreprise/">réflexes avant d'utiliser un assistant IA au travail</a>.</li>
+<li><strong>Garder votre façon de parler.</strong> Un client reconnaît un message impersonnel. Le brouillon se retouche pour ressembler à la personne qui signe.</li>
+</ul>
+<h2>Par où commencer</h2>
+<ol>
+<li><strong>Choisir une tâche d'écriture qui revient chaque semaine</strong>, par exemple les descriptifs de devis ou les réponses aux demandes.</li>
+<li><strong>Rassembler deux ou trois textes déjà envoyés</strong> dont le ton vous convient, pour les donner en exemple à l'assistant.</li>
+<li><strong>Tester sur un chantier terminé</strong> et comparer le résultat avec ce que vous aviez écrit vous-même.</li>
+<li><strong>Garder la consigne qui fonctionne</strong> dans un fichier, pour la réutiliser en changeant seulement les notes.</li>
+</ol>
+<p>Ces usages se travaillent à partir des documents et des situations de votre entreprise dans la formation <a href="/metiers/">IA &amp; Métiers</a>, dont le programme est construit sur mesure.</p>`,
+  },
 ];
