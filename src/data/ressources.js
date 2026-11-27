@@ -798,4 +798,56 @@ export const ressources = [
 </ol>
 <p>Ces usages se travaillent à partir des documents et des situations de votre entreprise dans la formation <a href="/metiers/">IA &amp; Métiers</a>, dont le programme est construit sur mesure.</p>`,
   },
+  {
+    slug: 'referent-ia-entreprise-role',
+    titre: 'Référent IA en entreprise : quel rôle lui confier ?',
+    description:
+      "Missions, profil, temps prévu, limites du rôle : comment désigner un référent IA dans une PME et en faire un relais utile pour toute l'équipe.",
+    theme: 'Conduite du changement',
+    lecture: 5,
+    date: '2026-11-27',
+    module: { href: '/acculturation/', nom: 'la formation Acculturation IA' },
+    corps: `
+<p>Un référent IA est la personne vers qui l'équipe se tourne pour ses questions sur les assistants IA : quel outil utiliser, comment formuler une consigne, ce qu'il est permis d'y mettre. Confiez-lui un rôle de relais et d'animation, avec du temps prévu pour cela et un périmètre écrit. Il ne remplace ni le responsable informatique, ni le juriste, et il n'est pas le seul responsable des usages.</p>
+<h2>À quoi sert un référent IA</h2>
+<p>Quand une entreprise commence à utiliser des assistants IA, les mêmes questions reviennent dans chaque service, et les bonnes pratiques restent chez ceux qui les ont trouvées. Sans personne identifiée, chacun se débrouille seul et les difficultés ne remontent pas. Le référent donne un point de contact : il fait circuler ce qui fonctionne, répond aux questions courantes et signale à la direction ce qui bloque.</p>
+<h2>Les missions à lui confier</h2>
+<ul>
+<li><strong>Répondre aux questions du quotidien.</strong> Par quelle tâche commencer, pourquoi une consigne donne un résultat décevant, comment relire une réponse.</li>
+<li><strong>Faire circuler ce qui fonctionne.</strong> Repérer les consignes utiles trouvées par les uns et les autres, et les rassembler dans un document partagé que chacun peut réutiliser.</li>
+<li><strong>Rappeler le cadre.</strong> Savoir ce que prévoit la <a href="/ressources/charte-usage-ia-entreprise/">charte d'usage de l'IA</a> quand il y en a une, et orienter vers la bonne personne en cas de doute.</li>
+<li><strong>Faire remonter les besoins.</strong> Signaler à la direction les usages qui posent question, les demandes d'outils et les besoins de formation.</li>
+<li><strong>Animer un temps d'échange régulier.</strong> Quelques minutes en réunion d'équipe pour partager un essai réussi ou une difficulté.</li>
+</ul>
+<h2>Ce qui ne relève pas de lui</h2>
+<ul>
+<li><strong>Trancher une question juridique.</strong> Tout ce qui touche à la protection des données ou à la confidentialité se pose au délégué à la protection des données, au service juridique ou à votre conseil. Le référent transmet la question, il n'y répond pas seul.</li>
+<li><strong>Choisir et sécuriser les outils.</strong> Ces décisions reviennent à la direction et au responsable informatique.</li>
+<li><strong>Valider le travail des autres.</strong> La personne qui utilise une réponse d'IA en reste responsable. Le référent aide à apprendre à vérifier, il ne relit pas tout.</li>
+<li><strong>Faire à la place des collègues.</strong> S'il devient celui à qui l'on confie toutes les demandes, l'équipe n'apprend rien et sa propre charge déborde.</li>
+</ul>
+<h2>Quel profil choisir</h2>
+<p>Le bon référent n'est pas forcément la personne la plus technique. Trois critères comptent davantage :</p>
+<ul>
+<li><strong>Une pratique régulière.</strong> Il utilise déjà un assistant IA dans son travail et connaît ses limites.</li>
+<li><strong>Le goût d'expliquer.</strong> Il sait montrer sans juger et accepte que l'on pose deux fois la même question.</li>
+<li><strong>La connaissance du métier.</strong> Il comprend les tâches de ses collègues, ce qui rend ses conseils applicables.</li>
+</ul>
+<p>Le rôle se propose, il ne s'impose pas : une personne volontaire le tiendra mieux qu'une personne désignée d'office. Quand les métiers sont très différents d'un service à l'autre, mieux vaut un référent par service qu'un seul pour toute l'entreprise.</p>
+<h2>Les conditions pour que le rôle tienne</h2>
+<ol>
+<li><strong>Du temps prévu.</strong> Une mission ajoutée sans alléger le reste finit par passer après tout le reste.</li>
+<li><strong>Un périmètre écrit.</strong> Quelques lignes qui disent ce que le référent fait, ce qu'il ne fait pas et vers qui il renvoie.</li>
+<li><strong>Une formation plus poussée.</strong> Le référent a besoin d'un peu d'avance sur ses collègues, sur la pratique comme sur les règles.</li>
+<li><strong>Un point régulier avec la direction.</strong> Pour transmettre ce qui remonte du terrain et ajuster les règles ou les outils.</li>
+<li><strong>Un remplaçant.</strong> Un binôme évite que tout repose sur une seule personne en cas d'absence ou de départ.</li>
+</ol>
+<h2>Les erreurs à éviter</h2>
+<ul>
+<li><strong>Nommer un référent pour la forme.</strong> Si le rôle n'est ni annoncé à l'équipe ni soutenu par la direction, personne ne le sollicite.</li>
+<li><strong>En faire un contrôleur.</strong> Si l'équipe craint d'être surveillée, elle cesse de poser ses questions et les usages se cachent.</li>
+<li><strong>Lui déléguer toute la responsabilité.</strong> Les règles d'usage restent une décision de la direction.</li>
+</ul>
+<p>Le référent est l'un des relais décrits dans nos <a href="/ressources/faire-adopter-ia-equipe/">six leviers pour faire adopter l'IA par son équipe</a>. Il joue d'autant mieux son rôle que ses collègues partagent un socle commun : c'est l'objet de la formation <a href="/acculturation/">Acculturation IA</a>, construite à partir des situations de travail de vos équipes.</p>`,
+  },
 ];
