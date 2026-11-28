@@ -850,4 +850,46 @@ export const ressources = [
 </ul>
 <p>Le référent est l'un des relais décrits dans nos <a href="/ressources/faire-adopter-ia-equipe/">six leviers pour faire adopter l'IA par son équipe</a>. Il joue d'autant mieux son rôle que ses collègues partagent un socle commun : c'est l'objet de la formation <a href="/acculturation/">Acculturation IA</a>, construite à partir des situations de travail de vos équipes.</p>`,
   },
+  {
+    slug: 'ia-ressources-humaines-pme-usages',
+    titre: 'IA et ressources humaines : quels usages pour une PME ?',
+    description:
+      "Offres d'emploi, intégration, trames d'entretien, procédures : les usages utiles de l'IA aux ressources humaines d'une PME et les limites à respecter.",
+    theme: 'IA & Métiers',
+    lecture: 5,
+    date: '2026-11-28',
+    module: { href: '/metiers/', nom: 'la formation IA & Métiers' },
+    corps: `
+<p>Aux ressources humaines d'une PME, l'IA générative aide surtout à rédiger et à structurer : une offre d'emploi, un parcours d'intégration, une trame d'entretien, une procédure interne. Elle ne doit ni trier les candidatures, ni évaluer les salariés, ni recevoir leurs données sans cadre : tout ce qui concerne une personne et toute décision restent du ressort des RH et des managers.</p>
+<h2>Ce que l'IA fait bien, ce qui reste aux RH</h2>
+<p>Un assistant IA est à l'aise avec le texte : reformuler, clarifier, mettre en forme, proposer une structure. Il ne connaît en revanche ni votre convention collective, ni vos accords d'entreprise, ni l'histoire de vos équipes. Il peut aussi présenter une règle de droit du travail de façon inexacte ou dépassée, avec la même assurance qu'une information juste. Sa réponse sur un point juridique sert au mieux à préparer la question à poser à votre conseil.</p>
+<h2>Six usages concrets</h2>
+<ul>
+<li><strong>Rédiger une offre d'emploi.</strong> Partir de la fiche de poste et de vos notes pour obtenir une annonce claire : missions, profil recherché, conditions de travail. Relisez ensuite chaque formulation pour qu'elle porte sur les compétences et non sur la personne.</li>
+<li><strong>Préparer l'intégration.</strong> Construire la liste des étapes de l'arrivée d'un nouveau collaborateur, de la veille de son premier jour à la fin de sa période d'essai, puis l'ajuster à votre organisation.</li>
+<li><strong>Construire une trame d'entretien.</strong> Proposer des questions ouvertes pour un entretien annuel ou un entretien professionnel, sans y mettre d'informations sur le salarié concerné.</li>
+<li><strong>Mettre une procédure par écrit.</strong> Transformer des explications en vrac sur la pose des congés ou les notes de frais en un mode opératoire simple, à valider avec la direction.</li>
+<li><strong>Préparer une communication interne.</strong> Annoncer un changement d'organisation ou un nouvel outil dans un message clair, que vous complétez et relisez avant diffusion.</li>
+<li><strong>Synthétiser des besoins de formation.</strong> Regrouper par thème des retours anonymisés pour préparer le plan de développement des compétences.</li>
+</ul>
+<h2>Un exemple de consigne</h2>
+<p>« Je suis responsable des ressources humaines dans une PME de logistique d'une quarantaine de salariés. Voici la fiche de poste d'un préparateur de commandes : [coller la fiche]. Rédige une offre d'emploi d'une vingtaine de lignes : présentation de l'entreprise en deux phrases, missions, compétences attendues, conditions de travail. Ton direct, phrases courtes. Laisse entre crochets le salaire et la date de prise de poste : je les compléterai. N'ajoute aucun critère qui ne figure pas dans la fiche. »</p>
+<p>La consigne reprend le contexte, l'objectif, la matière et le format décrits dans <a href="/ressources/rediger-un-bon-prompt/">Comment rédiger un bon prompt</a>, et fixe une limite : l'assistant ne doit rien inventer sur le poste.</p>
+<h2>Les limites à respecter</h2>
+<ul>
+<li><strong>Pas de données de salariés ou de candidats dans un outil non autorisé.</strong> CV, évaluations, arrêts de travail, salaires : ces informations ne vont que dans un outil validé par l'entreprise, et seulement si la tâche l'exige. Les <a href="/ressources/ia-rgpd-reflexes-entreprise/">réflexes RGPD avant d'utiliser un assistant IA</a> s'appliquent pleinement.</li>
+<li><strong>Pas de tri ni d'évaluation de personnes par l'IA seule.</strong> Les systèmes d'IA utilisés pour recruter, sélectionner ou évaluer des salariés figurent parmi les usages que le règlement européen sur l'IA (AI Act) classe à haut risque, avec des exigences renforcées. Tout projet de ce type se prépare avec votre conseil et votre délégué à la protection des données.</li>
+<li><strong>Une vérification juridique pour ce qui engage.</strong> Contrat, période d'essai, rupture, sanction : la réponse de l'IA ne remplace ni votre convention collective, ni l'avis d'un juriste.</li>
+<li><strong>Une relecture humaine avant toute diffusion.</strong> Un texte qui s'adresse aux salariés ou aux candidats parle au nom de l'entreprise.</li>
+</ul>
+<h2>Par où commencer</h2>
+<ol>
+<li><strong>Choisir une tâche de rédaction récurrente</strong> sans donnée personnelle, par exemple les offres d'emploi ou les procédures.</li>
+<li><strong>Rassembler vos documents de référence</strong> : fiches de poste, livret d'accueil, messages déjà diffusés dont le ton convient.</li>
+<li><strong>Tester sur un cas passé</strong> et comparer le résultat avec ce que vous aviez écrit.</li>
+<li><strong>Garder les consignes qui fonctionnent</strong> pour les réutiliser et les partager avec les managers.</li>
+</ol>
+<p>Ces usages se travaillent à partir des documents et des situations de votre service dans la formation <a href="/metiers/">IA &amp; Métiers</a>, construite sur mesure.</p>
+<p class="note">Cet article donne une information générale et ne constitue pas un conseil juridique.</p>`,
+  },
 ];
